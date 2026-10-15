@@ -189,3 +189,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignore large FastText model binaries
+models/*.bin
+models/*.ftz
