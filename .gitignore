@@ -191,5 +191,4 @@ cython_debug/
 .pypirc
 
 # Ignore large FastText model binaries
-models/*.bin
-models/*.ftz
+models
