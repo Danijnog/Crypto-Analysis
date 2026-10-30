@@ -1,0 +1,11 @@
+# CLIP embeddings and topic models (notebook 04, crypto_analysis.clip_embeddings).
+# PyTorch must match the GPU's CUDA version; for the RTX 5090 (CUDA 12.8) install it first with:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+# then:
+#   pip install -r requirements-clip.txt
+torch>=2.7
+sentence-transformers>=3.0
+transformers>=4.40
+bertopic>=0.16
+umap-learn>=0.5
+hdbscan>=0.8
