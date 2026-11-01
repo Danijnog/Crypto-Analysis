@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codificação aberta</title>
+<style>
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #dcdcd6;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --done: #2e7d4f; --bar: #e6e6e0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #20201e; --ink: #ecece8; --muted: #a0a09a; --line: #3a3a36;
+    --accent: #7fb0e0; --accent-ink: #10161c; --done: #6cc28f; --bar: #2c2c29;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+header label { color: var(--muted); font-size: 13px; }
+input[type=text], input[type=number], textarea { font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+textarea { width: 100%; min-height: 64px; resize: vertical; }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.tabs { display: flex; gap: 6px; }
+.spacer { flex: 1; }
+main { max-width: 1280px; margin: 0 auto; padding: 16px; }
+details.guide { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+details.guide summary { cursor: pointer; font-weight: 600; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
+.nav button { padding: 3px 8px; font-size: 13px; min-width: 40px; }
+.nav button.done { border-color: var(--done); color: var(--done); }
+.nav button.current { outline: 2px solid var(--accent); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.card-head { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; margin-bottom: 12px; }
+.card-head h2 { margin: 0; font-size: 18px; }
+.meta { color: var(--muted); font-size: 13px; }
+.words { font-family: ui-monospace, monospace; font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; }
+.grid.no-image { grid-template-columns: minmax(0, 1fr); }
+.collage img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); display: block; }
+ol.samples { margin: 0; padding: 0; list-style: none; }
+ol.samples li { display: grid; grid-template-columns: 28px 1fr 64px; gap: 8px; align-items: center;
+  padding: 5px 0; border-bottom: 1px solid var(--line); }
+ol.samples .n { color: var(--muted); font-size: 13px; text-align: right; }
+ol.samples .doc { overflow-wrap: anywhere; }
+ol.samples .share { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); text-align: right; }
+ol.samples .bar { height: 4px; background: var(--bar); border-radius: 2px; overflow: hidden; }
+ol.samples .bar span { display: block; height: 100%; background: var(--accent); }
+form { margin-top: 16px; display: grid; gap: 12px; }
+form label { display: grid; gap: 4px; font-weight: 600; font-size: 14px; }
+form .hint { font-weight: 400; color: var(--muted); font-size: 13px; }
+.row { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-top: 12px; }
+.status { color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  header { position: static; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Codificação aberta: piloto</h1>
+  <label>Anotador(a) <input type="text" id="annotator" size="14" placeholder="seu nome"></label>
+  <div class="tabs" id="tabs"></div>
+  <span class="spacer"></span>
+  <button id="export" class="primary">Exportar CSV</button>
+  <label><button id="importBtn" type="button">Importar CSV</button>
+    <input type="file" id="importFile" accept=".csv" hidden></label>
+</header>
+<main>
+  <details class="guide" open>
+    <summary>Instruções</summary>
+    <p>Cada ficha é um tópico encontrado pelo BERTopic. As 12 amostras não são as mais centrais. Elas cobrem
+    todo o tópico: o tópico foi dividido em 12 regiões, e cada amostra representa uma região. A barra ao
+    lado mostra que fração do tópico a região representa.</p>
+    <p>Ainda <b>não há categorias</b>. Descreva livremente o que você vê. As suas descrições serão usadas para
+    construir o guia de anotação. Anote com independência, sem conversar com os outros anotadores sobre as fichas.</p>
+    <p>Todas as amostras são memecoins do pump.fun, então "memecoin", "Solana" ou "pump.fun" nunca contam como
+    tema nem como ligação entre elas. A grade e os números da colagem foram colocados por nós.</p>
+    <ul>
+      <li><b>Texto</b>: nomes e descrições dos tokens.</li>
+      <li><b>Imagem</b>: só as imagens. Não procure os nomes dos tokens: o modelo de imagem agrupou só pela arte.</li>
+      <li><b>Multimodal</b>: imagem e texto juntos. O número do quadro na colagem corresponde ao número do texto.</li>
+    </ul>
+    <p>As respostas ficam salvas neste navegador, mas exporte o CSV ao terminar (e de vez em quando) e envie o arquivo.
+    O botão "Importar CSV" retoma um trabalho exportado antes.</p>
+  </details>
+  <div class="nav" id="nav"></div>
+  <section class="card" id="card"></section>
+</main>
+<script>
+const DATA = /*DATA*/null;
+const FIELDS = [
+  ["theme", "O que essas amostras têm em comum?", "O tema principal é o compartilhado pelo maior número de amostras, mesmo que algumas não se encaixem. Se houver mais de um tema, liste-os; se nenhum for compartilhado, diga que não há.", "textarea"],
+  ["name", "Nome provisório", "Até 5 palavras.", "text"],
+  ["fit", "Quantas das 12 amostras se encaixam no tema principal?", "0 a 12 (0 se não há tema).", "number"],
+  ["form", "O que une as amostras além do tema?", "Ex.: forma do nome (sufixo, prefixo), estilo visual, template, idioma, spam.", "textarea"],
+  ["images", "Como são as imagens?", "Tipo e estilo: foto, meme, desenho, print, logo, texto, IA...", "textarea"],
+  ["notes", "Observações e dúvidas", "O que torna esta ficha difícil? Que categoria você criaria para ela?", "textarea"],
+];
+const KEY = "open-coding-pilot-v1";
+let state = { annotator: "", answers: {} };
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.answers) state = s; } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+
+const modalities = [...new Set(DATA.map(c => c.modality))];
+const LABEL = { text: "Texto", image: "Imagem", multimodal: "Multimodal" };
+let current = { modality: modalities[0], index: 0 };
+const cardsOf = m => DATA.filter(c => c.modality === m);
+const id = c => `${c.modality}:${c.topic}`;
+const isDone = c => { const a = state.answers[id(c)]; return a && a.theme && a.theme.trim() && a.fit !== undefined && a.fit !== ""; };
+
+const ann = document.getElementById("annotator");
+ann.value = state.annotator || "";
+ann.addEventListener("input", () => { state.annotator = ann.value.trim(); save(); });
+
+function esc(s) { return String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch])); }
+
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = modalities.map(m => {
+    const cs = cardsOf(m), d = cs.filter(isDone).length;
+    return `<button data-m="${m}" aria-pressed="${m === current.modality}">${LABEL[m] || m} ${d}/${cs.length}</button>`;
+  }).join("");
+  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { current = { modality: b.dataset.m, index: 0 }; render(); });
+}
+
+function renderNav() {
+  const cs = cardsOf(current.modality);
+  document.getElementById("nav").innerHTML = cs.map((c, i) =>
+    `<button data-i="${i}" class="${isDone(c) ? "done" : ""} ${i === current.index ? "current" : ""}">${i + 1}</button>`).join("");
+  document.querySelectorAll("#nav button").forEach(b => b.onclick = () => { current.index = +b.dataset.i; render(); });
+}
+
+function renderCard() {
+  const cs = cardsOf(current.modality), c = cs[current.index];
+  const a = state.answers[id(c)] || {};
+  const showText = c.modality !== "image";
+  const samples = c.samples.map((s, i) => `<li><span class="n">${i + 1}</span>
+      <span class="doc">${showText ? esc(s.doc) : "<span class='meta'>região " + (i + 1) + "</span>"}</span>
+      <span class="share">${(s.share * 100).toFixed(0)}%<span class="bar"><span style="width:${Math.min(100, s.share * 300)}%"></span></span></span></li>`).join("");
+  const fields = FIELDS.filter(f => f[0] !== "images" || c.collage).map(([k, q, h, t]) => {
+    const v = a[k] === undefined ? "" : esc(a[k]);
+    const input = t === "textarea" ? `<textarea name="${k}">${v}</textarea>`
+      : t === "number" ? `<input type="number" name="${k}" min="0" max="12" value="${v}" style="width:90px">`
+      : `<input type="text" name="${k}" value="${v}">`;
+    return `<label>${q}<span class="hint">${h}</span>${input}</label>`;
+  }).join("");
+  document.getElementById("card").innerHTML = `
+    <div class="card-head"><h2>${LABEL[c.modality] || c.modality}, ficha ${current.index + 1} de ${cs.length}</h2>
+      <span class="meta">tópico ${c.topic} · ${c.count.toLocaleString("pt-BR")} documentos</span></div>
+    ${c.modality === "image" ? "" : `<div class="words">palavras-chave: ${esc(c.words)}</div>`}
+    <div class="grid ${c.collage ? "" : "no-image"}">
+      ${c.collage ? `<div class="collage"><img alt="Colagem das 12 amostras do tópico ${c.topic}" src="data:image/jpeg;base64,${c.collage}"></div>` : ""}
+      <ol class="samples">${samples}</ol>
+    </div>
+    <form id="form">${fields}</form>
+    <div class="row"><button id="prev">← Anterior</button><span class="status" id="status"></span><button id="next" class="primary">Próxima →</button></div>`;
+  const form = document.getElementById("form");
+  form.addEventListener("input", e => {
+    const ans = state.answers[id(c)] || {};
+    ans[e.target.name] = e.target.value;
+    ans.updated_at = new Date().toISOString();
+    state.answers[id(c)] = ans;
+    save();
+    document.getElementById("status").textContent = "salvo neste navegador";
+    renderTabs(); renderNav();
+  });
+  document.getElementById("prev").onclick = () => move(-1);
+  document.getElementById("next").onclick = () => move(1);
+}
+
+function move(step) {
+  const n = cardsOf(current.modality).length;
+  current.index = Math.max(0, Math.min(n - 1, current.index + step));
+  render(); window.scrollTo(0, 0);
+}
+
+function render() { renderTabs(); renderNav(); renderCard(); }
+
+const COLS = ["annotator", "modality", "topic", ...FIELDS.map(f => f[0]), "updated_at"];
+function csvCell(v) { v = v === undefined || v === null ? "" : String(v); return /[",\n\r]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v; }
+
+document.getElementById("export").onclick = () => {
+  if (!state.annotator) { alert("Preencha o nome do(a) anotador(a) antes de exportar."); ann.focus(); return; }
+  const lines = [COLS.join(",")];
+  for (const c of DATA) {
+    const a = state.answers[id(c)] || {};
+    lines.push(COLS.map(k => csvCell(k === "annotator" ? state.annotator : k === "modality" ? c.modality : k === "topic" ? c.topic : a[k])).join(","));
+  }
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `open_coding_${state.annotator.replace(/\W+/g, "_")}.csv`;
+  link.click();
+};
+
+function parseCsv(text) {
+  const rows = []; let row = [], cell = "", quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (quoted) {
+      if (ch === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (ch === '"') quoted = false;
+      else cell += ch;
+    } else if (ch === '"') quoted = true;
+    else if (ch === ",") { row.push(cell); cell = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += ch;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+document.getElementById("importBtn").onclick = () => document.getElementById("importFile").click();
+document.getElementById("importFile").onchange = async e => {
+  const file = e.target.files[0]; if (!file) return;
+  const rows = parseCsv((await file.text()).replace(/^﻿/, ""));
+  const head = rows.shift();
+  let n = 0;
+  for (const r of rows) {
+    const rec = Object.fromEntries(head.map((h, i) => [h, r[i]]));
+    if (!rec.modality) continue;
+    const ans = {};
+    for (const f of FIELDS) if (rec[f[0]]) ans[f[0]] = rec[f[0]];
+    if (Object.keys(ans).length) { ans.updated_at = rec.updated_at; state.answers[`${rec.modality}:${rec.topic}`] = ans; n++; }
+    if (rec.annotator) state.annotator = rec.annotator;
+  }
+  save(); ann.value = state.annotator; render();
+  alert(`${n} fichas importadas.`);
+};
+
+render();
+</script>
+</body>
+</html>

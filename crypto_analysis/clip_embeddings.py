@@ -16,6 +16,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import io
 from pathlib import Path
+import re
 import time
 
 import numpy as np
@@ -28,6 +29,13 @@ from crypto_analysis.datalake import DATA_DIR
 CLIP_MODEL = "clip-ViT-B-32"
 CAPTION_MODEL = "nlpconnect/vit-gpt2-image-captioning"
 DIM = 512
+
+# Launch-tool signatures ("Launched on discord.gg/uxento", "Created on https://rapidlaunch.io", ...) end
+# ~16% of the texts and URLs ~10%; in short texts they dominate the embedding and pull unrelated
+# tokens together, so both are removed before embedding.
+_URL = re.compile(r"https?://\S+|www\.\S+|\b(?:discord\.gg|t\.me|x\.com|twitter\.com)/\S*", re.IGNORECASE)
+_LAUNCHPAD = re.compile(r"\b(?:launched|deployed|created|minted)\s+(?:on|via|with|using)\s*(?:\S+)?", re.IGNORECASE)
+_SPACE = re.compile(r"\s+")
 
 
 def to_bytes(emb):
@@ -98,11 +106,18 @@ def embed_images(out_dir, images_dir, batch_size=256, threads=8):
                   f"~{elapsed / k * (len(todo) - k) / 60:.1f} min left)", flush=True)
 
 
+def clean_text(text):
+    """``text`` without URLs and launch-tool signatures, whitespace collapsed."""
+    text = _LAUNCHPAD.sub(" ", _URL.sub(" ", text))
+    return _SPACE.sub(" ", text).strip(" .-|")
+
+
 def token_text(meta_name, description, max_chars=300):
-    """The text embedded for a token: "name. description", trimmed (CLIP reads 77 tokens at most)."""
-    name = "" if meta_name is None or pd.isna(meta_name) else str(meta_name).strip()
-    desc = "" if description is None or pd.isna(description) else str(description).strip()
-    text = f"{name}. {desc}" if desc else name
+    """The text embedded for a token: "name. description", cleaned and trimmed (CLIP reads 77 tokens at
+    most)."""
+    name = "" if meta_name is None or pd.isna(meta_name) else clean_text(str(meta_name))
+    desc = "" if description is None or pd.isna(description) else clean_text(str(description))
+    text = f"{name}. {desc}" if desc and desc != name else name
     return text[:max_chars]
 
 

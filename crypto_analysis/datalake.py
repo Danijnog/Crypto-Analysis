@@ -3,14 +3,16 @@
     con = connect()                  # views: token_images, tokens, token_metadata, graduations, blobs
     build_token_flags(con)           # per-token replication / graduation table: token_flags
 
-Views read the Parquet globs directly, so they always reflect what is on disk.
+Views read the Parquet globs directly, so they always reflect what is on disk. The datalake root is
+``$PUMPFUN_DATA_DIR`` when set.
 """
 
+import os
 from pathlib import Path
 
 import duckdb
 
-DATA_DIR = Path("/home/datalake/pumpfun/data")
+DATA_DIR = Path(os.environ.get("PUMPFUN_DATA_DIR", "/home/datalake/pumpfun/data"))
 
 
 def connect(data_dir=DATA_DIR, threads=8, memory_limit="16GB"):
@@ -36,8 +38,9 @@ def connect(data_dir=DATA_DIR, threads=8, memory_limit="16GB"):
                 f"FROM read_parquet('{parquet}/token_metadata/*.parquet')")
     con.execute(f"CREATE OR REPLACE VIEW graduations AS "
                 f"SELECT * FROM read_parquet('{parquet}/graduations/*.parquet')")
-    con.execute(f"CREATE OR REPLACE VIEW blobs AS "
-                f"SELECT * FROM read_parquet('{data_dir}/images/shard_*.parquet')")
+    if any((data_dir / "images").glob("shard_*.parquet")):  # the blob store may live elsewhere
+        con.execute(f"CREATE OR REPLACE VIEW blobs AS "
+                    f"SELECT * FROM read_parquet('{data_dir}/images/shard_*.parquet')")
     return con
 
 
