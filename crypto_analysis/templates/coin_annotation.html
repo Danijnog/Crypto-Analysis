@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coin Annotation</title>
+<style>
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #dcdcd6;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --done: #2e7d4f; --warn: #a4442a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #20201e; --ink: #ecece8; --muted: #a0a09a; --line: #3a3a36;
+    --accent: #7fb0e0; --accent-ink: #10161c; --done: #6cc28f; --warn: #e39a83;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+header label { color: var(--muted); font-size: 13px; }
+input[type=text], textarea, select { font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+textarea { width: 100%; min-height: 48px; resize: vertical; }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.spacer { flex: 1; }
+main { max-width: 1280px; margin: 0 auto; padding: 16px; }
+details.guide { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+details.guide summary { cursor: pointer; font-weight: 600; }
+details.guide dt { font-weight: 600; margin-top: 8px; }
+details.guide dd { margin: 2px 0 0 0; }
+.warn { color: var(--warn); }
+.nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
+.nav button { padding: 2px 6px; font-size: 12px; min-width: 36px; }
+.nav button.done { border-color: var(--done); color: var(--done); }
+.nav button.current { outline: 2px solid var(--accent); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 20px; }
+.coin img { width: 100%; max-width: 384px; height: auto; border-radius: 6px; border: 1px solid var(--line); display: block; }
+.coin img.blur { filter: blur(24px); }
+.coin .withheld { padding: 40px 12px; border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); text-align: center; }
+.coin h2 { margin: 12px 0 4px; font-size: 18px; overflow-wrap: anywhere; }
+.coin .meta { color: var(--muted); font-size: 13px; }
+.coin .desc { margin-top: 8px; overflow-wrap: anywhere; white-space: pre-wrap; }
+fieldset { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 12px; padding: 8px 12px; }
+legend { font-weight: 600; padding: 0 4px; }
+.checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 12px; }
+.checks label { display: flex; gap: 6px; align-items: flex-start; font-size: 14px; }
+.sub { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.sub[hidden] { display: none; }
+.hint { color: var(--muted); font-size: 13px; }
+.row { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-top: 12px; }
+.status { color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  header { position: static; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Coin annotation: pilot</h1>
+  <label>Annotator <input type="text" id="annotator" size="14" placeholder="your name"></label>
+  <span class="status" id="progress"></span>
+  <label><input type="checkbox" id="blurAll"> blur images</label>
+  <button id="prevTop" type="button">← Previous</button>
+  <button id="nextTop" type="button" class="primary">Next →</button>
+  <span class="spacer"></span>
+  <button id="export">Export CSV</button>
+  <button id="importBtn" type="button">Import CSV</button>
+  <input type="file" id="importFile" accept=".csv" hidden>
+</header>
+<main>
+  <details class="guide" id="guide" open>
+    <summary>Instructions and definitions</summary>
+    <p class="warn">Content warning: the sample contains racist, antisemitic, sexual and violent content.</p>
+    <p>Each card is a pump.fun coin: its image, name, symbol and description. For each coin, mark the narratives it
+    belongs to and the attributes that are present. A coin can have several narratives or none, and several
+    attributes. Every coin is a memecoin, so "memecoin", "token" or "Solana" is never a narrative or an attribute.
+    Annotate independently, without discussing the coins with the other annotators.</p>
+    <p>Mark an attribute only when its definition is met; tone, intent and whether it is a joke do not matter. An
+    object associated with an attribute (a weapon, a pill, a flag) is not enough by itself: what the coin shows or
+    says must meet the definition. Do not guess what an unfamiliar symbol means. The definitions below are quoted
+    from the cited papers and are the same ones given to the model.</p>
+    <p>Coins the model marked as sexual content involving minors are shown without their image. If you see such
+    content in another coin, mark the attribute: its image is blurred at once. Do not save or share images.</p>
+    <p>Answers are saved in this browser. Click "Next" (top bar or end of the card, or press →) to record a coin
+    as annotated (even with nothing marked),
+    export the CSV when you finish (and now and then) and send the file. "Import CSV" resumes work exported
+    earlier.</p>
+    <dl id="defs"></dl>
+  </details>
+  <div class="nav" id="nav"></div>
+  <section class="card" id="card"></section>
+</main>
+<script>
+const DATA = /*DATA*/null;
+if (!DATA) {
+  document.querySelector("main").innerHTML = "<p class='warn'>This is the page template, without coin data.</p>" +
+    "<p>Open the built page in your browser instead:</p>" +
+    "<pre>data/topics/coin_labels/pilot/annotation/coin_annotation.html</pre>" +
+    "<p>To rebuild it, run from the repository root:</p>" +
+    "<pre>python -m crypto_analysis.coin_labels page --out-dir data/topics</pre>";
+  throw new Error("template opened without data");
+}
+const { coins: COINS, narratives: NARRATIVES, attributes: ATTRIBUTES, hate_targets: TARGETS,
+        antisemitism: ANTISEMITISM, substances: SUBSTANCES, narrative_definition: NARRATIVE_DEF } = DATA;
+const KEY = "coin-annotation-pilot-v1";
+let state = { annotator: "", answers: {}, blur: false };
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.answers) state = s; } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+let index = 0;
+if (Object.keys(state.answers).length) document.getElementById("guide").open = false;
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+const isDone = c => !!(state.answers[c.mint] && state.answers[c.mint].reviewed);
+const blank = () => ({ narratives: [], main_narrative: "", other_narrative: "", attributes: [], hate_targets: [],
+                       antisemitism: "", substances: [], notes: "" });
+
+document.getElementById("defs").innerHTML =
+  `<dt>narrative</dt><dd>${esc(NARRATIVE_DEF)}</dd>` +
+  Object.entries(ATTRIBUTES).map(([k, d]) => `<dt>${esc(k)}</dt><dd>${esc(d)}</dd>`).join("") +
+  `<dt>antisemitism (type)</dt><dd>${Object.entries(ANTISEMITISM).map(([k, d]) => `<b>${esc(k)}</b>: ${esc(d)}`).join("; ")}</dd>`;
+
+const ann = document.getElementById("annotator");
+ann.value = state.annotator || "";
+ann.addEventListener("input", () => { state.annotator = ann.value.trim(); save(); });
+const blurAll = document.getElementById("blurAll");
+blurAll.checked = !!state.blur;
+blurAll.onchange = () => { state.blur = blurAll.checked; save(); renderCard(); };
+
+function renderNav() {
+  const done = COINS.filter(isDone).length;
+  document.getElementById("progress").textContent = `${done}/${COINS.length} annotated`;
+  document.getElementById("nav").innerHTML = COINS.map((c, i) =>
+    `<button data-i="${i}" class="${isDone(c) ? "done" : ""} ${i === index ? "current" : ""}">${i + 1}</button>`).join("");
+  document.querySelectorAll("#nav button").forEach(b => b.onclick = () => { index = +b.dataset.i; render(); });
+}
+
+const box = (group, value, label, checked) =>
+  `<label><input type="checkbox" data-group="${group}" value="${esc(value)}" ${checked ? "checked" : ""}> <span>${label}</span></label>`;
+
+function renderCard() {
+  const c = COINS[index], a = { ...blank(), ...(state.answers[c.mint] || {}) };
+  const minors = a.attributes.includes("sexual_minors");
+  const image = c.withheld ? `<div class="withheld">image withheld (marked by the model as sexual content involving minors)</div>`
+    : c.image ? `<img alt="Image of the coin ${esc(c.name)}" class="${state.blur || minors ? "blur" : ""}" src="data:image/jpeg;base64,${c.image}">`
+    : `<div class="withheld">no image</div>`;
+  const narratives = Object.entries(NARRATIVES).map(([id, name]) => box("narratives", id, `N${id}: ${esc(name)}`, a.narratives.includes(id))).join("");
+  const attributes = Object.keys(ATTRIBUTES).map(k => box("attributes", k, esc(k), a.attributes.includes(k))).join("");
+  const targets = TARGETS.map(t => box("hate_targets", t, esc(t), a.hate_targets.includes(t))).join("");
+  const substances = SUBSTANCES.map(s => box("substances", s, esc(s), a.substances.includes(s))).join("");
+  const mainOptions = ["", ...a.narratives].map(id => `<option value="${id}" ${a.main_narrative === id ? "selected" : ""}>${id ? `N${id}: ${esc(NARRATIVES[id])}` : "—"}</option>`).join("");
+  const antiOptions = ["", ...Object.keys(ANTISEMITISM)].map(k => `<option value="${k}" ${a.antisemitism === k ? "selected" : ""}>${k || "not applicable"}</option>`).join("");
+  document.getElementById("card").innerHTML = `
+    <div class="grid">
+      <div class="coin">${image}
+        <h2>${esc(c.name) || "<span class='meta'>(no name)</span>"}</h2>
+        <div class="meta">symbol: ${esc(c.symbol) || "—"} · coin ${index + 1} of ${COINS.length}</div>
+        <div class="desc">${esc(c.description) || "<span class='meta'>(no description)</span>"}</div>
+      </div>
+      <form id="form">
+        <fieldset><legend>Narratives</legend>
+          <div class="hint">Every narrative the coin clearly belongs to; none marked = no listed narrative.</div>
+          <div class="checks">${narratives}</div>
+          <div class="sub"><label>Main <select name="main_narrative">${mainOptions}</select></label>
+            <label>Other narrative, not listed (at most 5 words) <input type="text" name="other_narrative" value="${esc(a.other_narrative)}"></label></div>
+        </fieldset>
+        <fieldset><legend>Attributes</legend>
+          <div class="checks">${attributes}</div>
+          <div class="sub" id="hateSub" ${a.attributes.includes("hate") ? "" : "hidden"}>
+            <div class="hint">Characteristics attacked</div><div class="checks">${targets}</div>
+            <label>Antisemitism type <select name="antisemitism">${antiOptions}</select></label></div>
+          <div class="sub" id="subsSub" ${a.attributes.includes("controlled_substances") ? "" : "hidden"}>
+            <div class="hint">Substances</div><div class="checks">${substances}</div></div>
+        </fieldset>
+        <label>Notes <textarea name="notes">${esc(a.notes)}</textarea></label>
+      </form>
+    </div>
+    <div class="row"><button id="prev">← Previous</button><span class="status" id="status">${isDone(c) ? "annotated" : ""}</span><button id="next" class="primary">Next →</button></div>`;
+  document.getElementById("form").addEventListener("change", e => update(c, e.target));
+  document.getElementById("form").addEventListener("input", e => { if (e.target.type === "text" || e.target.tagName === "TEXTAREA") update(c, e.target); });
+  document.getElementById("prev").onclick = () => move(-1);
+  document.getElementById("next").onclick = next;
+}
+
+function update(c, el) {
+  const a = { ...blank(), ...(state.answers[c.mint] || {}) };
+  if (el.dataset.group) {
+    const set = new Set(a[el.dataset.group]);
+    el.checked ? set.add(el.value) : set.delete(el.value);
+    a[el.dataset.group] = [...set];
+    if (el.dataset.group === "narratives" && !a.narratives.includes(a.main_narrative)) a.main_narrative = a.narratives[0] || "";
+    if (el.dataset.group === "attributes" && !a.attributes.includes("hate")) { a.hate_targets = []; a.antisemitism = ""; }
+    if (el.dataset.group === "attributes" && !a.attributes.includes("controlled_substances")) a.substances = [];
+  } else a[el.name] = el.value;
+  a.updated_at = new Date().toISOString();
+  state.answers[c.mint] = a; save();
+  if (el.dataset.group === "narratives" || el.dataset.group === "attributes") renderCard();
+  else document.getElementById("status").textContent = "saved in this browser";
+}
+
+function mark(c) {
+  const a = { ...blank(), ...(state.answers[c.mint] || {}) };
+  if (!a.reviewed) { a.reviewed = true; a.updated_at = new Date().toISOString(); state.answers[c.mint] = a; save(); }
+}
+
+function move(step) {
+  index = Math.max(0, Math.min(COINS.length - 1, index + step)); render();
+  document.getElementById("card").scrollIntoView({ block: "start" });
+}
+const next = () => { mark(COINS[index]); move(1); };
+document.getElementById("prevTop").onclick = () => move(-1);
+document.getElementById("nextTop").onclick = next;
+document.addEventListener("keydown", e => {
+  if (e.altKey || e.ctrlKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) && e.target.type !== "checkbox") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); move(-1); }
+});
+function render() { renderNav(); renderCard(); }
+
+const LISTS = ["narratives", "attributes", "hate_targets", "substances"];
+const COLS = ["annotator", "mint", "reviewed", "narratives", "main_narrative", "other_narrative", "attributes",
+              "hate_targets", "antisemitism", "substances", "notes", "updated_at"];
+const csvCell = v => { v = v === undefined || v === null ? "" : String(v); return /[",\n\r]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v; };
+
+document.getElementById("export").onclick = () => {
+  if (!state.annotator) { alert("Enter the annotator's name before exporting."); ann.focus(); return; }
+  const lines = [COLS.join(",")];
+  for (const c of COINS) {
+    const a = { ...blank(), ...(state.answers[c.mint] || {}) };
+    lines.push(COLS.map(k => csvCell(k === "annotator" ? state.annotator : k === "mint" ? c.mint
+      : k === "reviewed" ? (a.reviewed ? 1 : 0) : LISTS.includes(k) ? a[k].join(";") : a[k])).join(","));
+  }
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `coin_annotation_${state.annotator.replace(/\W+/g, "_")}.csv`;
+  link.click();
+};
+
+function parseCsv(text) {
+  const rows = []; let row = [], cell = "", quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (quoted) {
+      if (ch === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (ch === '"') quoted = false;
+      else cell += ch;
+    } else if (ch === '"') quoted = true;
+    else if (ch === ",") { row.push(cell); cell = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += ch;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+document.getElementById("importBtn").onclick = () => document.getElementById("importFile").click();
+document.getElementById("importFile").onchange = async e => {
+  const file = e.target.files[0]; if (!file) return;
+  const rows = parseCsv((await file.text()).replace(/^﻿/, ""));
+  const head = rows.shift();
+  let n = 0;
+  for (const r of rows) {
+    const rec = Object.fromEntries(head.map((h, i) => [h, r[i] ?? ""]));
+    if (!rec.mint) continue;
+    const a = blank();
+    for (const k of LISTS) a[k] = rec[k] ? rec[k].split(";") : [];
+    for (const k of ["main_narrative", "other_narrative", "antisemitism", "notes", "updated_at"]) a[k] = rec[k];
+    a.reviewed = rec.reviewed === "1";
+    state.answers[rec.mint] = a; n++;
+    if (rec.annotator) state.annotator = rec.annotator;
+  }
+  save(); ann.value = state.annotator; render();
+  alert(`${n} coins imported.`);
+};
+
+render();
+</script>
+</body>
+</html>
