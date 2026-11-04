@@ -366,13 +366,18 @@ def run_grid(out_dir, modality, clip_dir, sample=SAMPLE_DOCS):
 
     The image sample is ``clip_embeddings.topic_sample``, i.e. the captioned images.
     """
-    out = Path(out_dir) / modality / "grid"
-    out.mkdir(parents=True, exist_ok=True)
     keys, docs, X = load_modality(out_dir, modality, clip_dir)
-    ref_texts, ref_dict = reference(docs)  # from the full corpus, shared with the full run
+    ref = reference(docs)  # from the full corpus, shared with the full run
     rows = np.sort(pd.Index(keys).get_indexer(topic_sample(keys, sample, SEED)))
-    keys, docs, X = keys[rows], [docs[i] for i in rows], X[rows]
-    print(f"{modality}: grid on {len(docs):,} sampled documents", flush=True)
+    return grid_search(keys[rows], [docs[i] for i in rows], X[rows], ref, Path(out_dir) / modality / "grid", modality)
+
+
+def grid_search(keys, docs, X, ref, out, label):
+    """Run the grid on the given documents, writing every run and ``results.parquet`` to ``out``, and
+    return ``select_config(out)``. ``ref``: the ``reference`` sample of the modality's full corpus."""
+    out.mkdir(parents=True, exist_ok=True)
+    ref_texts, ref_dict = ref
+    print(f"{label}: grid on {len(docs):,} sampled documents", flush=True)
     results_path = out / "results.parquet"
     done = set(pd.read_parquet(results_path).run) if results_path.exists() else set()
     for nn, nc in product(UMAP_GRID["n_neighbors"], UMAP_GRID["n_components"]):
@@ -394,14 +399,13 @@ def run_grid(out_dir, modality, clip_dir, sample=SAMPLE_DOCS):
             (out / f"{run}_words.json").write_text(json.dumps(words))
             _append(results_path, row)
             print(row, flush=True)
-    select_config(out_dir, modality)
+    return select_config(out)
 
 
-def select_config(out_dir, modality):
-    """Write ``grid/selected.json``: among the runs at the paper's granularity, the one with the
-    highest normalised NPMI x diversity, with at most ``MAX_OUTLIERS`` outliers and ``MIN_TOPICS``
-    topics (all runs at that granularity if none qualifies)."""
-    out = Path(out_dir) / modality / "grid"
+def select_config(out):
+    """Write ``<out>/selected.json`` (``out``: a grid directory): among the runs at the paper's
+    granularity, the one with the highest normalised NPMI x diversity, with at most ``MAX_OUTLIERS``
+    outliers and ``MIN_TOPICS`` topics (all runs at that granularity if none qualifies)."""
     results = pd.read_parquet(out / "results.parquet")
     results["quality"] = (results.npmi + 1) / 2 * results.diversity
     target = PAPER_TOPIC_SHARE * results.sample_docs.iloc[0]
