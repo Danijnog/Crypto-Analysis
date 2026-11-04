@@ -21,7 +21,14 @@ without a theme, as short meaningless names embed close together. So ``graph`` l
 propose candidates (each topic's nearest topics) and the LLM decide: narratives are the communities
 of the graph of topics judged to share a narrative.
 
-Writes to ``<out>/narratives/``: ``centroids.npy``, ``sizes.npy``, ``linkage.npy``,
+``graph`` also runs on the multimodal topics (``--modality multimodal``): the centroids are those of
+the topic model's own space (normalised average of the CLIP image and text embeddings) and the LLM
+sees, besides the samples' texts, the collages of both topics' sample images. ``--definition
+published`` asks with the published narrative definition used for the coin labels (Hanley et al.,
+IEEE S&P 2024) instead of ours.
+
+Writes to ``<out>/narratives/`` (text topics, our definition; other runs to
+``<out>/narratives/<modality>_<definition>/``): ``centroids.npy``, ``sizes.npy``, ``linkage.npy``,
 ``sweep.parquet``, ``pairs.parquet``, ``calibration.parquet``, ``candidates.parquet`` and
 ``topics.parquet``. Usage::
 
@@ -29,6 +36,8 @@ Writes to ``<out>/narratives/``: ``centroids.npy``, ``sizes.npy``, ``linkage.npy
     python -m crypto_analysis.narratives pairs     --out-dir data/topics
     python -m crypto_analysis.narratives calibrate --out-dir data/topics
     python -m crypto_analysis.narratives graph     --out-dir data/topics
+    python -m crypto_analysis.narratives graph     --out-dir data/topics --modality multimodal --definition published
+    python -m crypto_analysis.narratives compare   --out-dir data/topics
 """
 
 import argparse
@@ -37,13 +46,16 @@ import time
 
 import numpy as np
 import pandas as pd
+from PIL import Image, ImageDraw, ImageFont
+
+from crypto_analysis import coin_labels
 
 MPNET_FILE = "text_mpnet.npy"
 THRESHOLDS = np.round(np.arange(0.50, 0.951, 0.05), 2)
 CALIBRATION_THRESHOLDS = np.round(np.arange(0.40, 0.951, 0.025), 3)
 PAIR_BINS = np.round(np.arange(0.35, 1.001, 0.05), 2)  # cophenetic similarity strata
 PAIRS_PER_BIN = 35
-PAIR_SAMPLES = 8
+PAIR_SAMPLES = {"text": 8, "multimodal": 12}  # multimodal: every tile of the collage
 NEIGHBOURS = 5
 SEED = 42
 NARRATIVE = (
@@ -52,11 +64,19 @@ NARRATIVE = (
     '"antisemitism". Two topics belong to the same narrative when a pump.fun trader would recognise them '
     'as the same market "narrative".'
 )
+DEFINITIONS = {"ours": NARRATIVE,
+               "published": coin_labels.NARRATIVE.replace("collection of coins", "collection of tokens")}
+PAIR_IMAGES = {
+    "text": "",
+    "multimodal": " The topics were built from the token image and text together. The image shows topic A's "
+                  "sample images (top, labelled A) and topic B's (bottom, labelled B), each tile numbered like "
+                  "the samples; the labels and numbers were added by the researchers.",
+}
 PAIR_PROMPT = (
     "You are helping researchers study the narratives of the memecoins launched on pump.fun, a Solana "
     "launchpad where anyone can create a token with a name, a description and an image. {definition}\n\n"
     "Below are two topics of tokens, each with its keywords and token texts (name, then description) "
-    "sampled across the whole topic.\n\n{a}\n\n{b}\n\n"
+    "sampled across the whole topic.{images}\n\n{a}\n\n{b}\n\n"
     "Do topics A and B belong to the same narrative? Answer with a JSON object only, with these keys:\n"
     '- "same": true or false\n'
     '- "narrative": if same, the shared narrative in at most 5 words, otherwise ""\n'
@@ -64,14 +84,26 @@ PAIR_PROMPT = (
 )
 
 
-def topic_centroids(out_dir, chunk=1_000_000):
-    """L2-normalised MPNet centroid and size (distinct texts) of every text topic."""
+def narrative_dir(out_dir, modality="text", definition="ours"):
+    """Output folder of a run: ``narratives/`` for checkpoint 1's (text, ours), a subfolder otherwise."""
+    out = Path(out_dir) / "narratives"
+    return out if (modality, definition) == ("text", "ours") else out / f"{modality}_{definition}"
+
+
+def topic_centroids(out_dir, modality="text", clip_dir=None, chunk=1_000_000):
+    """L2-normalised centroid and size (distinct documents) of every topic: MPNet for the text topics,
+    the topic model's fused CLIP embedding for the multimodal ones."""
     import torch
 
     out = Path(out_dir)
-    keys = pd.read_parquet(out / "docs_text.parquet", columns=["text_key"]).text_key
-    X = np.load(out / MPNET_FILE, mmap_mode="r")
-    labels = pd.read_parquet(out / "text" / "full_topics.parquet").set_index("key").topic
+    if modality == "text":
+        keys = pd.read_parquet(out / "docs_text.parquet", columns=["text_key"]).text_key
+        X = np.load(out / MPNET_FILE, mmap_mode="r")
+    else:
+        from crypto_analysis.topic_search import load_modality
+
+        keys, _, X = load_modality(out_dir, modality, clip_dir)
+    labels = pd.read_parquet(out / modality / "full_topics.parquet").set_index("key").topic
     labels = labels.reindex(keys).fillna(-1).astype(np.int64).to_numpy()
     rows = np.flatnonzero(labels != -1)
     C = torch.zeros(int(labels.max()) + 1, X.shape[1], device="cuda")
@@ -134,26 +166,45 @@ def sample_pairs(S, bins=PAIR_BINS, per_bin=PAIRS_PER_BIN, seed=0):
     return pd.DataFrame(rows)
 
 
-def _topic_text(label, cards, topic, k=PAIR_SAMPLES):
+def _topic_text(label, cards, topic, k):
     grp = cards[cards.topic == topic].sort_values("rank").head(k)
     samples = "\n".join(f"  {i + 1}. {d[:120]}" for i, d in enumerate(grp.doc))
     return f"Topic {label}\nKeywords: {grp.words.iloc[0]}\nSamples:\n{samples}"
 
 
-def ask_pairs(out_dir, pairs):
+def pair_collage(collages, a, b, width=768):
+    """Topic ``a``'s collage above topic ``b``'s, each under a bar labelled A or B."""
+    parts = []
+    for label, topic in (("A", a), ("B", b)):
+        img = Image.open(collages / f"{topic}.jpg").convert("RGB")
+        bar = Image.new("RGB", (width, 36), "black")
+        ImageDraw.Draw(bar).text((10, 4), f"Topic {label}", fill="white", font=ImageFont.load_default(size=26))
+        parts += [bar, img.resize((width, round(img.height * width / img.width)))]
+    canvas = Image.new("RGB", (width, sum(p.height for p in parts)), "white")
+    y = 0
+    for p in parts:
+        canvas.paste(p, (0, y))
+        y += p.height
+    return canvas
+
+
+def ask_pairs(out_dir, pairs, modality="text", definition="ours"):
     """LLM same-narrative judgments of the topic pairs (columns ``a``, ``b``), asked in both orders;
     ``same`` is the answer when both orders agree, missing otherwise."""
     from crypto_analysis.topic_taxonomy import Asker
 
-    cards = pd.read_parquet(Path(out_dir) / "annotation" / "text" / "cards.parquet")
+    annotation = Path(out_dir) / "annotation" / modality
+    cards, k = pd.read_parquet(annotation / "cards.parquet"), PAIR_SAMPLES[modality]
     ask, start = Asker(), time.time()
     pairs = pairs.reset_index(drop=True)
     for order, (first, second) in {"ab": ("a", "b"), "ba": ("b", "a")}.items():
         answers = []
         for row in pairs.itertuples():
-            prompt = PAIR_PROMPT.format(definition=NARRATIVE, a=_topic_text("A", cards, getattr(row, first)),
-                                        b=_topic_text("B", cards, getattr(row, second)))
-            raw, answer = ask(prompt, max_new_tokens=120)
+            a, b = getattr(row, first), getattr(row, second)
+            prompt = PAIR_PROMPT.format(definition=DEFINITIONS[definition], images=PAIR_IMAGES[modality],
+                                        a=_topic_text("A", cards, a, k), b=_topic_text("B", cards, b, k))
+            image = None if modality == "text" else pair_collage(annotation / "collages", a, b)
+            raw, answer = ask(prompt, image, max_new_tokens=120)
             same = answer.get("same")
             answers.append({f"same_{order}": same if isinstance(same, bool) else None,
                             f"narrative_{order}": str(answer.get("narrative", "")),
@@ -185,7 +236,7 @@ def neighbour_pairs(C, k=NEIGHBOURS):
     return pd.DataFrame([{"a": a, "b": b, "similarity": float(S[a, b])} for a, b in sorted(pairs)])
 
 
-def narrative_graph(out_dir, k=NEIGHBOURS, seed=SEED):
+def narrative_graph(out_dir, modality="text", definition="ours", clip_dir=None, k=NEIGHBOURS, seed=SEED):
     """Narratives as communities of the graph of topics the LLM judged to share a narrative.
 
     The geometry only proposes the candidates (each topic with its ``k`` nearest topics); an edge is
@@ -196,12 +247,17 @@ def narrative_graph(out_dir, k=NEIGHBOURS, seed=SEED):
     (topic, narrative, component)."""
     import networkx as nx
 
-    out = Path(out_dir) / "narratives"
+    out = narrative_dir(out_dir, modality, definition)
+    out.mkdir(parents=True, exist_ok=True)
+    if not (out / "centroids.npy").exists():
+        C, sizes = topic_centroids(out_dir, modality, clip_dir)
+        np.save(out / "centroids.npy", C)
+        np.save(out / "sizes.npy", sizes)
     cached = out / "candidates.parquet"
     if cached.exists():
         pairs = pd.read_parquet(cached)
     else:
-        pairs = ask_pairs(out_dir, neighbour_pairs(np.load(out / "centroids.npy"), k))
+        pairs = ask_pairs(out_dir, neighbour_pairs(np.load(out / "centroids.npy"), k), modality, definition)
         pairs.to_parquet(cached, index=False)
     sizes = np.load(out / "sizes.npy")
     G = nx.Graph()
@@ -220,6 +276,61 @@ def narrative_graph(out_dir, k=NEIGHBOURS, seed=SEED):
           f"{multi.narrative.nunique()} with 2+ topics cover {multi.docs.sum() / sizes.sum():.1%} of the documents",
           flush=True)
     return topics
+
+
+RUNS = {"text_ours": ("text", "ours"), "text_published": ("text", "published"),
+        "multimodal_published": ("multimodal", "published")}
+
+
+def coin_narratives(out_dir, runs=RUNS):
+    """One row per coin with its narrative in every finished run (missing when its topic is an outlier)."""
+    coins = pd.read_parquet(Path(out_dir) / "token_topics.parquet", columns=["mint", "text_topic", "multimodal_topic"])
+    for run, (modality, definition) in runs.items():
+        path = narrative_dir(out_dir, modality, definition) / "topics.parquet"
+        if path.exists():
+            narrative = pd.read_parquet(path).set_index("topic").narrative
+            coins[run] = coins[f"{modality}_topic"].map(narrative).astype("Int32")
+    return coins
+
+
+def compare(out_dir, top_share=0.5):
+    """Text against multimodal narratives, on coins: size of each run's head (narratives covering
+    ``top_share`` of its coins in topics), coins covered, adjusted mutual information between runs on
+    coins in a topic in both, and for every head narrative of one run the share of its coins that the
+    other run leaves out (outlier topic) or puts in its best-matching narrative (``compare.parquet``)."""
+    from sklearn.metrics import adjusted_mutual_info_score
+
+    coins = coin_narratives(out_dir)
+    runs = [r for r in RUNS if r in coins]
+    summary, heads = [], {}
+    for run in runs:
+        sizes = coins[run].value_counts()
+        cumulative = sizes.cumsum() / sizes.sum()
+        heads[run] = sizes.index[: int((cumulative < top_share).sum()) + 1]
+        summary.append({"run": run, "narratives": len(sizes), "coins_covered": coins[run].notna().mean(),
+                        f"head_{top_share:.0%}": len(heads[run]),
+                        "head_80%": int((cumulative < 0.8).sum()) + 1})
+    print(pd.DataFrame(summary).round(3).to_string(index=False))
+    for i, a in enumerate(runs):
+        for b in runs[i + 1:]:
+            both = coins[a].notna() & coins[b].notna()
+            print(f"AMI {a} vs {b}: {adjusted_mutual_info_score(coins.loc[both, a], coins.loc[both, b]):.3f} "
+                  f"({both.mean():.1%} of coins in a topic in both)")
+    rows = []
+    for a in runs:
+        for b in runs:
+            if a == b:
+                continue
+            for rank, narrative in enumerate(heads[a], 1):
+                members = coins.loc[coins[a] == narrative, b]
+                match = members.value_counts()
+                rows.append({"run": a, "other": b, "rank": rank, "narrative": int(narrative), "coins": len(members),
+                             "outlier_in_other": members.isna().mean(),
+                             "best_match": int(match.index[0]) if len(match) else None,
+                             "best_match_share": match.iloc[0] / len(members) if len(match) else 0.0})
+    df = pd.DataFrame(rows)
+    df.to_parquet(Path(out_dir) / "narratives" / "compare.parquet", index=False)
+    return df
 
 
 def calibrate(out_dir, thresholds=CALIBRATION_THRESHOLDS):
@@ -251,10 +362,16 @@ def calibrate(out_dir, thresholds=CALIBRATION_THRESHOLDS):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("step", choices=["sweep", "pairs", "calibrate", "graph"])
+    parser.add_argument("step", choices=["sweep", "pairs", "calibrate", "graph", "compare"])
     parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument("--modality", choices=["text", "multimodal"], default="text", help="graph only")
+    parser.add_argument("--definition", choices=list(DEFINITIONS), default="ours", help="graph only")
+    parser.add_argument("--clip-dir", type=Path, default=Path("data/clip"))
     args = parser.parse_args()
-    {"sweep": sweep, "pairs": judge_pairs, "calibrate": calibrate, "graph": narrative_graph}[args.step](args.out_dir)
+    if args.step == "graph":
+        narrative_graph(args.out_dir, args.modality, args.definition, args.clip_dir)
+    else:
+        {"sweep": sweep, "pairs": judge_pairs, "calibrate": calibrate, "compare": compare}[args.step](args.out_dir)
 
 
 if __name__ == "__main__":
