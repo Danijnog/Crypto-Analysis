@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Attributes Annotation</title>
+<style>
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #dcdcd6;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --done: #2e7d4f; --mark: #fbeed9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #20201e; --ink: #ecece8; --muted: #a0a09a; --line: #3a3a36;
+    --accent: #7fb0e0; --accent-ink: #10161c; --done: #6cc28f; --mark: #3a3022;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+input[type=text], textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 4px 8px; }
+textarea { width: 100%; min-height: 44px; resize: vertical; }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.spacer { flex: 1; }
+.status { color: var(--muted); font-size: 13px; }
+main { max-width: 1400px; margin: 0 auto; padding: 16px; }
+details.guide { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+details.guide summary { cursor: pointer; font-weight: 600; }
+details.guide p, details.guide li, details.guide dd { max-width: 980px; }
+details.guide dt { font-weight: 600; margin-top: 10px; }
+details.guide dd { margin: 2px 0 0; }
+.ref { color: var(--muted); font-size: 13px; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
+.nav button { padding: 2px 6px; font-size: 12px; min-width: 44px; }
+.nav button.done { border-color: var(--done); color: var(--done); }
+.nav button.current { outline: 2px solid var(--accent); }
+.head { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+.head h2 { margin: 0; font-size: 18px; }
+.terms { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.samples { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.sample { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.sample.marked { background: var(--mark); }
+.sample img, .sample .withheld { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--bg); display: block; }
+.sample .withheld { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px;
+  color: var(--muted); padding: 8px; }
+.sample .text { margin: 6px 0; font-size: 13px; line-height: 1.35; overflow-wrap: anywhere; }
+.sample .meta { color: var(--muted); font-size: 12px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; margin-top: 6px; }
+.checks label { display: flex; gap: 6px; align-items: flex-start; font-size: 13px; }
+.sub { grid-column: 1 / -1; padding: 2px 0 2px 22px; display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.sub[hidden], .other[hidden] { display: none; }
+.other { grid-column: 1 / -1; }
+.other input { width: 100%; }
+.row { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-top: 14px; }
+.hint { color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) { header { position: static; } }
+.coin { margin-top: 4px; font-size: 12.5px; line-height: 1.3; overflow-wrap: anywhere; }
+.coin .sym { color: var(--muted); }
+.coin .desc { margin-top: 2px; max-height: 7.5em; overflow-y: auto; }
+.coin .desc i { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Content attributes</h1>
+  <label>Annotator <input type="text" id="annotator" placeholder="your name" size="14"></label>
+  <span class="status" id="progress"></span>
+  <span class="spacer"></span>
+  <button id="export" class="primary">Export CSV</button>
+</header>
+<main>
+  <details class="guide" open>
+    <summary>Instructions and definitions (read before starting)</summary>
+    <p>Each item is a topic of pump.fun tokens: its <b>name</b> (written by an LLM), its most distinctive <b>terms</b>
+      (c-TF-IDF) and <b>12 samples</b> that cover the whole topic, each with its image, the token name, symbol and full description, and the share
+      of the topic its region holds. Label <b>every sample</b>: tick each attribute it shows, or <b>None</b>; tick
+      <b>Other</b> and name it if the sample shows harmful or sensitive content outside these attributes. A topic’s
+      share of an attribute is computed later from the samples and their region shares.</p>
+    <p id="rules"></p>
+    <dl id="defs"></dl>
+    <ul>
+      <li>Annotate alone: do not discuss items with the other annotator until both of you have exported.</li>
+      <li>Answers are saved in this browser as you go. When finished, press <b>Export CSV</b> and send the file.</li>
+      <li>Some images are withheld because an automatic check flagged them as possible sexual content involving
+        minors; label those samples from their text.</li>
+    </ul>
+  </details>
+  <div class="nav" id="nav"></div>
+  <div id="item"></div>
+</main>
+<script>
+const DATA = /*DATA*/null;
+const KEY = "annotation-" + DATA.deck;
+const ATTRS = [["hate", "Hate"], ["sexual", "Sexual"], ["violence", "Violence"], ["controlled_substances", "Controlled substances"]];
+const TARGETS = [["racist", "racist"], ["antisemitic", "antisemitic"], ["other_target", "other target"]];
+const state = JSON.parse(localStorage.getItem(KEY) || '{"annotator":"","answers":{},"comments":{},"i":0}');
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const coinText = (s) => `<div class="coin"><b>${esc(s.coin || "(no name)")}</b>${s.symbol ? ` <span class="sym">$${esc(s.symbol)}</span>` : ""}
+  <div class="desc">${s.description ? esc(s.description) : "<i>(no description)</i>"}</div></div>`;
+const D = DATA.definitions;
+$("rules").innerHTML = "<b>Rules.</b> " + esc(D.rules);
+$("defs").innerHTML = ATTRS.map(([k, label]) => `<dt>${label}</dt><dd>${esc(D.attributes[k])}<div class="ref">Source: ${esc(D.sources[k])}</div></dd>`).join("")
+  + `<dt>Hate target: racist</dt><dd>${esc(D.racist)}</dd><dt>Hate target: antisemitic</dt><dd>${esc(D.antisemitic)}</dd>`
+  + `<dt>None / Other</dt><dd>None: the sample shows none of the attributes. Other: harmful or sensitive content outside the four attributes; name it in a few words.</dd>`;
+$("annotator").value = state.annotator;
+$("annotator").addEventListener("input", (e) => { state.annotator = e.target.value.trim(); save(); });
+
+const sid = (it, s) => `${it.id}-${s.rank}`;
+const answered = (a) => a && (a.none || a.other || ATTRS.some(([k]) => a[k]));
+const itemDone = (it) => it.samples.every((s) => answered(state.answers[sid(it, s)]));
+
+function sampleHtml(it, s) {
+  const id = sid(it, s), a = state.answers[id] || {};
+  const box = (k, label, cls = "") => `<label class="${cls}"><input type="checkbox" data-s="${id}" data-k="${k}" ${a[k] ? "checked" : ""}> ${label}</label>`;
+  return `<div class="sample ${answered(a) ? "marked" : ""}">${s.sha
+      ? `<img src="data:image/jpeg;base64,${DATA.images[s.sha] || ""}" alt="sample ${s.rank + 1}">`
+      : `<div class="withheld">image withheld</div>`}
+    ${coinText(s)}<div class="meta">Sample ${s.rank + 1} · region ${(100 * s.share).toFixed(1)}% of the topic</div>
+    <div class="checks">${box("hate", "Hate")}${box("sexual", "Sexual")}
+      <div class="sub" ${a.hate ? "" : "hidden"}>${TARGETS.map(([k, l]) => box(k, l)).join("")}</div>
+      ${box("violence", "Violence")}${box("controlled_substances", "Controlled substances")}
+      ${box("none", "<b>None</b>")}${box("other", "Other")}
+      <div class="other" ${a.other ? "" : "hidden"}><input type="text" data-s="${id}" data-k="other_text" placeholder="name it" value="${esc(a.other_text)}"></div>
+    </div></div>`;
+}
+
+function render() {
+  const it = DATA.items[state.i];
+  $("item").innerHTML = `<div class="head"><span class="hint">${it.id} · topic ${it.topic}</span><h2>${esc(it.name)}</h2>
+      <div class="terms">Terms: ${esc(it.terms)}</div></div>
+    <div class="samples">${it.samples.map((s) => sampleHtml(it, s)).join("")}</div>
+    <label class="hint">Comment on this topic (optional)<textarea id="comment">${esc(state.comments[it.id])}</textarea></label>
+    <div class="row"><button id="prev">← Previous</button><span class="hint">${state.i + 1} / ${DATA.items.length}</span>
+      <button id="next" class="primary">Next →</button></div>`;
+  document.querySelectorAll("input[type=checkbox]").forEach((b) => b.addEventListener("change", () => tick(b)));
+  document.querySelectorAll("input[data-k=other_text]").forEach((b) => b.addEventListener("input", () => set(b.dataset.s, {other_text: b.value})));
+  $("comment").addEventListener("input", (e) => { state.comments[it.id] = e.target.value; save(); });
+  $("prev").addEventListener("click", () => go(state.i - 1));
+  $("next").addEventListener("click", () => go(state.i + 1));
+  nav();
+}
+function set(id, fields) {
+  state.answers[id] = Object.assign(state.answers[id] || {}, fields, {time: new Date().toISOString()});
+  save(); nav();
+}
+function tick(box) {
+  const id = box.dataset.s, k = box.dataset.k, on = box.checked;
+  const fields = {[k]: on};
+  if (k === "none" && on) { for (const [a] of ATTRS) fields[a] = false; for (const [t] of TARGETS) fields[t] = false; fields.other = false; }
+  else if (on) fields.none = false;
+  if (k === "hate" && !on) for (const [t] of TARGETS) fields[t] = false;
+  set(id, fields); render();
+}
+function go(i) { if (i >= 0 && i < DATA.items.length) { state.i = i; save(); render(); window.scrollTo(0, 0); } }
+function nav() {
+  const done = DATA.items.filter(itemDone).length;
+  $("progress").textContent = `${done} / ${DATA.items.length} topics complete`;
+  $("nav").innerHTML = DATA.items.map((it, i) => `<button class="${itemDone(it) ? "done" : ""} ${i === state.i ? "current" : ""}" data-i="${i}">${it.id}</button>`).join("");
+  document.querySelectorAll("#nav button").forEach((b) => b.addEventListener("click", () => go(+b.dataset.i)));
+}
+$("export").addEventListener("click", () => {
+  if (!state.annotator) { alert("Please type your name first."); $("annotator").focus(); return; }
+  const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const cols = ["hate", "racist", "antisemitic", "other_target", "sexual", "violence", "controlled_substances", "none", "other"];
+  const rows = [["annotator", "deck", "item_id", "topic", "sample_rank", "region_share", ...cols, "other_text", "topic_comment", "time"].join(",")];
+  for (const it of DATA.items) for (const s of it.samples) {
+    const a = state.answers[sid(it, s)] || {};
+    rows.push([state.annotator, DATA.deck, it.id, it.topic, s.rank, s.share, ...cols.map((c) => a[c] ? 1 : (answered(a) ? 0 : "")),
+      a.other_text || "", state.comments[it.id] || "", a.time || ""].map(q).join(","));
+  }
+  const blob = new Blob([rows.join("\n")], {type: "text/csv"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `attributes_${state.annotator.replace(/\W+/g, "_")}.csv`;
+  link.click();
+});
+render();
+</script>
+</body>
+</html>

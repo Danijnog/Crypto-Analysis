@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macro-topic Names Annotation</title>
+<style>
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #dcdcd6;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --done: #2e7d4f; --on: #2f5d8a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --panel: #20201e; --ink: #ecece8; --muted: #a0a09a; --line: #3a3a36;
+    --accent: #7fb0e0; --accent-ink: #10161c; --done: #6cc28f; --on: #7fb0e0;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+input[type=text], textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; }
+textarea { width: 100%; min-height: 44px; resize: vertical; }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.spacer { flex: 1; }
+.status { color: var(--muted); font-size: 13px; }
+main { max-width: 1400px; margin: 0 auto; padding: 16px; }
+details.guide { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+details.guide summary { cursor: pointer; font-weight: 600; }
+details.guide p, details.guide li { max-width: 980px; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
+.nav button { padding: 2px 6px; font-size: 12px; min-width: 44px; }
+.nav button.done { border-color: var(--done); color: var(--done); }
+.nav button.current { outline: 2px solid var(--accent); }
+.layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr); gap: 16px; align-items: start; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.terms { color: var(--muted); font-size: 13px; margin: 4px 0 10px; overflow-wrap: anywhere; }
+.samples { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+.sample img, .sample .withheld { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--bg); display: block; }
+.sample .withheld { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px;
+  color: var(--muted); padding: 6px; }
+.coin { margin-top: 4px; font-size: 12.5px; line-height: 1.3; overflow-wrap: anywhere; }
+.coin .sym { color: var(--muted); }
+.coin .desc { margin-top: 2px; max-height: 7.5em; overflow-y: auto; }
+.coin .desc i { color: var(--muted); }
+.answer { position: sticky; top: 64px; }
+.answer h2 { margin: 2px 0 4px; font-size: 20px; }
+.answer .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.answer .summary { color: var(--ink); margin: 0 0 12px; }
+.q { margin: 12px 0 4px; font-weight: 600; }
+.choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.choices button.on { background: var(--on); color: var(--accent-ink); border-color: var(--on); }
+.row { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-top: 14px; }
+.hint { color: var(--muted); font-size: 13px; }
+@media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } .answer { position: static; } header { position: static; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Macro-topic names</h1>
+  <label>Annotator <input type="text" id="annotator" placeholder="your name" size="14"></label>
+  <span class="status" id="progress"></span>
+  <span class="spacer"></span>
+  <button id="export" class="primary">Export CSV</button>
+</header>
+<main>
+  <details class="guide" open>
+    <summary>Instructions (read before starting)</summary>
+    <p>Each item is a macro-topic: a group of topics of pump.fun tokens that an LLM judged, pair by pair, to share a
+      subject, and that a community detection method (clique percolation) grouped. It is shown by the names of all its
+      topics and by <b>one sample of each topic</b> (the one at the centre of its largest region; image, token name,
+      symbol and description), labelled with its topic's name. An LLM (Qwen3.5-9B) wrote a <b>name</b> and a
+      one-sentence <b>description</b> for the macro-topic from its four largest topics and the list of names.</p>
+      <p><b>Definition.</b> <span id="macro-def"></span></p>
+    <ol>
+      <li><b>Does the name describe what the topics share?</b> <i>Yes</i>: it fits what most topics share.
+        <i>Partly</i>: right subject but too narrow, too broad or missing a main part. <i>No</i>: wrong or misleading. If
+        not yes, write a better name (at most 6 words).</li>
+      <li><b>Do the topics belong together?</b> <i>Yes</i> when most topics fit one macro-topic under the definition;
+        <i>No</i> when the group mixes subjects that the definition keeps apart (then judge the name against the largest
+        group of topics). Use the comment to name the topics that do not belong.</li>
+    </ol>
+    <ul>
+      <li>Annotate alone: do not discuss items with the other annotator until both of you have exported.</li>
+      <li>Answers are saved in this browser as you go. When finished, press <b>Export CSV</b> and send the file.</li>
+      <li>Keys: <b>1</b> yes, <b>2</b> partly, <b>3</b> no (name); <b>←</b>/<b>→</b> previous/next.</li>
+      <li>Some images may be withheld because an automatic check flagged them as possible sexual content involving
+        minors; judge those samples from their text.</li>
+    </ul>
+  </details>
+  <div class="nav" id="nav"></div>
+  <div id="item"></div>
+</main>
+<script>
+const DATA = /*DATA*/null;
+const KEY = "annotation-" + DATA.deck;
+document.getElementById("macro-def").textContent = DATA.definition;
+const state = JSON.parse(localStorage.getItem(KEY) || '{"annotator":"","answers":{},"i":0}');
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+const coinText = (s) => `<div class="coin"><b>${esc(s.coin || "(no name)")}</b>${s.symbol ? ` <span class="sym">$${esc(s.symbol)}</span>` : ""}
+  <div class="desc">${s.description ? esc(s.description) : "<i>(no description)</i>"}</div></div>`;
+$("annotator").value = state.annotator;
+$("annotator").addEventListener("input", (e) => { state.annotator = e.target.value.trim(); save(); });
+const done = (a) => a && a.name_fits && a.coherent;
+
+function choice(field, value, label, a) {
+  return `<button class="${a[field] === value ? "on" : ""}" data-f="${field}" data-v="${value}">${label}</button>`;
+}
+function render() {
+  const it = DATA.items[state.i], a = state.answers[it.id] || {};
+  const samples = it.samples.map((s) => `<div class="sample">${s.sha
+      ? `<img src="data:image/jpeg;base64,${DATA.images[s.sha] || ""}" alt="sample ${s.rank + 1}">`
+      : `<div class="withheld">image withheld</div>`}<div class="hint"><b>${esc(s.topic_name)}</b></div>${coinText(s)}</div>`).join("");
+  $("item").innerHTML = `<div class="layout">
+    <div class="panel"><span class="hint">${it.id} · macro-topic ${it.topic} · ${it.samples.length} topics</span>
+      <div class="terms">Topics: ${esc(it.terms)}</div><div class="samples">${samples}</div></div>
+    <div class="panel answer"><div class="label">Name given by the LLM</div><h2>${esc(it.name)}</h2>
+      <p class="summary">${esc(it.summary)}</p>
+      <div class="q">1. Does the name describe what the topics share?</div>
+      <div class="choices">${choice("name_fits", "yes", "Yes", a)}${choice("name_fits", "partly", "Partly", a)}${choice("name_fits", "no", "No", a)}</div>
+      <label class="hint" ${a.name_fits && a.name_fits !== "yes" ? "" : "hidden"}>Better name (at most 6 words)
+        <input type="text" id="better" value="${esc(a.better_name)}" style="width:100%"></label>
+      <div class="q">2. Do the topics belong together?</div>
+      <div class="choices">${choice("coherent", "yes", "Yes, most topics fit one macro-topic", a)}${choice("coherent", "no", "No, a mix", a)}</div>
+      <label class="hint">Comment (optional)<textarea id="comment">${esc(a.comment)}</textarea></label>
+      <div class="row"><button id="prev">← Previous</button><span class="hint">${state.i + 1} / ${DATA.items.length}</span>
+        <button id="next" class="primary">Next →</button></div></div></div>`;
+  document.querySelectorAll(".choices button").forEach((b) => b.addEventListener("click", () => set({[b.dataset.f]: b.dataset.v}, true)));
+  const better = $("better");
+  if (better) better.addEventListener("input", (e) => set({better_name: e.target.value}));
+  $("comment").addEventListener("input", (e) => set({comment: e.target.value}));
+  $("prev").addEventListener("click", () => go(state.i - 1));
+  $("next").addEventListener("click", () => go(state.i + 1));
+  nav();
+}
+function set(fields, redraw = false) {
+  const id = DATA.items[state.i].id;
+  state.answers[id] = Object.assign(state.answers[id] || {}, fields, {time: new Date().toISOString()});
+  save();
+  if (redraw) render(); else nav();
+}
+function go(i) { if (i >= 0 && i < DATA.items.length) { state.i = i; save(); render(); window.scrollTo(0, 0); } }
+function nav() {
+  const n = DATA.items.filter((it) => done(state.answers[it.id])).length;
+  $("progress").textContent = `${n} / ${DATA.items.length} macro-topics answered`;
+  $("nav").innerHTML = DATA.items.map((it, i) => `<button class="${done(state.answers[it.id]) ? "done" : ""} ${i === state.i ? "current" : ""}" data-i="${i}">${it.id}</button>`).join("");
+  document.querySelectorAll("#nav button").forEach((b) => b.addEventListener("click", () => go(+b.dataset.i)));
+}
+document.addEventListener("keydown", (e) => {
+  if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+  const map = {"1": "yes", "2": "partly", "3": "no"};
+  if (map[e.key]) set({name_fits: map[e.key]}, true);
+  else if (e.key === "ArrowRight") go(state.i + 1);
+  else if (e.key === "ArrowLeft") go(state.i - 1);
+});
+$("export").addEventListener("click", () => {
+  if (!state.annotator) { alert("Please type your name first."); $("annotator").focus(); return; }
+  const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const rows = [["annotator", "deck", "item_id", "macro_topic", "llm_name", "name_fits", "better_name", "coherent", "comment", "time"].join(",")];
+  for (const it of DATA.items) {
+    const a = state.answers[it.id] || {};
+    rows.push([state.annotator, DATA.deck, it.id, it.topic, it.name, a.name_fits || "", a.better_name || "", a.coherent || "", a.comment || "", a.time || ""].map(q).join(","));
+  }
+  const blob = new Blob([rows.join("\n")], {type: "text/csv"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `macro_names_${state.annotator.replace(/\W+/g, "_")}.csv`;
+  link.click();
+});
+render();
+</script>
+</body>
+</html>
