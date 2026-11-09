@@ -21,3 +21,4 @@ pillow>=10.0.0
 scipy>=1.11.0
 networkx>=3.4
 squarify>=0.4
+opencv-python-headless>=4.10  # face detection to blur figures
