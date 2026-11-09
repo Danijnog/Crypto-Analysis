@@ -158,7 +158,9 @@ def topic_tree(out_dir, modality, clip_dir):
 
 
 def parse(text):
-    """The first JSON object in ``text`` ({} when there is none or it does not parse)."""
+    """The first JSON object in ``text`` after any reasoning block ({} when there is none or it does not
+    parse)."""
+    text = text.split("</think>")[-1]
     start, end = text.find("{"), text.rfind("}")
     try:
         return json.loads(text[start:end + 1]) if start >= 0 < end else {}
@@ -180,8 +182,8 @@ def _numbers(value, k):
 
 
 class Asker:
-    def __init__(self):
-        self.model, self.processor = load_llm()
+    def __init__(self, quantized=False):
+        self.model, self.processor = load_llm(quantized=quantized)
         self.calls = 0
 
     def __call__(self, prompt, image=None, max_new_tokens=400):
@@ -330,6 +332,18 @@ def dedup_macros(ask, macros):
     return [m for i, m in enumerate(macros) if i not in merged_into], raw
 
 
+def leaves_only(out_dir, modality):
+    """Only the leaf descriptions (theme, summary, attribute shares) of ``modality``'s topics, with the
+    base prompt: ``taxonomy/<modality>/base/leaves.parquet``. They name the narratives built on them."""
+    out = Path(out_dir) / "taxonomy" / modality / "base"
+    out.mkdir(parents=True, exist_ok=True)
+    start = time.time()
+    leaves = describe_leaves(Asker(), Path(out_dir), modality, "base")
+    leaves.to_parquet(out / "leaves.parquet", index=False)
+    print(f"{modality}: {leaves.theme.notna().sum()}/{len(leaves)} topics with a theme, "
+          f"{(~leaves.parsed).sum()} unparsed ({(time.time() - start) / 60:.1f} min)", flush=True)
+
+
 def build(out_dir, modality, run):
     root = Path(out_dir)
     tree_dir = root / "taxonomy" / modality
@@ -403,7 +417,7 @@ def stability(out_dir, modality):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("step", choices=["tree", "build", "stability"])
+    parser.add_argument("step", choices=["tree", "leaves", "build", "stability"])
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--clip-dir", type=Path, default=Path("data/clip"))
     parser.add_argument("--modality", choices=MODALITIES, default="text")
@@ -411,6 +425,8 @@ def main():
     args = parser.parse_args()
     if args.step == "tree":
         topic_tree(args.out_dir, args.modality, args.clip_dir)
+    elif args.step == "leaves":
+        leaves_only(args.out_dir, args.modality)
     elif args.step == "build":
         build(args.out_dir, args.modality, args.run)
     else:

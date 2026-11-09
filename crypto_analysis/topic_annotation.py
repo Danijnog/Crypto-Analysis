@@ -117,7 +117,8 @@ def collage(images, ncols=COLLAGE_COLS, tile=TILE):
 
 
 def build_cards(out_dir, modality, clip_dir, k=CARD_SAMPLES):
-    out = Path(out_dir) / "annotation" / modality
+    # other sample counts (sensitivity runs) go to their own folder, <modality>_k<k>
+    out = Path(out_dir) / "annotation" / (modality if k == CARD_SAMPLES else f"{modality}_k{k}")
     out.mkdir(parents=True, exist_ok=True)
     start = time.time()
     keys, docs, X = load_modality(out_dir, modality, clip_dir)
@@ -213,23 +214,29 @@ def parse_json(text):
     return flat
 
 
-def load_llm(path=LLM):
+def load_llm(path=LLM, quantized=False):
+    """The LLM in bf16 on the GPU, or 4-bit (bitsandbytes NF4) when ``quantized``, for a shared GPU with
+    little free memory; labelling runs use bf16, only the image safety screen may use 4-bit."""
     import torch
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
 
     processor = AutoProcessor.from_pretrained(path)
     processor.tokenizer.padding_side = "left"
+    if quantized:
+        config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16)
+        model = AutoModelForImageTextToText.from_pretrained(path, quantization_config=config, device_map={"": 0})
+        return model.eval(), processor
     model = AutoModelForImageTextToText.from_pretrained(path, dtype=torch.bfloat16).to("cuda").eval()
     return model, processor
 
 
-def generate(model, processor, conversations, max_new_tokens=600):
-    """Greedy, non-thinking answers to a batch of chat conversations."""
+def generate(model, processor, conversations, max_new_tokens=600, thinking=False):
+    """Greedy answers to a batch of chat conversations, without the model's reasoning unless ``thinking``."""
     import torch
 
     inputs = processor.apply_chat_template(conversations, add_generation_prompt=True, tokenize=True,
                                            return_dict=True, return_tensors="pt", padding=True,
-                                           enable_thinking=False).to(model.device)
+                                           enable_thinking=thinking).to(model.device)
     with torch.inference_mode():
         out = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
     return processor.batch_decode(out[:, inputs["input_ids"].shape[1]:], skip_special_tokens=True)
