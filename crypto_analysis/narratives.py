@@ -64,8 +64,19 @@ NARRATIVE = (
     '"antisemitism". Two topics belong to the same narrative when a pump.fun trader would recognise them '
     'as the same market "narrative".'
 )
+# Hanley et al.'s definition with our operationalization of "issue" for pump.fun: ``published`` lists what an
+# issue can be; ``published_level`` also says at which level to compare issues, since without it the judge
+# compares at the most specific one and two variants of a subject never share an issue (narrative = topic)
+ISSUE_LEVEL = (
+    "A narrative is a collection of tokens that address the same event or issue. On pump.fun, an issue is the "
+    "subject tokens exploit to attract buyers: a person, a character, an animal, a meme, a cultural reference or "
+    "an event. Read the issue at the level at which traders group tokens into one market narrative: variants, "
+    "spin-offs and close relatives of one subject address the same issue; tokens that only share a visual style, "
+    "a format or a generic word do not."
+)
 DEFINITIONS = {"ours": NARRATIVE,
-               "published": coin_labels.NARRATIVE.replace("collection of coins", "collection of tokens")}
+               "published": coin_labels.NARRATIVE.replace("collection of coins", "collection of tokens"),
+               "published_level": ISSUE_LEVEL}
 PAIR_IMAGES = {
     "text": "",
     "multimodal": " The topics were built from the token image and text together. The image shows topic A's "
@@ -279,28 +290,50 @@ def narrative_graph(out_dir, modality="text", definition="ours", clip_dir=None, 
 
 
 RUNS = {"text_ours": ("text", "ours"), "text_published": ("text", "published"),
-        "multimodal_published": ("multimodal", "published")}
+        "multimodal_published": ("multimodal", "published"),
+        "multimodal_published_level": ("multimodal", "published_level")}
 
 
-def coin_narratives(out_dir, runs=RUNS):
-    """One row per coin with its narrative in every finished run (missing when its topic is an outlier)."""
-    coins = pd.read_parquet(Path(out_dir) / "token_topics.parquet", columns=["mint", "text_topic", "multimodal_topic"])
+def coin_narratives(out_dir, runs=RUNS, reduced=False):
+    """One row per coin with its narrative in every finished run (missing when its topic is an outlier).
+    ``reduced``: through the coin's topic after outlier reduction, for the runs whose modality has one."""
+    coins = pd.read_parquet(Path(out_dir) / "token_topics.parquet")
     for run, (modality, definition) in runs.items():
         path = narrative_dir(out_dir, modality, definition) / "topics.parquet"
-        if path.exists():
+        col = f"{modality}_topic_reduced" if reduced else f"{modality}_topic"
+        if path.exists() and col in coins:
             narrative = pd.read_parquet(path).set_index("topic").narrative
-            coins[run] = coins[f"{modality}_topic"].map(narrative).astype("Int32")
+            coins[run] = coins[col].map(narrative).astype("Int32")
     return coins
 
 
-def compare(out_dir, top_share=0.5):
+def ranked_narratives(out_dir, modality="multimodal", definition="published", reduced=True):
+    """The narratives of a run ranked by coins (each coin placed by its topic, after outlier reduction when
+    ``reduced``; ties by id): rank, narrative, coins, share and cumulative share of the coins in a
+    narrative, and the topics of each narrative."""
+    run = f"{modality}_{definition}"
+    coins = coin_narratives(out_dir, {run: (modality, definition)}, reduced=reduced)[run].dropna().astype(int)
+    counts = coins.value_counts().rename("coins").rename_axis("narrative").reset_index()
+    ranked = counts.sort_values(["coins", "narrative"], ascending=[False, True]).reset_index(drop=True)
+    ranked.insert(0, "rank", np.arange(1, len(ranked) + 1))
+    ranked["share"] = ranked.coins / ranked.coins.sum()
+    ranked["cumulative"] = ranked.share.cumsum()
+    topics = pd.read_parquet(narrative_dir(out_dir, modality, definition) / "topics.parquet")
+    ids = topics.groupby("narrative").topic.apply(lambda t: sorted(int(x) for x in t))
+    ranked["topic_ids"] = ranked.narrative.map(ids)
+    ranked["topics"] = ranked.topic_ids.map(len)
+    return ranked
+
+
+def compare(out_dir, top_share=0.5, reduced=False):
     """Text against multimodal narratives, on coins: size of each run's head (narratives covering
     ``top_share`` of its coins in topics), coins covered, adjusted mutual information between runs on
     coins in a topic in both, and for every head narrative of one run the share of its coins that the
-    other run leaves out (outlier topic) or puts in its best-matching narrative (``compare.parquet``)."""
+    other run leaves out (outlier topic) or puts in its best-matching narrative (``compare.parquet``).
+    ``reduced``: coins placed by their topic after outlier reduction (``compare_reduced.parquet``)."""
     from sklearn.metrics import adjusted_mutual_info_score
 
-    coins = coin_narratives(out_dir)
+    coins = coin_narratives(out_dir, reduced=reduced)
     runs = [r for r in RUNS if r in coins]
     summary, heads = [], {}
     for run in runs:
@@ -329,7 +362,7 @@ def compare(out_dir, top_share=0.5):
                              "best_match": int(match.index[0]) if len(match) else None,
                              "best_match_share": match.iloc[0] / len(members) if len(match) else 0.0})
     df = pd.DataFrame(rows)
-    df.to_parquet(Path(out_dir) / "narratives" / "compare.parquet", index=False)
+    df.to_parquet(Path(out_dir) / "narratives" / f"compare{'_reduced' if reduced else ''}.parquet", index=False)
     return df
 
 
@@ -367,9 +400,12 @@ def main():
     parser.add_argument("--modality", choices=["text", "multimodal"], default="text", help="graph only")
     parser.add_argument("--definition", choices=list(DEFINITIONS), default="ours", help="graph only")
     parser.add_argument("--clip-dir", type=Path, default=Path("data/clip"))
+    parser.add_argument("--reduced", action="store_true", help="compare only: coins by their reduced topic")
     args = parser.parse_args()
     if args.step == "graph":
         narrative_graph(args.out_dir, args.modality, args.definition, args.clip_dir)
+    elif args.step == "compare":
+        compare(args.out_dir, reduced=args.reduced)
     else:
         {"sweep": sweep, "pairs": judge_pairs, "calibrate": calibrate, "compare": compare}[args.step](args.out_dir)
 

@@ -1,19 +1,19 @@
 attribute,condition,coins,n,pct,ci_low,ci_high
-hate,text only,3,300,1.0,0.34,2.9
-sexual,text only,4,300,1.33,0.52,3.38
-sexual_minors,text only,1,300,0.33,0.06,1.86
-violence,text only,1,300,0.33,0.06,1.86
-self_harm,text only,0,300,0.0,0.0,1.26
-controlled_substances,text only,5,300,1.67,0.71,3.84
-profanity,text only,12,300,4.0,2.3,6.86
-racist,text only,3,300,1.0,0.34,2.9
-antisemitic,text only,2,300,0.67,0.18,2.4
-hate,text + image,8,300,2.67,1.36,5.17
-sexual,text + image,13,300,4.33,2.55,7.27
-sexual_minors,text + image,1,300,0.33,0.06,1.86
-violence,text + image,6,300,2.0,0.92,4.29
-self_harm,text + image,1,300,0.33,0.06,1.86
-controlled_substances,text + image,5,300,1.67,0.71,3.84
-profanity,text + image,5,300,1.67,0.71,3.84
-racist,text + image,7,300,2.33,1.13,4.74
-antisemitic,text + image,3,300,1.0,0.34,2.9
+hate,text only,3,250,1.2,0.41,3.47
+sexual,text only,5,250,2.0,0.86,4.6
+sexual_minors,text only,1,250,0.4,0.07,2.23
+violence,text only,1,250,0.4,0.07,2.23
+self_harm,text only,0,250,0.0,0.0,1.51
+controlled_substances,text only,0,250,0.0,0.0,1.51
+profanity,text only,9,250,3.6,1.91,6.7
+racist,text only,2,250,0.8,0.22,2.87
+antisemitic,text only,0,250,0.0,0.0,1.51
+hate,text + image,5,250,2.0,0.86,4.6
+sexual,text + image,9,250,3.6,1.91,6.7
+sexual_minors,text + image,2,250,0.8,0.22,2.87
+violence,text + image,6,250,2.4,1.1,5.14
+self_harm,text + image,0,250,0.0,0.0,1.51
+controlled_substances,text + image,5,250,2.0,0.86,4.6
+profanity,text + image,8,250,3.2,1.63,6.19
+racist,text + image,3,250,1.2,0.41,3.47
+antisemitic,text + image,0,250,0.0,0.0,1.51
