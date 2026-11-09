@@ -4,10 +4,12 @@
 stories (Trump and a dog) or tell one story in a hateful way (geopolitics with antisemitism, an animal
 used as a racist slur). Each coin is therefore labelled on two independent axes:
 
-* narratives: any of the 29 named narratives among the 32 largest of the 2026-11-01 checkpoint
-  (``reports/checkpoints/2026-11-01-narratives.md``; its three no-theme narratives are left out), main
-  one first, plus a free-text narrative outside the list. A narrative is a collection of documents
-  that address the same event or issue (Hanley et al., IEEE S&P 2024; Gerard et al., ICWSM 2026);
+* narratives: any of ``NARRATIVES``, the named head of the multimodal narratives (published definition;
+  ``narratives graph --modality multimodal --definition published``): the narratives covering half of
+  the coins, each coin placed by its multimodal topic after outlier reduction, without those whose
+  topics have no theme; main one first, plus a free-text narrative outside the list. A narrative is a
+  collection of documents that address the same event or issue (Hanley et al., IEEE S&P 2024; Gerard et
+  al., ICWSM 2026);
 * attributes: ``ATTRIBUTES``, each present or absent by a definition quoted from a peer-reviewed paper
   (hate: Kiela et al., NeurIPS 2020, with hateful symbols from Qu et al., CCS 2025; sexual, violence,
   self-harm: Markov et al., AAAI 2023, with the image wording of Qu et al., CCS 2025; controlled
@@ -18,8 +20,9 @@ used as a racist slur). Each coin is therefore labelled on two independent axes:
 
 The pilot asks Qwen3.5-9B (greedy, no thinking) about a sample of coins twice, from the text alone and
 from the text with the image, so the image's contribution is measured rather than self-reported. The
-sample has a uniform stratum, which estimates prevalences, and a stratum drawn from topics likely to
-hold harmful content, which supplies positive cases.
+sample has two halves: a uniform stratum, which estimates prevalences, and a temporal stratum drawn like
+the topic models' temporal sample (``topic_sampling``): month quotas proportional to the month's coins,
+each month half graduated and half not.
 
 Writes to ``<out>/coin_labels/pilot/``: ``sample.parquet``, ``images/<sha256>.jpg``,
 ``labels_text.parquet`` and ``labels_multimodal.parquet``. Usage::
@@ -46,44 +49,64 @@ import time
 import numpy as np
 import pandas as pd
 
-CHECKPOINT = "checkpoints/2026-11-01-narratives"
-RANDOM_COINS = 300
-SENSITIVE_COINS = 200
+RANDOM_COINS = 250
+TEMPORAL_COINS = 250
 IMAGE_SIZE = 512
 DESCRIPTION_CHARS = 600
 SEED = 42
 
-# Names written for the prompt from each narrative's leaf themes; ids are the checkpoint ranks.
+# Names written for the prompt from each narrative's leaf themes and summaries (``topic_taxonomy leaves``),
+# checked against its distinctive words and images (``narrative_figures``);
+# ids are the ranks of ``narratives.ranked_narratives`` (multimodal, published, outliers reduced).
 NARRATIVES = {
-    1: "Trump, US politics and geopolitics (presidents, wars, nations, empires)",
-    2: "Dogs",
-    3: "Space, aliens and Elon Musk",
-    4: "Cats",
-    5: "Pump.fun and Solana platform memes",
-    6: "Buy calls and 'official coin' hype",
-    7: "Food and cooking; bulls and cows",
-    9: "Sexuality, LGBTQ and female characters",
-    10: "Justice, crime, truth and conspiracies",
-    11: "Money and getting rich",
-    12: "Bitcoin and crypto",
-    14: "Wild animals (penguins incl. the Nietzschean penguin meme, wolves, eagles)",
-    15: "AI agents and robots",
-    16: "Whales and the ocean",
-    17: "Monkeys, apes and bananas",
-    18: "Sea animals and fishing",
-    19: "Christmas",
-    20: "Family, children, parents and the elderly",
-    21: "Winning, losing, fighting and last chances",
-    22: "Religion and spiritual figures",
-    23: "China, North Korea and East Asia (incl. pandas)",
-    24: "Gold, silver and other metals",
-    25: "Pepe the Frog",
-    26: "Football (soccer) and the World Cup",
-    27: "Airdrops and aviation",
-    28: "Jews, Israel and Palestine",
-    29: "Running, racing and speedruns",
-    30: "Viruses and pandemics",
-    31: "Nature, plants and green",
+    1: 'AI agents and crypto protocol projects',
+    2: 'Cats',
+    3: 'Anime characters and AI companions',
+    4: 'Donald Trump and MAGA',
+    5: 'Dogs and dog rescue',
+    6: 'Pepe the Frog',
+    7: 'Women: photos and named women (e.g. Sydney Sweeney)',
+    8: 'Whales, sharks and fish',
+    9: 'Cute plush characters (Labubu, Chiikawa)',
+    10: 'Meme characters and surreal faces',
+    11: 'Live streamers and their supporters',
+    12: 'Monkeys and apes',
+    13: 'Lobsters and crabs (incl. the OpenClaw AI agent)',
+    14: 'Bulls and bull markets',
+    15: "Wojak and 'retard' memes",
+    16: 'Claude AI and its pixel-art mascot',
+    17: 'Sigma characters and actors (Homelander, Walter White, DiCaprio)',
+    18: 'Elon Musk',
+    19: 'FIFA World Cup and football (soccer)',
+    20: 'Calls to buy, sell, stop or quit',
+    21: 'Spiritual ascension and enlightenment',
+    22: 'Normie stick-figure memes',
+    23: 'Money and getting rich',
+    24: 'Bitcoin and Satoshi',
+    25: 'IShowSpeed',
+    26: 'Mori coin and Monster Energy',
+    27: 'Shiba Inu and Pomeranian memes (Kabosu, Cheems)',
+    28: 'Truth Terminal, ASCII art and Fartcoin',
+    29: 'Space exploration (moon, Mars, rockets)',
+    30: 'Sexual organs and anatomy',
+    31: 'Doge and Dogecoin',
+    32: 'Test and placeholder tokens',
+    33: 'Penguins (incl. the Nietzschean penguin)',
+    34: 'The Backrooms and empty rooms',
+    35: 'MLG, brainrot and meme nostalgia',
+    36: 'Pills, peptides and airdrops',
+    37: 'Pokemon',
+    38: 'Christmas and Santa Claus',
+    39: 'Minecraft and Roblox',
+    40: 'Pennies, coins and currency',
+    41: 'Parodies of crypto figures (misspelled names)',
+    42: 'Nature and landscapes',
+    43: "Named people: politicians, 'justice for' and RIP tributes",
+    44: 'War, peace and soldiers in the trenches',
+    45: 'Humanoid robots',
+    46: 'Smiling, laughing and crying faces',
+    47: 'AI agents, bots and automation',
+    48: "Generic 'coin' names",
 }
 
 # Definitions quoted from their sources (reports/references/definitions.md); text and image wordings joined.
@@ -122,12 +145,6 @@ ANTISEMITISM = {
     "racial": "prejudice against Jews as a race/ethnic group, including Holocaust denial",
 }
 SUBSTANCES = ["illegal_drugs", "cannabis", "alcohol", "tobacco"]
-
-# Topics whose leaf description mentions these, or whose samples carried an attribute, form the
-# sensitive stratum. It only decides where positive cases are sought; prevalences use the uniform stratum.
-SENSITIVE = re.compile(r"nazi|hitler|holocaust|jew|antisemit|racis|slur|hate|porn|sex|nud|breast|goon|drug|weed|"
-                       r"cannabis|cocaine|meth|fentanyl|kill|murder|shoot|gun|weapon|war\b|terror|violen|suicid|"
-                       r"death|dead|victim|blood", re.IGNORECASE)
 
 INTRO = """You label coins launched on pump.fun, a Solana memecoin launchpad. Every coin is a memecoin, so being a \
 memecoin, a token or "on Solana" is never a narrative or an attribute by itself. Label only what the coin's name, \
@@ -207,33 +224,36 @@ def read_answer(answer):
     return row
 
 
-def sample_coins(out_dir, n_random=RANDOM_COINS, n_sensitive=SENSITIVE_COINS, seed=SEED):
-    """Pilot coins with their text, image hash, topic and checkpoint narrative (``sample.parquet``),
-    and their images resized to ``IMAGE_SIZE`` (``images/``)."""
+def sample_coins(out_dir, n_random=RANDOM_COINS, n_temporal=TEMPORAL_COINS, seed=SEED):
+    """Pilot coins with their text, image hash and the rank of their multimodal narrative
+    (``topic_narrative``, after outlier reduction) (``sample.parquet``), and their images resized to
+    ``IMAGE_SIZE`` (``images/``). Strata: ``temporal`` (month quotas proportional to the month's coins,
+    half of each month graduated) and ``uniform`` (uniform over the other coins)."""
     from crypto_analysis.datalake import DATA_DIR, connect
     from crypto_analysis.gallery import load_images
+    from crypto_analysis.narratives import coin_narratives, ranked_narratives
     from crypto_analysis.topic_annotation import _rgb
+    from crypto_analysis.topic_sampling import coins_table, month_quotas
 
     root, out = Path(out_dir), Path(out_dir) / "coin_labels" / "pilot"
     (out / "images").mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(seed)
-    coins = pd.read_parquet(root / "token_topics.parquet", columns=["mint", "sha256", "text_topic"])
-    coins["text_topic"] = coins.text_topic.fillna(-1).astype(int)
+    coins = coins_table(root)
+    picked = []
+    for month, quota in month_quotas(coins, n_temporal).items():
+        for graduated, k in [(True, quota // 2), (False, quota - quota // 2)]:
+            pool = np.flatnonzero((coins.month == month).to_numpy() & (coins.graduated == graduated).to_numpy())
+            picked.append(rng.choice(pool, size=k, replace=False))
+    temporal = coins.iloc[np.concatenate(picked)].assign(stratum="temporal")
+    rest = coins[~coins.mint.isin(temporal.mint)]
+    uniform = rest.iloc[rng.choice(len(rest), n_random, replace=False)].assign(stratum="uniform")
+    sample = pd.concat([uniform, temporal], ignore_index=True)
 
-    leaves = pd.read_parquet(root / CHECKPOINT / "leaves.parquet")
-    flagged = leaves[[f"{a}_share" for a in ("antisemitic", "racist", "sexual")]].gt(0).any(axis=1)
-    matched = (leaves.theme.fillna("") + " " + leaves.summary.fillna("")).str.contains(SENSITIVE)
-    sensitive_topics = set(leaves.topic[flagged | matched])
-
-    uniform = coins.iloc[rng.choice(len(coins), n_random, replace=False)].assign(stratum="uniform")
-    pool = coins[coins.text_topic.isin(sensitive_topics) & ~coins.mint.isin(uniform.mint)]
-    sensitive = pool.iloc[rng.choice(len(pool), n_sensitive, replace=False)].assign(stratum="sensitive")
-    sample = pd.concat([uniform, sensitive], ignore_index=True)
-    print(f"{len(coins):,} coins; {len(sensitive_topics)} sensitive topics holding {len(pool):,} coins", flush=True)
-
-    ranked = pd.read_parquet(root / CHECKPOINT / "narratives_ranked.parquet")
-    narrative = {t: r for r, ts in zip(ranked["rank"], ranked.topic_ids) for t in ts}
-    sample["checkpoint_narrative"] = sample.text_topic.map(narrative).astype("Int64")
+    rank = ranked_narratives(root).set_index("narrative")["rank"]
+    run = coin_narratives(root, {"n": ("multimodal", "published")}, reduced=True).set_index("mint")["n"]
+    sample["topic_narrative"] = sample.mint.map(run).map(rank).astype("Int64")
+    print(f"{len(coins):,} coins; {len(temporal)} temporal ({temporal.graduated.mean():.0%} graduated), "
+          f"{len(uniform)} uniform ({uniform.graduated.mean():.1%} graduated)", flush=True)
 
     con = connect(DATA_DIR, threads=8)
     con.register("pilot", sample[["mint"]])
@@ -324,8 +344,8 @@ def summarise(out_dir):
                      "image_only_%": 100 * image_only / max(int(pos.sum()), 1)})
     print("\n" + pd.DataFrame(rows).round(1).to_string(index=False))
 
-    inside = mm[mm.checkpoint_narrative.isin(list(NARRATIVES))]
-    agree = [int(c) in ns for c, ns in zip(inside.checkpoint_narrative, inside.narratives)]
+    inside = mm[mm.topic_narrative.isin(list(NARRATIVES))]
+    agree = [int(c) in ns for c, ns in zip(inside.topic_narrative, inside.narratives)]
     print(f"\ncoins whose topic is in a listed narrative: {len(inside)}; LLM includes that narrative for "
           f"{np.mean(agree):.1%}")
     harmful = mm[mm.harmful]
