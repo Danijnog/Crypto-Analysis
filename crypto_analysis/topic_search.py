@@ -53,6 +53,10 @@ from crypto_analysis.topic_alignment import symmetry_ratio
 
 SEED = 42
 MODALITIES = ["text", "image", "multimodal"]
+# multimodal fusions of the CLIP image embedding with a text embedding, on the same (image, text) pairs:
+# the paper's mean of CLIP image and text, or the concatenation of the L2-normalised parts (the cosine of
+# two concatenations is then the mean of the two modalities' cosines) with the CLIP or the MiniLM text
+FUSIONS = {"multimodal": "mean", "multimodal_concat": "concat", "multimodal_concat_minilm": "concat_minilm"}
 TEXT_MODEL = "paraphrase-multilingual-MiniLM-L12-v2"
 SAMPLE_DOCS = 100_000
 REFERENCE_DOCS = 200_000
@@ -147,9 +151,9 @@ def embed_text_docs(out_dir, batch_size=1024, model_name=TEXT_MODEL, file_name="
 def load_modality(out_dir, modality, clip_dir, embeddings=True):
     """Documents and embeddings of one modality, row-aligned: ``(keys, docs, X)``.
 
-    Keys: ``text_key`` (text), ``sha256`` (image), ``"<sha256>:<text_key>"`` (multimodal). Only
-    documents with an embedding are kept; ``embeddings=False`` still applies that filter but returns
-    ``X = None``.
+    Keys: ``text_key`` (text), ``sha256`` (image), ``"<sha256>:<text_key>"`` (the ``FUSIONS``, which
+    share their documents). Only documents with an embedding are kept; ``embeddings=False`` still
+    applies that filter but returns ``X = None``.
     """
     out = Path(out_dir)
     if modality == "text":
@@ -173,10 +177,18 @@ def load_modality(out_dir, modality, clip_dir, embeddings=True):
     keys = (docs.sha256 + ":" + docs.text_key).to_numpy()
     if not embeddings:
         return keys, docs.doc.tolist(), None
-    X = np.empty((len(docs), img_emb.shape[1]), dtype=np.float16)
+    fusion = FUSIONS[modality]
+    if fusion == "concat_minilm":
+        txt_emb = np.load(out / "text_minilm.npy", mmap_mode="r")
+        tr = pd.Index(pd.read_parquet(out / "docs_text.parquet", columns=["text_key"]).text_key).get_indexer(
+            docs.text_key)
+    dim = img_emb.shape[1] if fusion == "mean" else img_emb.shape[1] + txt_emb.shape[1]
+    X = np.empty((len(docs), dim), dtype=np.float16)
+    unit = lambda a: a / np.linalg.norm(a, axis=1, keepdims=True)
     for s in range(0, len(docs), 1_000_000):  # chunked: the float32 sum of 5M rows would need 10 GB
-        part = img_emb[ir[s:s + 1_000_000]].astype(np.float32) + txt_emb[tr[s:s + 1_000_000]].astype(np.float32)
-        X[s:s + 1_000_000] = part / np.linalg.norm(part, axis=1, keepdims=True)
+        img = img_emb[ir[s:s + 1_000_000]].astype(np.float32)
+        txt = np.asarray(txt_emb[tr[s:s + 1_000_000]], dtype=np.float32)
+        X[s:s + 1_000_000] = unit(img + txt) if fusion == "mean" else np.hstack([unit(img), unit(txt)]) / np.sqrt(2)
     return keys, docs.doc.tolist(), X
 
 
@@ -509,15 +521,17 @@ def topic_hierarchy(out_dir, modality, clip_dir):
 
 def token_topics(out_dir):
     """``token_topics.parquet``: one row per token with its topic in every modality fitted so far
-    (missing when the token has no document in that modality)."""
+    (missing when the token has no document in that modality) and, where the outliers were reduced
+    (``topic_sampling reduce-full``), its reduced topic (``<modality>_topic_reduced``)."""
     out = Path(out_dir)
     tok = pd.read_parquet(out / "docs_token.parquet", columns=["mint", "sha256", "text_key"])
     key = {"text": tok.text_key, "image": tok.sha256, "multimodal": tok.sha256 + ":" + tok.text_key}
     for modality in MODALITIES:
         path = out / modality / "full_topics.parquet"
         if path.exists():
-            topics = pd.read_parquet(path).set_index("key").topic
-            tok[f"{modality}_topic"] = topics.reindex(key[modality]).astype("Int32").to_numpy()
+            topics = pd.read_parquet(path).set_index("key")
+            for col in [c for c in ["topic", "topic_reduced"] if c in topics]:
+                tok[f"{modality}_{col}"] = topics[col].reindex(key[modality]).astype("Int32").to_numpy()
     tok.to_parquet(out / "token_topics.parquet", index=False)
     print(f"token_topics.parquet: {len(tok):,} tokens, columns {list(tok.columns)}", flush=True)
     return tok

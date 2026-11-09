@@ -28,6 +28,8 @@ fit in ``results.parquet``. ``compare`` writes per-coin topics of every scheme a
     python -m crypto_analysis.topic_sampling coins   --out-dir data/topics
     python -m crypto_analysis.topic_sampling fit     --out-dir data/topics --scheme temporal --modality text
     python -m crypto_analysis.topic_sampling reduce  --out-dir data/topics --modality image
+    python -m crypto_analysis.topic_sampling fit     --out-dir data/topics --modality multimodal_concat
+    python -m crypto_analysis.topic_sampling reduce-full --out-dir data/topics --modality multimodal
     python -m crypto_analysis.topic_sampling compare --out-dir data/topics
 """
 
@@ -43,6 +45,7 @@ import pandas as pd
 from crypto_analysis.datalake import DATA_DIR, connect
 from crypto_analysis.topic_alignment import symmetry_ratio
 from crypto_analysis.topic_search import (
+    FUSIONS,
     MODALITIES,
     SEED,
     _append,
@@ -58,7 +61,8 @@ from crypto_analysis.topic_search import (
 SCHEMES = ["random", "temporal"]
 SAMPLE_SIZE = 60_000
 CHUNK = 500_000  # documents transformed / predicted / reassigned at a time
-REDUCTION = {"text": "c-tf-idf", "image": "embeddings", "multimodal": "embeddings"}
+MODELS = ["text", "image", *FUSIONS]  # the three modalities and the alternative multimodal fusions
+REDUCTION = {"text": "c-tf-idf", "image": "embeddings", **{m: "embeddings" for m in FUSIONS}}
 
 
 def sampling_dir(out_dir):
@@ -87,8 +91,7 @@ def coins_table(out_dir, data_dir=DATA_DIR):
 
 def document_flags(coins, modality):
     """Month (of the first coin) and graduated (any coin) of every document: DataFrame indexed by key."""
-    key = {"text": coins.text_key, "image": coins.sha256,
-           "multimodal": coins.sha256 + ":" + coins.text_key}[modality]
+    key = {"text": coins.text_key, "image": coins.sha256}.get(modality, coins.sha256 + ":" + coins.text_key)
     return coins.assign(key=key).dropna(subset=["key"]).groupby("key").agg(month=("month", "min"),
                                                                            graduated=("graduated", "any"))
 
@@ -226,6 +229,22 @@ def fit_scheme(out_dir, scheme, modality, clip_dir, n=SAMPLE_SIZE):
     return row
 
 
+def reduce_full(out_dir, modality, clip_dir):
+    """Outlier reduction of the full-corpus model of ``modality`` (``topic_search.run_full``) with the
+    modality's ``REDUCTION`` strategy, the topics being represented by all their members: adds
+    ``topic_reduced`` to ``<out>/<modality>/full_topics.parquet``. Topics and their members are
+    unchanged, so the narratives built on them stay valid."""
+    path = Path(out_dir) / modality / "full_topics.parquet"
+    keys, docs, X = load_modality(out_dir, modality, clip_dir)
+    topics = pd.read_parquet(path)
+    assert (topics.key.to_numpy() == keys).all()
+    labels = topics.topic.to_numpy()
+    topics["topic_reduced"] = reduce_outliers(modality, docs, X, labels, np.arange(len(labels)))
+    topics.to_parquet(path, index=False)
+    print(f"full/{modality}: {REDUCTION[modality]} reduction, outliers {(labels == -1).mean():.1%} -> "
+          f"{(topics.topic_reduced == -1).mean():.1%}", flush=True)
+
+
 def refit_reduction(out_dir, scheme, modality, clip_dir):
     """Redo the outlier reduction of a finished fit with the modality's ``REDUCTION`` strategy,
     updating ``topics.parquet``, ``info.parquet`` and ``results.parquet``."""
@@ -259,11 +278,11 @@ def scheme_token_topics(out_dir, scheme):
     is an outlier or has no embedding."""
     base = sampling_dir(out_dir)
     tok = pd.read_parquet(base / "coins.parquet")
-    key = {"text": tok.text_key, "image": tok.sha256, "multimodal": tok.sha256 + ":" + tok.text_key}
-    for modality in MODALITIES:
+    for modality in [m for m in MODELS if (base / scheme / m / "topics.parquet").exists()]:
+        key = {"text": tok.text_key, "image": tok.sha256}.get(modality, tok.sha256 + ":" + tok.text_key)
         topics = pd.read_parquet(base / scheme / modality / "topics.parquet").set_index("key")
         for col, name in [("topic", modality), ("topic_reduced", f"{modality}_reduced")]:
-            tok[name] = topics[col].reindex(key[modality]).fillna(-1).astype(np.int32).to_numpy()
+            tok[name] = topics[col].reindex(key).fillna(-1).astype(np.int32).to_numpy()
     tok.to_parquet(base / scheme / "token_topics.parquet", index=False)
     return tok
 
@@ -323,21 +342,25 @@ def previous_models(out_dir):
 
 
 def compare(out_dir):
-    """Per scheme: coverage of coins by every combination of modalities; symmetry ratio, AMI and
-    Theil's U of every pair of modalities; per modality the same between the schemes; before and after
-    outlier reduction. Also the pairs of the previous full-corpus models, at topic and (text and
-    multimodal) narrative level."""
+    """Per scheme: coverage of coins by every combination of the three modalities and by every fitted
+    model (``MODELS``); symmetry ratio, AMI and Theil's U of every pair of models; per model the same
+    between the schemes; before and after outlier reduction. Also the pairs of the previous full-corpus
+    models, at topic and (text and multimodal) narrative level."""
     base = sampling_dir(out_dir)
     (base / "comparison").mkdir(parents=True, exist_ok=True)
     tokens = {s: scheme_token_topics(out_dir, s) for s in SCHEMES}
-    cover, pairs = [], []
+    fitted = [m for m in MODELS if all(m in tok for tok in tokens.values())]
+    cover, single, pairs = [], [], []
     for suffix, assignment in [("", "hdbscan"), ("_reduced", "reduced")]:
         for scheme, tok in tokens.items():
             cover.append(coverage(tok, suffix).assign(scheme=scheme, assignment=assignment))
-            for a, b in combinations(MODALITIES, 2):
+            single += [{"scheme": scheme, "assignment": assignment, "model": m,
+                        "all": (tok[f"{m}{suffix}"] != -1).mean(),
+                        "graduated": (tok.loc[tok.graduated, f"{m}{suffix}"] != -1).mean()} for m in fitted]
+            for a, b in combinations(fitted, 2):
                 rows = pair_stats(tok[f"{a}{suffix}"], tok[f"{b}{suffix}"], a, b)
                 pairs += [dict(r, scheme=scheme, assignment=assignment, level="topic") for r in rows]
-        for m in MODALITIES:
+        for m in fitted:
             rows = pair_stats(*(tokens[s][f"{m}{suffix}"] for s in SCHEMES), f"{m} random", f"{m} temporal")
             pairs += [dict(r, scheme="random vs temporal", assignment=assignment, level="topic") for r in rows]
     prev = previous_models(out_dir)
@@ -345,14 +368,17 @@ def compare(out_dir):
         for a, b in combinations(models, 2):
             rows = pair_stats(prev[a], prev[b], a.split("_")[0], b.split("_")[0])
             pairs += [dict(r, scheme="full (previous)", assignment="hdbscan", level=level) for r in rows]
-    cover, pairs = pd.concat(cover, ignore_index=True), pd.DataFrame(pairs)
+    cover, single, pairs = pd.concat(cover, ignore_index=True), pd.DataFrame(single), pd.DataFrame(pairs)
     cover.to_parquet(base / "comparison" / "coverage.parquet", index=False)
+    single.to_parquet(base / "comparison" / "coverage_models.parquet", index=False)
     pairs.to_parquet(base / "comparison" / "pairs.parquet", index=False)
     results = pd.read_parquet(base / "results.parquet")
     cols = ["scheme", "modality", "run", "n_topics", "npmi", "diversity", "outlier_rate_sample", "outlier_rate_all",
             "reduction", "outlier_rate_reduced"]
     print(results[cols].sort_values(["modality", "scheme"]).round(3).to_string(index=False))
     print(cover.pivot_table(index="modalities", columns=["assignment", "scheme"], values=["all", "graduated"])
+          .round(3).to_string())
+    print(single.pivot_table(index="model", columns=["assignment", "scheme"], values=["all", "graduated"])
           .round(3).to_string())
     cols = ["scheme", "assignment", "level", "source", "target", "source_topics", "target_topics", "coins_in_both",
             "symmetry_ratio", "ami", "theils_u", "theils_u_shuffled"]
@@ -362,23 +388,26 @@ def compare(out_dir):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("step", choices=["coins", "fit", "reduce", "compare"])
+    parser.add_argument("step", choices=["coins", "fit", "reduce", "reduce-full", "compare"])
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--clip-dir", type=Path, default=Path("data/clip"))
     parser.add_argument("--scheme", choices=SCHEMES + ["all"], default="all")
-    parser.add_argument("--modality", choices=MODALITIES + ["all"], default="all")
+    parser.add_argument("--modality", choices=MODELS + ["all"], default="all")
     parser.add_argument("--sample", type=int, default=SAMPLE_SIZE)
     args = parser.parse_args()
     if args.step == "coins":
         coins_table(args.out_dir)
     elif args.step == "fit":
-        for modality in MODALITIES if args.modality == "all" else [args.modality]:
+        for modality in MODELS if args.modality == "all" else [args.modality]:
             for scheme in SCHEMES if args.scheme == "all" else [args.scheme]:
                 fit_scheme(args.out_dir, scheme, modality, args.clip_dir, args.sample)
     elif args.step == "reduce":
-        for modality in MODALITIES if args.modality == "all" else [args.modality]:
+        for modality in MODELS if args.modality == "all" else [args.modality]:
             for scheme in SCHEMES if args.scheme == "all" else [args.scheme]:
                 refit_reduction(args.out_dir, scheme, modality, args.clip_dir)
+    elif args.step == "reduce-full":
+        for modality in MODALITIES if args.modality == "all" else [args.modality]:
+            reduce_full(args.out_dir, modality, args.clip_dir)
     else:
         compare(args.out_dir)
 
