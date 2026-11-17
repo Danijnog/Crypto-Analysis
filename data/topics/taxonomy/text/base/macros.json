@@ -1,0 +1,3383 @@
+{
+  "run": "base",
+  "modality": "text",
+  "candidates": 189,
+  "macros": 68,
+  "mixed_topics": 19,
+  "mixed_share": 0.08454050951346005,
+  "llm_calls": 190,
+  "minutes": 6.229867962996165,
+  "candidate_nodes": {
+    "c0": {
+      "node": 782,
+      "theme": "Animal and Food Memecoins",
+      "n_topics": 42
+    },
+    "c1": {
+      "node": 773,
+      "theme": "Crypto-native culture and technology",
+      "n_topics": 18
+    },
+    "c2": {
+      "node": 668,
+      "theme": "Crypto-native culture and finance",
+      "n_topics": 4
+    },
+    "c3": {
+      "node": 733,
+      "theme": "Politics and global conflict",
+      "n_topics": 7
+    },
+    "c4": {
+      "node": 723,
+      "theme": "Space and extraterrestrial themes",
+      "n_topics": 7
+    },
+    "c5": {
+      "node": 744,
+      "theme": "Internet memes and characters",
+      "n_topics": 9
+    },
+    "c6": {
+      "node": 686,
+      "theme": "crypto-native culture and finance",
+      "n_topics": 9
+    },
+    "c7": {
+      "node": 683,
+      "theme": "Asian internet memes and culture",
+      "n_topics": 8
+    },
+    "c8": {
+      "node": 506,
+      "theme": "Real-world legal and justice issues",
+      "n_topics": 2
+    },
+    "c9": {
+      "node": 647,
+      "theme": "crypto-native culture and trading",
+      "n_topics": 4
+    },
+    "c10": {
+      "node": 297,
+      "theme": "Pump.fun platform and trading",
+      "n_topics": 1
+    },
+    "c11": {
+      "node": 423,
+      "theme": "Internet memes and characters",
+      "n_topics": 5
+    },
+    "c12": {
+      "node": 665,
+      "theme": "Food and culinary culture",
+      "n_topics": 6
+    },
+    "c13": {
+      "node": 615,
+      "theme": "Time-based internet memes and pranks",
+      "n_topics": 5
+    },
+    "c14": {
+      "node": 661,
+      "theme": "International politics and conflict",
+      "n_topics": 4
+    },
+    "c15": {
+      "node": 610,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c16": {
+      "node": 24,
+      "theme": "Christmas and holiday memes",
+      "n_topics": 1
+    },
+    "c17": {
+      "node": 557,
+      "theme": "Space and aerospace themes",
+      "n_topics": 3
+    },
+    "c18": {
+      "node": 669,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c19": {
+      "node": 460,
+      "theme": "Religion and spiritual figures",
+      "n_topics": 2
+    },
+    "c20": {
+      "node": 494,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c21": {
+      "node": 606,
+      "theme": "Sexual content and violence",
+      "n_topics": 3
+    },
+    "c22": {
+      "node": 403,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c23": {
+      "node": 418,
+      "theme": "Fictional and real female characters",
+      "n_topics": 2
+    },
+    "c24": {
+      "node": 667,
+      "theme": "Crypto-native culture and internet memes",
+      "n_topics": 5
+    },
+    "c25": {
+      "node": 604,
+      "theme": "Life, death, and survival",
+      "n_topics": 3
+    },
+    "c26": {
+      "node": 654,
+      "theme": "Energy and fuel markets",
+      "n_topics": 3
+    },
+    "c27": {
+      "node": 627,
+      "theme": "Nature and Environment",
+      "n_topics": 3
+    },
+    "c28": {
+      "node": 384,
+      "theme": "Viral trends and hantavirus references",
+      "n_topics": 1
+    },
+    "c29": {
+      "node": 637,
+      "theme": "Hate speech and hostility",
+      "n_topics": 3
+    },
+    "c30": {
+      "node": 484,
+      "theme": "Sports",
+      "n_topics": 3
+    },
+    "c31": {
+      "node": 513,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c32": {
+      "node": 247,
+      "theme": "Pokémon trading card games",
+      "n_topics": 1
+    },
+    "c33": {
+      "node": 675,
+      "theme": "Crypto-native culture and internet memes",
+      "n_topics": 4
+    },
+    "c34": {
+      "node": 592,
+      "theme": "Politics and governance",
+      "n_topics": 3
+    },
+    "c35": {
+      "node": 714,
+      "theme": "Internet memes and characters",
+      "n_topics": 5
+    },
+    "c36": {
+      "node": 555,
+      "theme": "Food and beverages",
+      "n_topics": 3
+    },
+    "c37": {
+      "node": 634,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c38": {
+      "node": 457,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c39": {
+      "node": 597,
+      "theme": "Substance use and drug culture",
+      "n_topics": 2
+    },
+    "c40": {
+      "node": 517,
+      "theme": "Somali identity and internet memes",
+      "n_topics": 3
+    },
+    "c41": {
+      "node": 445,
+      "theme": "Gaming and Play-to-Earn",
+      "n_topics": 2
+    },
+    "c42": {
+      "node": 602,
+      "theme": "sexual content and cult themes",
+      "n_topics": 3
+    },
+    "c43": {
+      "node": 176,
+      "theme": "Running and racing",
+      "n_topics": 1
+    },
+    "c44": {
+      "node": 14,
+      "theme": "Internet memes and pop culture",
+      "n_topics": 1
+    },
+    "c45": {
+      "node": 514,
+      "theme": "internet memes and characters",
+      "n_topics": 3
+    },
+    "c46": {
+      "node": 207,
+      "theme": "Jewish identity and culture",
+      "n_topics": 1
+    },
+    "c47": {
+      "node": 455,
+      "theme": "Crypto-native culture and finance",
+      "n_topics": 2
+    },
+    "c48": {
+      "node": 539,
+      "theme": "Political satire and cultural stereotypes",
+      "n_topics": 2
+    },
+    "c49": {
+      "node": 618,
+      "theme": "human emotions and psychological states",
+      "n_topics": 3
+    },
+    "c50": {
+      "node": 519,
+      "theme": "Workplace and employment culture",
+      "n_topics": 2
+    },
+    "c51": {
+      "node": 186,
+      "theme": "Grok AI and xAI derivatives",
+      "n_topics": 1
+    },
+    "c52": {
+      "node": 589,
+      "theme": "Automotive and transportation",
+      "n_topics": 2
+    },
+    "c53": {
+      "node": 509,
+      "theme": "Space and celestial themes",
+      "n_topics": 2
+    },
+    "c54": {
+      "node": 622,
+      "theme": "Healthcare and wellness",
+      "n_topics": 2
+    },
+    "c55": {
+      "node": 276,
+      "theme": "Sleep and rest related tokens",
+      "n_topics": 1
+    },
+    "c56": {
+      "node": 406,
+      "theme": "Crypto-native culture and slang",
+      "n_topics": 2
+    },
+    "c57": {
+      "node": 443,
+      "theme": "Vision and visual perception",
+      "n_topics": 2
+    },
+    "c58": {
+      "node": 225,
+      "theme": "Z-themed names and puns",
+      "n_topics": 1
+    },
+    "c59": {
+      "node": 67,
+      "theme": "Winter and snow themes",
+      "n_topics": 1
+    },
+    "c60": {
+      "node": 188,
+      "theme": "X-themed tokens and Christmas",
+      "n_topics": 1
+    },
+    "c61": {
+      "node": 299,
+      "theme": "Fire and burning imagery",
+      "n_topics": 1
+    },
+    "c62": {
+      "node": 208,
+      "theme": "winning and losing",
+      "n_topics": 1
+    },
+    "c63": {
+      "node": 492,
+      "theme": "Digital art and visual aesthetics",
+      "n_topics": 2
+    },
+    "c64": {
+      "node": 573,
+      "theme": "Food and dairy products",
+      "n_topics": 2
+    },
+    "c65": {
+      "node": 567,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c66": {
+      "node": 298,
+      "theme": "Automated fee distribution mechanisms",
+      "n_topics": 1
+    },
+    "c67": {
+      "node": 394,
+      "theme": "Generic meme references",
+      "n_topics": 1
+    },
+    "c68": {
+      "node": 106,
+      "theme": "Water and rain related tokens",
+      "n_topics": 1
+    },
+    "c69": {
+      "node": 552,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c70": {
+      "node": 442,
+      "theme": "Romance and love",
+      "n_topics": 2
+    },
+    "c71": {
+      "node": 287,
+      "theme": "Upward movement and growth",
+      "n_topics": 1
+    },
+    "c72": {
+      "node": 291,
+      "theme": "Anti-Semitic and racist memes",
+      "n_topics": 1
+    },
+    "c73": {
+      "node": 17,
+      "theme": "LaunchBlitz.ai platform tokens",
+      "n_topics": 1
+    },
+    "c74": {
+      "node": 10,
+      "theme": "Fart-themed humor",
+      "n_topics": 1
+    },
+    "c75": {
+      "node": 294,
+      "theme": "Gambling and casino-themed tokens",
+      "n_topics": 1
+    },
+    "c76": {
+      "node": 512,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c77": {
+      "node": 335,
+      "theme": "Claims of theft and impersonation",
+      "n_topics": 1
+    },
+    "c78": {
+      "node": 478,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c79": {
+      "node": 511,
+      "theme": "Optimism and Positive Outcomes",
+      "n_topics": 2
+    },
+    "c80": {
+      "node": 160,
+      "theme": "Chill house music culture",
+      "n_topics": 1
+    },
+    "c81": {
+      "node": 209,
+      "theme": "Combat sports and fighting",
+      "n_topics": 1
+    },
+    "c82": {
+      "node": 185,
+      "theme": "Doom and Mayhem",
+      "n_topics": 1
+    },
+    "c83": {
+      "node": 266,
+      "theme": "Developer community engagement",
+      "n_topics": 1
+    },
+    "c84": {
+      "node": 211,
+      "theme": "Digital art and creative expression",
+      "n_topics": 1
+    },
+    "c85": {
+      "node": 81,
+      "theme": "Racism and White Supremacy",
+      "n_topics": 1
+    },
+    "c86": {
+      "node": 104,
+      "theme": "Capybara and hat memes",
+      "n_topics": 1
+    },
+    "c87": {
+      "node": 251,
+      "theme": "Giant and oversized names",
+      "n_topics": 1
+    },
+    "c88": {
+      "node": 310,
+      "theme": "Reading and Lore",
+      "n_topics": 1
+    },
+    "c89": {
+      "node": 129,
+      "theme": "Dreams and aspirations",
+      "n_topics": 1
+    },
+    "c90": {
+      "node": 178,
+      "theme": "Twitter-related token launches",
+      "n_topics": 1
+    },
+    "c91": {
+      "node": 284,
+      "theme": "Token Contract Address Verification",
+      "n_topics": 1
+    },
+    "c92": {
+      "node": 66,
+      "theme": "Immigration enforcement and ICE",
+      "n_topics": 1
+    },
+    "c93": {
+      "node": 177,
+      "theme": "Speedrunning and rapid movement",
+      "n_topics": 1
+    },
+    "c94": {
+      "node": 357,
+      "theme": "Version numbers and pairs",
+      "n_topics": 1
+    },
+    "c95": {
+      "node": 120,
+      "theme": "Fruit-themed tokens",
+      "n_topics": 1
+    },
+    "c96": {
+      "node": 195,
+      "theme": "DEX payment and fatigue",
+      "n_topics": 1
+    },
+    "c97": {
+      "node": 13,
+      "theme": "Banana-themed memecoins",
+      "n_topics": 1
+    },
+    "c98": {
+      "node": 56,
+      "theme": "Blue color and wordplay",
+      "n_topics": 1
+    },
+    "c99": {
+      "node": 461,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c100": {
+      "node": 278,
+      "theme": "Final attempts and last chances",
+      "n_topics": 1
+    },
+    "c101": {
+      "node": 473,
+      "theme": "Male identity and characters",
+      "n_topics": 2
+    },
+    "c102": {
+      "node": 541,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c103": {
+      "node": 309,
+      "theme": "Diddy and dox-related puns",
+      "n_topics": 1
+    },
+    "c104": {
+      "node": 32,
+      "theme": "Bonk and Aura variations",
+      "n_topics": 1
+    },
+    "c105": {
+      "node": 570,
+      "theme": "Crypto-native culture and market sentiment",
+      "n_topics": 2
+    },
+    "c106": {
+      "node": 38,
+      "theme": "Footwear and foot anatomy",
+      "n_topics": 1
+    },
+    "c107": {
+      "node": 11,
+      "theme": "Life transformation promises",
+      "n_topics": 1
+    },
+    "c108": {
+      "node": 395,
+      "theme": "Mewing and cat memes",
+      "n_topics": 1
+    },
+    "c109": {
+      "node": 50,
+      "theme": "bonding curve mechanics",
+      "n_topics": 1
+    },
+    "c110": {
+      "node": 159,
+      "theme": "Housing and Home Concepts",
+      "n_topics": 1
+    },
+    "c111": {
+      "node": 197,
+      "theme": "Testicular humor and innuendo",
+      "n_topics": 1
+    },
+    "c112": {
+      "node": 261,
+      "theme": "Mayhem-themed tokens",
+      "n_topics": 1
+    },
+    "c113": {
+      "node": 241,
+      "theme": "Return and comeback",
+      "n_topics": 1
+    },
+    "c114": {
+      "node": 274,
+      "theme": "Unc-themed tokens",
+      "n_topics": 1
+    },
+    "c115": {
+      "node": 363,
+      "theme": "currency and dollar references",
+      "n_topics": 1
+    },
+    "c116": {
+      "node": 237,
+      "theme": "Urban transportation and city life",
+      "n_topics": 1
+    },
+    "c117": {
+      "node": 253,
+      "theme": "Breast and nipple focused",
+      "n_topics": 1
+    },
+    "c118": {
+      "node": 593,
+      "theme": "Food and beverage",
+      "n_topics": 2
+    },
+    "c119": {
+      "node": 40,
+      "theme": "Amazon Alexa and Marley references",
+      "n_topics": 1
+    },
+    "c120": {
+      "node": 187,
+      "theme": "Free entry and bonding mechanics",
+      "n_topics": 1
+    },
+    "c121": {
+      "node": 39,
+      "theme": "tooth and error references",
+      "n_topics": 1
+    },
+    "c122": {
+      "node": 318,
+      "theme": "GitHub and Git-related concepts",
+      "n_topics": 1
+    },
+    "c123": {
+      "node": 43,
+      "theme": "Grand Theft Auto franchise",
+      "n_topics": 1
+    },
+    "c124": {
+      "node": 330,
+      "theme": "Blob-themed tokens",
+      "n_topics": 1
+    },
+    "c125": {
+      "node": 114,
+      "theme": "Obesity and body shaming",
+      "n_topics": 1
+    },
+    "c126": {
+      "node": 77,
+      "theme": "Easter and egg-themed tokens",
+      "n_topics": 1
+    },
+    "c127": {
+      "node": 340,
+      "theme": "greetings and salutations",
+      "n_topics": 1
+    },
+    "c128": {
+      "node": 58,
+      "theme": "Nietzschean philosophy and animals",
+      "n_topics": 1
+    },
+    "c129": {
+      "node": 351,
+      "theme": "Tether-related tokens",
+      "n_topics": 1
+    },
+    "c130": {
+      "node": 196,
+      "theme": "Anti-Semitic and racist slurs",
+      "n_topics": 1
+    },
+    "c131": {
+      "node": 316,
+      "theme": "holding tokens and staying",
+      "n_topics": 1
+    },
+    "c132": {
+      "node": 165,
+      "theme": "Anthropic AI model clones",
+      "n_topics": 1
+    },
+    "c133": {
+      "node": 329,
+      "theme": "nonsensical gibberish names",
+      "n_topics": 1
+    },
+    "c134": {
+      "node": 12,
+      "theme": "Vegetable-themed tokens",
+      "n_topics": 1
+    },
+    "c135": {
+      "node": 246,
+      "theme": "Gooner subculture and slang",
+      "n_topics": 1
+    },
+    "c136": {
+      "node": 19,
+      "theme": "Diamond hands holding strategy",
+      "n_topics": 1
+    },
+    "c137": {
+      "node": 224,
+      "theme": "Croc and Cuck puns",
+      "n_topics": 1
+    },
+    "c138": {
+      "node": 45,
+      "theme": "Psychological operations and propaganda",
+      "n_topics": 1
+    },
+    "c139": {
+      "node": 233,
+      "theme": "Sending letters and mail",
+      "n_topics": 1
+    },
+    "c140": {
+      "node": 75,
+      "theme": "Apple and iPhone related",
+      "n_topics": 1
+    },
+    "c141": {
+      "node": 7,
+      "theme": "Mushroom and Bonsai",
+      "n_topics": 1
+    },
+    "c142": {
+      "node": 301,
+      "theme": "PVP and PFP gaming tokens",
+      "n_topics": 1
+    },
+    "c143": {
+      "node": 35,
+      "theme": "Bee and honey themed tokens",
+      "n_topics": 1
+    },
+    "c144": {
+      "node": 192,
+      "theme": "Nazi and Holocaust references",
+      "n_topics": 1
+    },
+    "c145": {
+      "node": 150,
+      "theme": "Conspiracy theories and fraud accusations",
+      "n_topics": 1
+    },
+    "c146": {
+      "node": 36,
+      "theme": "Slop and Quarter Zip memes",
+      "n_topics": 1
+    },
+    "c147": {
+      "node": 20,
+      "theme": "condoms and saxophone",
+      "n_topics": 1
+    },
+    "c148": {
+      "node": 353,
+      "theme": "generic token naming",
+      "n_topics": 1
+    },
+    "c149": {
+      "node": 189,
+      "theme": "Green candle market sentiment",
+      "n_topics": 1
+    },
+    "c150": {
+      "node": 229,
+      "theme": "Hamster-themed tokens",
+      "n_topics": 1
+    },
+    "c151": {
+      "node": 111,
+      "theme": "Hair and shaving related",
+      "n_topics": 1
+    },
+    "c152": {
+      "node": 269,
+      "theme": "G-word puns and animal names",
+      "n_topics": 1
+    },
+    "c153": {
+      "node": 54,
+      "theme": "Trump's Greenland acquisition meme",
+      "n_topics": 1
+    },
+    "c154": {
+      "node": 34,
+      "theme": "Adult content and financial parody",
+      "n_topics": 1
+    },
+    "c155": {
+      "node": 279,
+      "theme": "Endings and completion",
+      "n_topics": 1
+    },
+    "c156": {
+      "node": 347,
+      "theme": "Uniqueness and Exclusivity",
+      "n_topics": 1
+    },
+    "c157": {
+      "node": 292,
+      "theme": "Token naming and identity",
+      "n_topics": 1
+    },
+    "c158": {
+      "node": 18,
+      "theme": "Justin Bieber and Bibi references",
+      "n_topics": 1
+    },
+    "c159": {
+      "node": 122,
+      "theme": "Sydney Sweeney and Bondi Beach",
+      "n_topics": 1
+    },
+    "c160": {
+      "node": 311,
+      "theme": "Positive affirmations and reassurance",
+      "n_topics": 1
+    },
+    "c161": {
+      "node": 0,
+      "theme": "Giraffe-themed memecoins",
+      "n_topics": 1
+    },
+    "c162": {
+      "node": 348,
+      "theme": "ChatGPT-themed tokens",
+      "n_topics": 1
+    },
+    "c163": {
+      "node": 314,
+      "theme": "Bitcoin and BNB derivatives",
+      "n_topics": 1
+    },
+    "c164": {
+      "node": 21,
+      "theme": "Football player verification tokens",
+      "n_topics": 1
+    },
+    "c165": {
+      "node": 199,
+      "theme": "European Union and Europe",
+      "n_topics": 1
+    },
+    "c166": {
+      "node": 194,
+      "theme": "Mobile phones and calling",
+      "n_topics": 1
+    },
+    "c167": {
+      "node": 210,
+      "theme": "Firearms and shooting",
+      "n_topics": 1
+    },
+    "c168": {
+      "node": 132,
+      "theme": "Sam Altman impersonations",
+      "n_topics": 1
+    },
+    "c169": {
+      "node": 282,
+      "theme": "McDonald's parody and fast food",
+      "n_topics": 1
+    },
+    "c170": {
+      "node": 130,
+      "theme": "Pepe the Frog variations",
+      "n_topics": 1
+    },
+    "c171": {
+      "node": 234,
+      "theme": "Miniature and small-themed tokens",
+      "n_topics": 1
+    },
+    "c172": {
+      "node": 228,
+      "theme": "NVIDIA and AI technology",
+      "n_topics": 1
+    },
+    "c173": {
+      "node": 161,
+      "theme": "Homelessness and rent struggles",
+      "n_topics": 1
+    },
+    "c174": {
+      "node": 375,
+      "theme": "OpenAI and AI ecosystem",
+      "n_topics": 1
+    },
+    "c175": {
+      "node": 164,
+      "theme": "Criminal gang and thug culture",
+      "n_topics": 1
+    },
+    "c176": {
+      "node": 170,
+      "theme": "Education and Schooling",
+      "n_topics": 1
+    },
+    "c177": {
+      "node": 175,
+      "theme": "Super-themed tokens",
+      "n_topics": 1
+    },
+    "c178": {
+      "node": 71,
+      "theme": "Office supplies and paper",
+      "n_topics": 1
+    },
+    "c179": {
+      "node": 283,
+      "theme": "Musk-related puns and names",
+      "n_topics": 1
+    },
+    "c180": {
+      "node": 94,
+      "theme": "New York Knicks and NBA basketball",
+      "n_topics": 1
+    },
+    "c181": {
+      "node": 102,
+      "theme": "Human hands and fingers",
+      "n_topics": 1
+    },
+    "c182": {
+      "node": 162,
+      "theme": "Internet personalities and pop culture",
+      "n_topics": 1
+    },
+    "c183": {
+      "node": 275,
+      "theme": "TikTok and tit-related puns",
+      "n_topics": 1
+    },
+    "c184": {
+      "node": 352,
+      "theme": "Fee redirection mechanisms",
+      "n_topics": 1
+    },
+    "c185": {
+      "node": 179,
+      "theme": "India and Indian people",
+      "n_topics": 1
+    },
+    "c186": {
+      "node": 258,
+      "theme": "Claw-themed tokens",
+      "n_topics": 1
+    },
+    "c187": {
+      "node": 365,
+      "theme": "Liquidity and liquid pools",
+      "n_topics": 1
+    },
+    "c188": {
+      "node": 230,
+      "theme": "Friendship and companionship",
+      "n_topics": 1
+    }
+  },
+  "assign_raw": [
+    {
+      "candidate": "c0",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Animals and Food\",\n  \"definition\": \"A broad category encompassing memecoins featuring various animal species, food items, and culinary imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c1",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Crypto-Native Culture and Technology\",\n  \"definition\": \"A broad category encompassing memecoins deeply rooted in the cryptocurrency ecosystem, ranging from foundational assets and community dynamics to emerging technological concepts and digital subcultures.\"\n}\n"
+    },
+    {
+      "candidate": "c2",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c3",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Politics and Global Conflict\",\n  \"definition\": \"A broad category encompassing memecoins featuring political themes, domestic affairs, international warfare, and global conflicts.\"\n}\n"
+    },
+    {
+      "candidate": "c4",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Space and Extraterrestrial Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on space exploration, celestial imagery, aliens, UFOs, and related pop culture franchises.\"\n}\n"
+    },
+    {
+      "candidate": "c5",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Internet Memes and Characters\",\n  \"definition\": \"A broad category encompassing memecoins rooted in internet culture that blend psychological concepts, family dynamics, nostalgic figures, and chaotic digital humor.\"\n}\n"
+    },
+    {
+      "candidate": "c6",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c7",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c8",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Real-World Legal and Justice Issues\",\n  \"definition\": \"A broad category encompassing memecoins centered on real-world legal events, ranging from calls for justice for victims to themes of incarceration and arrest.\"\n}\n"
+    },
+    {
+      "candidate": "c9",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c10",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Platform and Trading Mechanics\",\n  \"definition\": \"A broad category encompassing memecoins explicitly referencing the Pump.fun launchpad, trading activities, and platform-specific terminology.\"\n}\n"
+    },
+    {
+      "candidate": "c11",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c12",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c13",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Time-Based Internet Memes and Pranks\",\n  \"definition\": \"A broad category encompassing memecoins centered on temporal concepts, seasonal events, pranks, and narratives regarding token age or urgency.\"\n}\n"
+    },
+    {
+      "candidate": "c14",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c15",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c16",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Holidays and Seasonal Events\",\n  \"definition\": \"A broad category encompassing memecoins centered on seasonal celebrations, holidays, and recurring annual events beyond the standard time-based pranks.\"\n}\n"
+    },
+    {
+      "candidate": "c17",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c18",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c19",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Religion and Spiritual Figures\",\n  \"definition\": \"A broad category encompassing memecoins centered on religious deities, prayers, spiritual concepts, and figures from various faiths.\"\n}\n"
+    },
+    {
+      "candidate": "c20",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c21",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Violence\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit sexual themes, pornography, and depictions of violence or assault.\"\n}\n"
+    },
+    {
+      "candidate": "c22",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c23",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Fictional and Real Female Characters\",\n  \"definition\": \"A broad category encompassing memecoins centered on female identities, ranging from specific aesthetic subcultures to fictional characters from media and literature.\"\n}\n"
+    },
+    {
+      "candidate": "c24",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c25",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Life, Death, and Survival\",\n  \"definition\": \"A broad category encompassing memecoins centered on fundamental human experiences regarding existence, mortality, violence, and the will to persist.\"\n}\n"
+    },
+    {
+      "candidate": "c26",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Energy and Fuel Markets\",\n  \"definition\": \"A broad category encompassing memecoins centered on the energy sector, including electricity, power grids, oil reserves, and fuel prices.\"\n}\n"
+    },
+    {
+      "candidate": "c27",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nature and Environment\",\n  \"definition\": \"A broad category encompassing memecoins centered on natural elements, including flora, agriculture, and environmental sustainability.\"\n}\n"
+    },
+    {
+      "candidate": "c28",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Disease and Viral Trends\",\n  \"definition\": \"A broad category encompassing memecoins centered on specific diseases, health crises, and their intersection with viral social media phenomena.\"\n}\n"
+    },
+    {
+      "candidate": "c29",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Hate Speech and Hostility\",\n  \"definition\": \"A broad category encompassing memecoins utilizing hate speech, racial slurs, and aggressive hostility to target specific groups or entities.\"\n}\n"
+    },
+    {
+      "candidate": "c30",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sports and Athletic Competitions\",\n  \"definition\": \"A broad category encompassing memecoins centered on athletic events, professional teams, individual athletes, and global sporting tournaments.\"\n}\n"
+    },
+    {
+      "candidate": "c31",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c32",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Fictional Creatures and Gaming\",\n  \"definition\": \"A broad category encompassing memecoins centered on fictional creatures, video game franchises, and digital gaming subcultures.\"\n}\n"
+    },
+    {
+      "candidate": "c33",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c34",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c35",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c36",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c37",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c38",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c39",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Substance Use and Drug Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on the consumption, paraphernalia, and cultural references of tobacco, cannabis, and other illegal drugs.\"\n}\n"
+    },
+    {
+      "candidate": "c40",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Somali Identity and Internet Memes\",\n  \"definition\": \"A broad category encompassing memecoins rooted in Somali cultural identity alongside those derived from viral internet memes and archetypes.\"\n}\n"
+    },
+    {
+      "candidate": "c41",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Gaming and Play-to-Earn\",\n  \"definition\": \"A broad category encompassing memecoins centered on video game franchises, general gaming culture, and play-to-earn mechanics.\"\n}\n"
+    },
+    {
+      "candidate": "c42",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Cult Themes\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit adult-oriented exclusivity and community structures that mimic cult-like devotion or organization.\"\n}\n"
+    },
+    {
+      "candidate": "c43",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Running and Racing Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on athletic running, racing competitions, marathons, and related physical endurance activities.\"\n}\n"
+    },
+    {
+      "candidate": "c44",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c45",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c46",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Jewish Identity and Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on Jewish people, cultural traditions, religious concepts, and specific terminology.\"\n}\n"
+    },
+    {
+      "candidate": "c47",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c48",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c49",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Human Emotions and Psychological States\",\n  \"definition\": \"A broad category encompassing memecoins centered on human emotional experiences, specifically focusing on negative psychological states such as fear, sadness, anxiety, and crying.\"\n}\n"
+    },
+    {
+      "candidate": "c50",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Workplace and Employment Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on professional life, corporate hierarchies, unemployment, job loss, and employment dynamics.\"\n}\n"
+    },
+    {
+      "candidate": "c51",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Artificial Intelligence and Tech Personalities\",\n  \"definition\": \"A broad category encompassing memecoins centered on artificial intelligence entities, large language models, and prominent figures in the AI industry.\"\n}\n"
+    },
+    {
+      "candidate": "c52",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Automotive and Transportation\",\n  \"definition\": \"A broad category encompassing memecoins centered on vehicles, car brands, transportation services, and related automotive culture.\"\n}\n"
+    },
+    {
+      "candidate": "c53",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c54",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Healthcare and Wellness\",\n  \"definition\": \"A broad category encompassing memecoins centered on medical conditions, fitness activities, health fundraising, and general wellness culture.\"\n}\n"
+    },
+    {
+      "candidate": "c55",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sleep, Rest, and Nighttime Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of sleeping, napping, waking up, and nighttime activities.\"\n}\n"
+    },
+    {
+      "candidate": "c56",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c57",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Vision and Visual Perception\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of sight, observation, surveillance, and visual perception.\"\n}\n"
+    },
+    {
+      "candidate": "c58",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Z-Themed Names and Puns\",\n  \"definition\": \"A broad category encompassing memecoins utilizing the letter 'Z' in their names, often as puns on existing words, brands, or figures.\"\n}\n"
+    },
+    {
+      "candidate": "c59",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Winter and Seasonal Weather\",\n  \"definition\": \"A broad category encompassing memecoins centered on winter elements, snow, cold weather phenomena, and related seasonal imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c60",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"X-Themed Tokens and Christmas\",\n  \"definition\": \"A broad category encompassing memecoins featuring the letter 'X', references to the X social platform, XRP, AI, and Christmas or holiday themes.\"\n}\n"
+    },
+    {
+      "candidate": "c61",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Fire and Burning Imagery\",\n  \"definition\": \"A broad category encompassing memecoins featuring fire, flames, burning, and combustion-related themes.\"\n}\n"
+    },
+    {
+      "candidate": "c62",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Winning and Losing Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on concepts of victory, defeat, competition outcomes, and the dichotomy of winning versus losing.\"\n}\n"
+    },
+    {
+      "candidate": "c63",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Digital Art and Visual Aesthetics\",\n  \"definition\": \"A broad category encompassing memecoins centered on visual creativity, including digital art styles, photography concepts, and retro gaming aesthetics.\"\n}\n"
+    },
+    {
+      "candidate": "c64",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c65",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c66",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Automated Fee Distribution Mechanisms\",\n  \"definition\": \"A broad category encompassing memecoins that utilize smart contracts to automatically distribute creator fees to holders via buybacks, burns, or direct rewards on a set schedule.\"\n}\n"
+    },
+    {
+      "candidate": "c67",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c68",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Water, Rain, and Weather Elements\",\n  \"definition\": \"A broad category encompassing memecoins centered on water bodies, precipitation, humidity, and related meteorological phenomena.\"\n}\n"
+    },
+    {
+      "candidate": "c69",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c70",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Romance and Relationships\",\n  \"definition\": \"A broad category encompassing memecoins centered on romantic themes, affection, interpersonal relationships, and specific motifs like Valentine's Day.\"\n}\n"
+    },
+    {
+      "candidate": "c71",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Upward Movement and Growth\",\n  \"definition\": \"A broad category encompassing memecoins exclusively focused on themes of rising, ascending, or going up.\"\n}\n"
+    },
+    {
+      "candidate": "c72",
+      "raw": "{\n  \"macro\": \"m16\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c73",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"LaunchBlitz.ai Platform Tokens\",\n  \"definition\": \"A broad category encompassing memecoins explicitly created on and referencing the LaunchBlitz.ai platform.\"\n}\n"
+    },
+    {
+      "candidate": "c74",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Flatulence and Bodily Humor\",\n  \"definition\": \"A broad category encompassing memecoins centered exclusively on flatulence, bodily functions, and related scatological jokes.\"\n}\n"
+    },
+    {
+      "candidate": "c75",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Gambling and Casino Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on gambling activities, casino imagery, poker, betting platforms, and related chance-based entertainment.\"\n}\n"
+    },
+    {
+      "candidate": "c76",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c77",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Identity Theft and Impersonation\",\n  \"definition\": \"A broad category encompassing memecoins centered on allegations of stolen concepts, false creator claims, and identity theft within the ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c78",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c79",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Optimism and Positive Outcomes\",\n  \"definition\": \"A broad category encompassing memecoins centered on positive emotional states, luck, fortune, hope, and wishes.\"\n}\n"
+    },
+    {
+      "candidate": "c80",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Music Genres and Audio Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on specific music genres, artists, instruments, and audio subcultures.\"\n}\n"
+    },
+    {
+      "candidate": "c81",
+      "raw": "{\n  \"macro\": \"m17\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c82",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Doom and Apocalypse Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of chaos, apocalypse, destruction, and doomer culture.\"\n}\n"
+    },
+    {
+      "candidate": "c83",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Developer Community Engagement\",\n  \"definition\": \"A broad category encompassing memecoins centered on the developer's active community management, live updates, and social media interactions.\"\n}\n"
+    },
+    {
+      "candidate": "c84",
+      "raw": "{\n  \"macro\": \"m37\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c85",
+      "raw": "{\n  \"macro\": \"m16\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c86",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c87",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Giant and Oversized Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of extreme size, largeness, and giant creatures.\"\n}\n"
+    },
+    {
+      "candidate": "c88",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Reading and Narrative Lore\",\n  \"definition\": \"A broad category encompassing memecoins where the primary appeal is the act of reading their unique lore, stories, or descriptive narratives.\"\n}\n"
+    },
+    {
+      "candidate": "c89",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Dreams and Aspirations\",\n  \"definition\": \"A broad category encompassing memecoins centered on aspirations, hopes, and the pursuit of future goals, often featuring monetary values or motivational phrases.\"\n}\n"
+    },
+    {
+      "candidate": "c90",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Social Media Platform Tokens\",\n  \"definition\": \"A broad category encompassing memecoins explicitly named after, launched via, or referencing specific social media platforms and their associated communities.\"\n}\n"
+    },
+    {
+      "candidate": "c91",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Token Contract Verification\",\n  \"definition\": \"A broad category encompassing memecoins where the primary focus is on verifying the token's contract address through social media and official channels.\"\n}\n"
+    },
+    {
+      "candidate": "c92",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c93",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Speedrunning and Rapid Movement\",\n  \"definition\": \"A broad category encompassing memecoins centered on the concepts of speedrunning, rapid acceleration, and fast-moving actions or creatures.\"\n}\n"
+    },
+    {
+      "candidate": "c94",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Version Numbers and Pairs\",\n  \"definition\": \"A broad category encompassing memecoins explicitly referencing version iterations, numerical sequences, or paired relationships.\"\n}\n"
+    },
+    {
+      "candidate": "c95",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c96",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"DEX Payment and Fatigue\",\n  \"definition\": \"A broad category encompassing memecoins expressing frustration, skepticism, or fatigue regarding payments to decentralized exchanges and related analytics services.\"\n}\n"
+    },
+    {
+      "candidate": "c97",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c98",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Blue Color and Wordplay\",\n  \"definition\": \"A broad category encompassing memecoins that heavily feature the color blue, the word 'blue' in various forms, or puns related to the word 'blue'.\"\n}\n"
+    },
+    {
+      "candidate": "c99",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c100",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Finality and Desperation Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on concepts of finality, last chances, and do-or-die scenarios.\"\n}\n"
+    },
+    {
+      "candidate": "c101",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Male Identity and Characters\",\n  \"definition\": \"A broad category encompassing memecoins centered on male figures, ranging from generic character references to explicit explorations of masculinity.\"\n}\n"
+    },
+    {
+      "candidate": "c102",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c103",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Celebrity Scandals and Doxing\",\n  \"definition\": \"A broad category encompassing memecoins centered on celebrity controversies, legal scandals, and themes of public exposure or doxing.\"\n}\n"
+    },
+    {
+      "candidate": "c104",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Bonk and Aura Dog Variations\",\n  \"definition\": \"A broad category encompassing memecoins featuring the Bonk dog character, Aura concepts, and related farming or animal mechanics.\"\n}\n"
+    },
+    {
+      "candidate": "c105",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c106",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Footwear and Foot Anatomy\",\n  \"definition\": \"A broad category encompassing memecoins centered on feet, toes, socks, shoes, and related footwear imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c107",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Life Transformation Promises\",\n  \"definition\": \"A broad category encompassing memecoins that promise drastic life changes or ruin through simple user actions like clicking or holding.\"\n}\n"
+    },
+    {
+      "candidate": "c108",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Mewing and Cat Memes\",\n  \"definition\": \"A broad category encompassing memecoins centered on the 'mewing' facial aesthetic trend, often combined with cat imagery and references to Pokémon's Mewtwo.\"\n}\n"
+    },
+    {
+      "candidate": "c109",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Bonding Curve and Liquidity Mechanics\",\n  \"definition\": \"A broad category encompassing memecoins that explicitly focus on the technical mechanics of bonding curves, liquidity provision, and order flow dynamics within the Solana ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c110",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Housing and Home Concepts\",\n  \"definition\": \"A broad category encompassing memecoins centered on residential structures, real estate, domestic life, and home-related imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c111",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Bodily Humor\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit sexual themes, pornography, depictions of violence, and scatological or genital-focused humor.\"\n}\n"
+    },
+    {
+      "candidate": "c112",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Chaos and Mayhem Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of chaos, disorder, destruction, and the specific concept of mayhem.\"\n}\n"
+    },
+    {
+      "candidate": "c113",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Return and Rebirth Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on concepts of returning, coming back, resurrection, and cyclical renewal.\"\n}\n"
+    },
+    {
+      "candidate": "c114",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"UNC Acronym and Prefix Tokens\",\n  \"definition\": \"A broad category encompassing memecoins that explicitly incorporate the letters 'UNC' or the prefix 'Un' into their names and branding, often leveraging the acronym's cultural significance or phonetic properties.\"\n}\n"
+    },
+    {
+      "candidate": "c115",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Currency and Dollar References\",\n  \"definition\": \"A broad category encompassing memecoins that explicitly reference various currencies, specifically the dollar, euro, and cents, often using puns or direct naming conventions.\"\n}\n"
+    },
+    {
+      "candidate": "c116",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Urban Transportation and City Life\",\n  \"definition\": \"A broad category encompassing memecoins centered on public transit systems, city locations, and urban-themed characters.\"\n}\n"
+    },
+    {
+      "candidate": "c117",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Bodily Anatomy\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit sexual themes, pornography, and depictions of specific bodily anatomy such as breasts and nipples.\"\n}\n"
+    },
+    {
+      "candidate": "c118",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c119",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Brand Names and Pop Culture Icons\",\n  \"definition\": \"A broad category encompassing memecoins centered on specific commercial brands, technology products, and iconic cultural figures from music and fashion.\"\n}\n"
+    },
+    {
+      "candidate": "c120",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Free Entry and Bonding Mechanics\",\n  \"definition\": \"A broad category encompassing memecoins explicitly promoting free entry, bonding, or reading mechanisms, often using specific terms like 'free', 'vamp', and 'bendor' to describe their tokenomics or community access.\"\n}\n"
+    },
+    {
+      "candidate": "c121",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Dental Hygiene and Tech Errors\",\n  \"definition\": \"A broad category encompassing memecoins featuring dental care items like toothbrushes and toothpaste mixed with technical error messages and related pop culture or health references.\"\n}\n"
+    },
+    {
+      "candidate": "c122",
+      "raw": "{\n  \"macro\": \"m27\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c123",
+      "raw": "{\n  \"macro\": \"m18\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c124",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Blob-Themed Tokens and Variations\",\n  \"definition\": \"A broad category encompassing memecoins featuring blob characters, amorphous shapes, and related phonetic variations.\"\n}\n"
+    },
+    {
+      "candidate": "c125",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Obesity and Body Shaming\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of obesity, fatness, and derogatory body shaming.\"\n}\n"
+    },
+    {
+      "candidate": "c126",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Easter and Egg-Themed Tokens\",\n  \"definition\": \"A broad category encompassing memecoins explicitly named after or themed around Easter eggs, hatching, and related imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c127",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Greetings and Salutations\",\n  \"definition\": \"A broad category encompassing memecoins named primarily after common greeting words in various languages and styles.\"\n}\n"
+    },
+    {
+      "candidate": "c128",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Philosophy and Animal Memes\",\n  \"definition\": \"A broad category encompassing memecoins that blend philosophical concepts, specifically those of Friedrich Nietzsche, with various animal characters and imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c129",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Stablecoin and Tether References\",\n  \"definition\": \"A broad category encompassing memecoins explicitly referencing Tether (USDT), stablecoins, or associated financial branding.\"\n}\n"
+    },
+    {
+      "candidate": "c130",
+      "raw": "{\n  \"macro\": \"m16\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c131",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Holding and Staying Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on the act of holding tokens, maintaining positions, and encouraging holders to stay invested.\"\n}\n"
+    },
+    {
+      "candidate": "c132",
+      "raw": "{\n  \"macro\": \"m27\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c133",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nonsensical Gibberish Names\",\n  \"definition\": \"A broad category encompassing memecoins featuring random letter combinations, made-up words, or strings lacking coherent meaning.\"\n}\n"
+    },
+    {
+      "candidate": "c134",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c135",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Adult Subcultures and Slang\",\n  \"definition\": \"A broad category encompassing memecoins rooted in specific internet subcultures, such as the 'gooner' community, and their associated slang, behaviors, and identity markers.\"\n}\n"
+    },
+    {
+      "candidate": "c136",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c137",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Croc, Cuck, and Crab Puns\",\n  \"definition\": \"A broad category encompassing memecoins featuring puns on the words 'croc', 'cuck', and 'crab', often combined with food items or absurd concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c138",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Psychological Operations and Propaganda\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of psychological warfare, propaganda, reality control, and information manipulation.\"\n}\n"
+    },
+    {
+      "candidate": "c139",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Communication and Correspondence\",\n  \"definition\": \"A broad category encompassing memecoins centered on the act of sending letters, mail, postal services, and general communication themes.\"\n}\n"
+    },
+    {
+      "candidate": "c140",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Technology Brands and Consumer Electronics\",\n  \"definition\": \"A broad category encompassing memecoins centered on major consumer technology brands, flagship devices, and associated software personalities.\"\n}\n"
+    },
+    {
+      "candidate": "c141",
+      "raw": "{\n  \"macro\": \"m14\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c142",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"PVP and PFP Gaming Tokens\",\n  \"definition\": \"A broad category encompassing memecoins heavily utilizing player-versus-player and profile picture gaming terminology, often referencing specific characters or game modes.\"\n}\n"
+    },
+    {
+      "candidate": "c143",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c144",
+      "raw": "{\n  \"macro\": \"m16\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c145",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Conspiracy Theories and Fraud\",\n  \"definition\": \"A broad category encompassing memecoins centered on conspiracy theories, fraud accusations, corruption, and anti-establishment narratives.\"\n}\n"
+    },
+    {
+      "candidate": "c146",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Slop and Quarter Zip Memes\",\n  \"definition\": \"A broad category encompassing memecoins rooted in specific internet subcultures that utilize 'slop' and 'quarter zip' terminology to reference viral trends and community identity.\"\n}\n"
+    },
+    {
+      "candidate": "c147",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Adult Humor\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit sexual themes, adult-oriented humor, and references to sexual health products or adult entertainment.\"\n}\n"
+    },
+    {
+      "candidate": "c148",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Generic Token Naming\",\n  \"definition\": \"A broad category encompassing memecoins with non-descriptive, repetitive names that lack specific thematic content or utility.\"\n}\n"
+    },
+    {
+      "candidate": "c149",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Market Sentiment and Chart Patterns\",\n  \"definition\": \"A broad category encompassing memecoins centered on financial chart indicators, market sentiment analysis, and trading signals like green candles or red candles.\"\n}\n"
+    },
+    {
+      "candidate": "c150",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c151",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Hair and Grooming Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of hair, baldness, beards, shaving, and personal grooming.\"\n}\n"
+    },
+    {
+      "candidate": "c152",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c153",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c154",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Adult Content and Financial Parody\",\n  \"definition\": \"A broad category encompassing memecoins featuring explicit adult themes combined with satirical references to financial institutions and stock market concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c155",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Endings and Completion Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on concepts of finality, conclusion, completion, and the state of being finished or over.\"\n}\n"
+    },
+    {
+      "candidate": "c156",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Uniqueness and Exclusivity\",\n  \"definition\": \"A broad category encompassing memecoins emphasizing singularity, being the only option, or referencing the concept that one entity is sufficient.\"\n}\n"
+    },
+    {
+      "candidate": "c157",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Token Naming and Identity\",\n  \"definition\": \"A broad category encompassing memecoins explicitly focused on the concept of names, real identities, or correcting incorrect token names.\"\n}\n"
+    },
+    {
+      "candidate": "c158",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Celebrity Identities and Pop Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on specific real-world celebrities, their nicknames, and associated pop culture puns.\"\n}\n"
+    },
+    {
+      "candidate": "c159",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Celebrities and Australian Culture\",\n  \"definition\": \"A broad category encompassing memecoins centered on specific real-world celebrities, such as Sydney Sweeney, and distinct regional cultural references like Bondi Beach and Australian identity.\"\n}\n"
+    },
+    {
+      "candidate": "c160",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Positive Affirmations and Reassurance\",\n  \"definition\": \"A broad category encompassing memecoins centered on positive affirmations, reassurance, and phrases indicating that everything is fine or good.\"\n}\n"
+    },
+    {
+      "candidate": "c161",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c162",
+      "raw": "{\n  \"macro\": \"m27\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c163",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Bitcoin and BNB Derivatives\",\n  \"definition\": \"A broad category encompassing memecoins that are direct derivatives, variations, or satirical takes on Bitcoin and Binance Coin, often incorporating price targets, specific numbers, or negative sentiments.\"\n}\n"
+    },
+    {
+      "candidate": "c164",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sports Athlete Verification Tokens\",\n  \"definition\": \"A broad category encompassing memecoins named after professional athletes that promote verification services on specific platforms.\"\n}\n"
+    },
+    {
+      "candidate": "c165",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c166",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Mobile Phones and Calling\",\n  \"definition\": \"A broad category encompassing memecoins centered on mobile phone brands, models, and communication functions.\"\n}\n"
+    },
+    {
+      "candidate": "c167",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Firearms and Weaponry\",\n  \"definition\": \"A broad category encompassing memecoins centered on guns, shooting actions, and related weaponry.\"\n}\n"
+    },
+    {
+      "candidate": "c168",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"AI Industry Leaders and Executives\",\n  \"definition\": \"A broad category encompassing memecoins centered on prominent figures in the artificial intelligence industry, including CEOs, founders, and key executives from major tech companies.\"\n}\n"
+    },
+    {
+      "candidate": "c169",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c170",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c171",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Miniature and Small Themes\",\n  \"definition\": \"A broad category encompassing memecoins centered on themes of diminutive scale, smallness, and miniature concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c172",
+      "raw": "{\n  \"macro\": \"m27\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c173",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Housing Insecurity and Poverty\",\n  \"definition\": \"A broad category encompassing memecoins centered on financial hardship, homelessness, high rent costs, and the struggle for affordable housing.\"\n}\n"
+    },
+    {
+      "candidate": "c174",
+      "raw": "{\n  \"macro\": \"m27\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c175",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Criminal Gang and Thug Culture\",\n  \"definition\": \"A broad category encompassing memecoins featuring criminal organizations, gangster lifestyles, and thug culture.\"\n}\n"
+    },
+    {
+      "candidate": "c176",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Education and Schooling\",\n  \"definition\": \"A broad category encompassing memecoins centered on academic institutions, teachers, students, and learning processes.\"\n}\n"
+    },
+    {
+      "candidate": "c177",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Super-Themed Tokens and Branding\",\n  \"definition\": \"A broad category encompassing memecoins that explicitly incorporate the word 'Super' into their names, descriptions, or branding, often referencing pop culture figures or generic superhero concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c178",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Office Supplies and Stationery\",\n  \"definition\": \"A broad category encompassing memecoins centered on office equipment, stationery items, and workplace administrative tools.\"\n}\n"
+    },
+    {
+      "candidate": "c179",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Elon Musk and Tech Figures\",\n  \"definition\": \"A broad category encompassing memecoins centered on Elon Musk, his companies, and related puns or impersonations.\"\n}\n"
+    },
+    {
+      "candidate": "c180",
+      "raw": "{\n  \"macro\": \"m17\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c181",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Human Hands and Fingers\",\n  \"definition\": \"A broad category encompassing memecoins centered on human hands, fingers, gestures, and tactile interactions.\"\n}\n"
+    },
+    {
+      "candidate": "c182",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c183",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Social Media Platforms and Adult Puns\",\n  \"definition\": \"A broad category encompassing memecoins referencing specific social media platforms like TikTok alongside those utilizing adult-oriented puns derived from similar-sounding words.\"\n}\n"
+    },
+    {
+      "candidate": "c184",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Fee Redistribution Mechanics\",\n  \"definition\": \"A broad category encompassing memecoins explicitly designed to redirect transaction fees to specific addresses, developers, or holders via smart contract mechanisms.\"\n}\n"
+    },
+    {
+      "candidate": "c185",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"India and Indian People\",\n  \"definition\": \"A broad category encompassing memecoins featuring Indian culture, people, political figures, and national identity.\"\n}\n"
+    },
+    {
+      "candidate": "c186",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Claw-Themed Tokens\",\n  \"definition\": \"A broad category encompassing memecoins featuring claws, claw machines, or related imagery and terminology.\"\n}\n"
+    },
+    {
+      "candidate": "c187",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Liquidity and Liquid Pools\",\n  \"definition\": \"A broad category encompassing memecoins centered on liquidity mechanics, including pools, providers, and the flow of capital within the ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c188",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Friendship and Companionship\",\n  \"definition\": \"A broad category encompassing memecoins centered on social bonds, friendship, companionship, and interpersonal connections.\"\n}\n"
+    }
+  ],
+  "dedup_raw": "{\n  \"merge\": [\n    {\n      \"ids\": [\"m1\", \"m27\"],\n      \"name\": \"Crypto-Native Culture and Technology\",\n      \"definition\": \"A broad category encompassing memecoins deeply rooted in the cryptocurrency ecosystem, ranging from foundational assets and community dynamics to emerging technological concepts like AI and digital subcultures.\"\n    },\n    {\n      \"ids\": [\"m17\", \"m23\"],\n      \"name\": \"Sports and Athletic Competitions\",\n      \"definition\": \"A broad category encompassing memecoins centered on athletic events, professional teams, individual athletes, and global sporting tournaments including running and racing.\"\n    },\n    {\n      \"ids\": [\"m18\", \"m21\"],\n      \"name\": \"Fictional Creatures and Gaming\",\n      \"definition\": \"A broad category encompassing memecoins centered on fictional creatures, video game franchises, digital gaming subcultures, and play-to-earn mechanics.\"\n    },\n    {\n      \"ids\": [\"m38\", \"m66\", \"m76\", \"m119\", \"m122\"],\n      \"name\": \"Token Mechanics and Liquidity\",\n      \"definition\": \"A broad category encompassing memecoins that explicitly focus on technical mechanics such as bonding curves, liquidity pools, fee distribution, and smart contract dynamics.\"\n    },\n    {\n      \"ids\": [\"m40\", \"m80\"],\n      \"name\": \"Romance and Seasonal Events\",\n      \"definition\": \"A broad category encompassing memecoins centered on romantic themes, affection, interpersonal relationships, and recurring seasonal celebrations like Easter.\"\n    },\n    {\n      \"ids\": [\"m42\", \"m53\", \"m90\"],\n      \"name\": \"Platform and Brand Tokens\",\n      \"definition\": \"A broad category encompassing memecoins explicitly named after, launched via, or referencing specific platforms, social media networks, and major consumer technology brands.\"\n    },\n    {\n      \"ids\": [\"m45\", \"m92\"],\n      \"name\": \"Conspiracy and Fraud\",\n      \"definition\": \"A broad category encompassing memecoins centered on allegations of stolen concepts, identity theft, corruption, fraud accusations, and anti-establishment narratives.\"\n    },\n    {\n      \"ids\": [\"m60\", \"m102\", \"m103\", \"m106\", \"m109\", \"m116\"],\n      \"name\": \"Celebrity and Public Figures\",\n      \"definition\": \"A broad category encompassing memecoins centered on specific real-world celebrities, athletes, tech executives, and public figures, including their nicknames and impersonations.\"\n    },\n    {\n      \"ids\": [\"m61\", \"m79\"],\n      \"name\": \"Hostility and Body Shaming\",\n      \"definition\": \"A broad category encompassing memecoins utilizing hate speech, racial slurs, aggressive hostility, and derogatory themes regarding obesity and body shaming.\"\n    },\n    {\n      \"ids\": [\"m10\", \"m22\", \"m68\", \"m74\", \"m94\", \"m98\"],\n      \"name\": \"Sexual Content and Adult Themes\",\n      \"definition\": \"A broad category encompassing memecoins featuring explicit sexual themes, pornography, adult-oriented humor, and depictions of specific bodily anatomy or violence.\"\n    },\n    {\n      \"ids\": [\"m12\", \"m48\", \"m59\", \"m69\", \"m99\"],\n      \"name\": \"Doom, Death, and Finality\",\n      \"definition\": \"A broad category encompassing memecoins centered on themes of mortality, apocalypse, destruction, chaos, desperation, and concepts of finality or endings.\"\n    },\n    {\n      \"ids\": [\"m13\", \"m28\", \"m35\", \"m39\", \"m50\", \"m58\", \"m63\", \"m67\", \"m72\", \"m73\", \"m77\", \"m81\", \"m83\", \"m89\", \"m91\", \"m96\", \"m97\", \"m100\", \"m104\", \"m105\", \"m107\", \"m108\", \"m110\", \"m111\", \"m113\", \"m114\", \"m115\", \"m117\", \"m118\", \"m120\", \"m121\"],\n      \"name\": \"Specific Niche Themes\",\n      \"definition\": \"A broad category encompassing memecoins centered on highly specific, non-overlapping topics such as energy markets, automotive brands, weather elements, body parts, greetings, stablecoins, and regional cultures.\"\n    }\n  ]\n}\n",
+  "macro_topics": [
+    {
+      "name": "Animals and Food",
+      "definition": "A broad category encompassing memecoins featuring various animal species, food items, and culinary imagery.",
+      "members": [
+        "c0",
+        "c12",
+        "c36",
+        "c64",
+        "c86",
+        "c95",
+        "c97",
+        "c118",
+        "c134",
+        "c143",
+        "c150",
+        "c152",
+        "c161",
+        "c169"
+      ],
+      "examples": [
+        "Animal and Food Memecoins",
+        "Food and culinary culture",
+        "Food and beverages",
+        "Food and dairy products",
+        "Capybara and hat memes",
+        "Fruit-themed tokens",
+        "Banana-themed memecoins",
+        "Food and beverage",
+        "Vegetable-themed tokens",
+        "Bee and honey themed tokens",
+        "Hamster-themed tokens",
+        "G-word puns and animal names",
+        "Giraffe-themed memecoins",
+        "McDonald's parody and fast food"
+      ],
+      "topics": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        12,
+        13,
+        23,
+        28,
+        31,
+        33,
+        35,
+        44,
+        46,
+        53,
+        55,
+        57,
+        59,
+        61,
+        63,
+        64,
+        68,
+        69,
+        70,
+        72,
+        73,
+        78,
+        79,
+        82,
+        83,
+        84,
+        86,
+        89,
+        90,
+        91,
+        95,
+        96,
+        97,
+        98,
+        104,
+        108,
+        109,
+        110,
+        112,
+        113,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        148,
+        229,
+        269,
+        282,
+        293
+      ],
+      "docs": 326051,
+      "share": 0.21966384561798752
+    },
+    {
+      "name": "Crypto-Native Culture and Technology",
+      "definition": "A broad category encompassing memecoins deeply rooted in the cryptocurrency ecosystem, ranging from foundational assets and community dynamics to emerging technological concepts like AI and digital subcultures.",
+      "members": [
+        "c1",
+        "c2",
+        "c6",
+        "c9",
+        "c24",
+        "c33",
+        "c47",
+        "c56",
+        "c105",
+        "c136",
+        "c51",
+        "c122",
+        "c132",
+        "c162",
+        "c172",
+        "c174"
+      ],
+      "examples": [
+        "Crypto-native culture and technology",
+        "Crypto-native culture and finance",
+        "crypto-native culture and finance",
+        "crypto-native culture and trading",
+        "Crypto-native culture and internet memes",
+        "Crypto-native culture and internet memes",
+        "Crypto-native culture and finance",
+        "Crypto-native culture and slang",
+        "Crypto-native culture and market sentiment",
+        "Diamond hands holding strategy",
+        "Grok AI and xAI derivatives",
+        "GitHub and Git-related concepts",
+        "Anthropic AI model clones",
+        "ChatGPT-themed tokens",
+        "NVIDIA and AI technology",
+        "OpenAI and AI ecosystem"
+      ],
+      "merged_from": [
+        "Crypto-Native Culture and Technology",
+        "Artificial Intelligence and Tech Personalities"
+      ],
+      "topics": [
+        19,
+        42,
+        62,
+        85,
+        88,
+        134,
+        136,
+        142,
+        143,
+        144,
+        158,
+        165,
+        168,
+        184,
+        186,
+        228,
+        232,
+        245,
+        254,
+        255,
+        256,
+        272,
+        273,
+        281,
+        286,
+        295,
+        303,
+        315,
+        318,
+        320,
+        328,
+        343,
+        345,
+        346,
+        348,
+        349,
+        355,
+        362,
+        364,
+        366,
+        370,
+        371,
+        375,
+        379,
+        380,
+        381,
+        382,
+        383,
+        385,
+        386,
+        387,
+        388,
+        389,
+        391,
+        393,
+        396,
+        397
+      ],
+      "docs": 226449,
+      "share": 0.15256097413088032
+    },
+    {
+      "name": "Internet Memes and Characters",
+      "definition": "A broad category encompassing memecoins rooted in internet culture that blend psychological concepts, family dynamics, nostalgic figures, and chaotic digital humor.",
+      "members": [
+        "c5",
+        "c7",
+        "c11",
+        "c15",
+        "c18",
+        "c20",
+        "c22",
+        "c31",
+        "c35",
+        "c37",
+        "c38",
+        "c44",
+        "c45",
+        "c65",
+        "c67",
+        "c69",
+        "c76",
+        "c78",
+        "c99",
+        "c102",
+        "c170",
+        "c182"
+      ],
+      "examples": [
+        "Internet memes and characters",
+        "Asian internet memes and culture",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and pop culture",
+        "internet memes and characters",
+        "Internet memes and characters",
+        "Generic meme references",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Pepe the Frog variations",
+        "Internet personalities and pop culture"
+      ],
+      "topics": [
+        3,
+        6,
+        8,
+        14,
+        15,
+        16,
+        22,
+        25,
+        26,
+        29,
+        37,
+        48,
+        49,
+        60,
+        65,
+        74,
+        87,
+        93,
+        105,
+        130,
+        131,
+        156,
+        157,
+        162,
+        167,
+        214,
+        221,
+        226,
+        227,
+        231,
+        235,
+        242,
+        243,
+        248,
+        249,
+        250,
+        252,
+        264,
+        265,
+        270,
+        285,
+        302,
+        304,
+        305,
+        306,
+        307,
+        308,
+        312,
+        317,
+        319,
+        321,
+        322,
+        323,
+        325,
+        327,
+        331,
+        332,
+        339,
+        341,
+        342,
+        344,
+        356,
+        372,
+        378,
+        394
+      ],
+      "docs": 188938,
+      "share": 0.1272894352827359
+    },
+    {
+      "name": "Politics and Global Conflict",
+      "definition": "A broad category encompassing memecoins featuring political themes, domestic affairs, international warfare, and global conflicts.",
+      "members": [
+        "c3",
+        "c14",
+        "c34",
+        "c48",
+        "c92",
+        "c153",
+        "c165"
+      ],
+      "examples": [
+        "Politics and global conflict",
+        "International politics and conflict",
+        "Politics and governance",
+        "Political satire and cultural stereotypes",
+        "Immigration enforcement and ICE",
+        "Trump's Greenland acquisition meme",
+        "European Union and Europe"
+      ],
+      "topics": [
+        54,
+        66,
+        153,
+        155,
+        193,
+        199,
+        200,
+        201,
+        202,
+        205,
+        206,
+        212,
+        213,
+        216,
+        217,
+        218,
+        222,
+        223,
+        277
+      ],
+      "docs": 80272,
+      "share": 0.05408005562150429
+    },
+    {
+      "name": "Specific Niche Themes",
+      "definition": "A broad category encompassing memecoins centered on highly specific, non-overlapping topics such as energy markets, automotive brands, weather elements, body parts, greetings, stablecoins, and regional cultures.",
+      "members": [
+        "c26",
+        "c52",
+        "c61",
+        "c68",
+        "c87",
+        "c98",
+        "c106",
+        "c110",
+        "c115",
+        "c116",
+        "c121",
+        "c127",
+        "c129",
+        "c139",
+        "c142",
+        "c149",
+        "c151",
+        "c156",
+        "c160",
+        "c163",
+        "c166",
+        "c167",
+        "c171",
+        "c173",
+        "c176",
+        "c177",
+        "c178",
+        "c181",
+        "c183",
+        "c185",
+        "c186"
+      ],
+      "examples": [
+        "Energy and fuel markets",
+        "Automotive and transportation",
+        "Fire and burning imagery",
+        "Water and rain related tokens",
+        "Giant and oversized names",
+        "Blue color and wordplay",
+        "Footwear and foot anatomy",
+        "Housing and Home Concepts",
+        "currency and dollar references",
+        "Urban transportation and city life",
+        "tooth and error references",
+        "greetings and salutations",
+        "Tether-related tokens",
+        "Sending letters and mail",
+        "PVP and PFP gaming tokens",
+        "Green candle market sentiment",
+        "Hair and shaving related",
+        "Uniqueness and Exclusivity",
+        "Positive affirmations and reassurance",
+        "Bitcoin and BNB derivatives",
+        "Mobile phones and calling",
+        "Firearms and shooting",
+        "Miniature and small-themed tokens",
+        "Homelessness and rent struggles",
+        "Education and Schooling",
+        "Super-themed tokens",
+        "Office supplies and paper",
+        "Human hands and fingers",
+        "TikTok and tit-related puns",
+        "India and Indian people",
+        "Claw-themed tokens"
+      ],
+      "merged_from": [
+        "Specific Niche Themes",
+        "Automotive and Transportation",
+        "Fire and Burning Imagery",
+        "Water, Rain, and Weather Elements",
+        "Giant and Oversized Themes",
+        "Blue Color and Wordplay",
+        "Footwear and Foot Anatomy",
+        "Housing and Home Concepts",
+        "Currency and Dollar References",
+        "Urban Transportation and City Life",
+        "Dental Hygiene and Tech Errors",
+        "Greetings and Salutations",
+        "Stablecoin and Tether References",
+        "Communication and Correspondence",
+        "PVP and PFP Gaming Tokens",
+        "Market Sentiment and Chart Patterns",
+        "Hair and Grooming Themes",
+        "Uniqueness and Exclusivity",
+        "Positive Affirmations and Reassurance",
+        "Bitcoin and BNB Derivatives",
+        "Mobile Phones and Calling",
+        "Firearms and Weaponry",
+        "Miniature and Small Themes",
+        "Housing Insecurity and Poverty",
+        "Education and Schooling",
+        "Super-Themed Tokens and Branding",
+        "Office Supplies and Stationery",
+        "Human Hands and Fingers",
+        "Social Media Platforms and Adult Puns",
+        "India and Indian People",
+        "Claw-Themed Tokens"
+      ],
+      "topics": [
+        38,
+        39,
+        56,
+        71,
+        102,
+        106,
+        111,
+        145,
+        159,
+        161,
+        170,
+        174,
+        175,
+        179,
+        180,
+        189,
+        194,
+        203,
+        204,
+        210,
+        233,
+        234,
+        237,
+        251,
+        258,
+        275,
+        299,
+        301,
+        311,
+        314,
+        340,
+        347,
+        351,
+        363
+      ],
+      "docs": 73711,
+      "share": 0.04965984378010642
+    },
+    {
+      "name": "Space and Extraterrestrial Themes",
+      "definition": "A broad category encompassing memecoins centered on space exploration, celestial imagery, aliens, UFOs, and related pop culture franchises.",
+      "members": [
+        "c4",
+        "c17",
+        "c53"
+      ],
+      "examples": [
+        "Space and extraterrestrial themes",
+        "Space and aerospace themes",
+        "Space and celestial themes"
+      ],
+      "topics": [
+        92,
+        133,
+        135,
+        139,
+        140,
+        141,
+        146,
+        147,
+        149,
+        151,
+        152,
+        166
+      ],
+      "docs": 51313,
+      "share": 0.034570085386015664
+    },
+    {
+      "name": "Sexual Content and Adult Themes",
+      "definition": "A broad category encompassing memecoins featuring explicit sexual themes, pornography, adult-oriented humor, and depictions of specific bodily anatomy or violence.",
+      "members": [
+        "c21",
+        "c42",
+        "c111",
+        "c117",
+        "c147",
+        "c154"
+      ],
+      "examples": [
+        "Sexual content and violence",
+        "sexual content and cult themes",
+        "Testicular humor and innuendo",
+        "Breast and nipple focused",
+        "condoms and saxophone",
+        "Adult content and financial parody"
+      ],
+      "merged_from": [
+        "Sexual Content and Adult Themes",
+        "Sexual Content and Cult Themes",
+        "Sexual Content and Bodily Humor",
+        "Sexual Content and Bodily Anatomy",
+        "Sexual Content and Adult Humor",
+        "Adult Content and Financial Parody"
+      ],
+      "topics": [
+        20,
+        30,
+        34,
+        103,
+        154,
+        171,
+        197,
+        253,
+        271,
+        324
+      ],
+      "docs": 26195,
+      "share": 0.01764783557162279
+    },
+    {
+      "name": "Doom, Death, and Finality",
+      "definition": "A broad category encompassing memecoins centered on themes of mortality, apocalypse, destruction, chaos, desperation, and concepts of finality or endings.",
+      "members": [
+        "c25",
+        "c82",
+        "c100",
+        "c112",
+        "c155"
+      ],
+      "examples": [
+        "Life, death, and survival",
+        "Doom and Mayhem",
+        "Final attempts and last chances",
+        "Mayhem-themed tokens",
+        "Endings and completion"
+      ],
+      "merged_from": [
+        "Doom, Death, and Finality",
+        "Doom and Apocalypse Themes",
+        "Finality and Desperation Themes",
+        "Chaos and Mayhem Themes",
+        "Endings and Completion Themes"
+      ],
+      "topics": [
+        185,
+        236,
+        261,
+        278,
+        279,
+        300,
+        338
+      ],
+      "docs": 20842,
+      "share": 0.014041465508064984
+    },
+    {
+      "name": "Hate Speech and Hostility",
+      "definition": "A broad category encompassing memecoins utilizing hate speech, racial slurs, and aggressive hostility to target specific groups or entities.",
+      "members": [
+        "c29",
+        "c72",
+        "c85",
+        "c130",
+        "c144"
+      ],
+      "examples": [
+        "Hate speech and hostility",
+        "Anti-Semitic and racist memes",
+        "Racism and White Supremacy",
+        "Anti-Semitic and racist slurs",
+        "Nazi and Holocaust references"
+      ],
+      "topics": [
+        80,
+        81,
+        192,
+        196,
+        280,
+        291,
+        368
+      ],
+      "docs": 20313,
+      "share": 0.01368507287521946
+    },
+    {
+      "name": "Sports and Athletic Competitions",
+      "definition": "A broad category encompassing memecoins centered on athletic events, professional teams, individual athletes, and global sporting tournaments including running and racing.",
+      "members": [
+        "c30",
+        "c81",
+        "c180",
+        "c43"
+      ],
+      "examples": [
+        "Sports",
+        "Combat sports and fighting",
+        "New York Knicks and NBA basketball",
+        "Running and racing"
+      ],
+      "merged_from": [
+        "Sports and Athletic Competitions",
+        "Running and Racing Themes"
+      ],
+      "topics": [
+        94,
+        176,
+        209,
+        215,
+        219,
+        220
+      ],
+      "docs": 19564,
+      "share": 0.013180464024555385
+    },
+    {
+      "name": "Real-World Legal and Justice Issues",
+      "definition": "A broad category encompassing memecoins centered on real-world legal events, ranging from calls for justice for victims to themes of incarceration and arrest.",
+      "members": [
+        "c8"
+      ],
+      "examples": [
+        "Real-world legal and justice issues"
+      ],
+      "topics": [
+        137,
+        138
+      ],
+      "docs": 19332,
+      "share": 0.01302416328576491
+    },
+    {
+      "name": "Platform and Trading Mechanics",
+      "definition": "A broad category encompassing memecoins explicitly referencing the Pump.fun launchpad, trading activities, and platform-specific terminology.",
+      "members": [
+        "c10"
+      ],
+      "examples": [
+        "Pump.fun platform and trading"
+      ],
+      "topics": [
+        297
+      ],
+      "docs": 18140,
+      "share": 0.012221100869220746
+    },
+    {
+      "name": "Fictional Creatures and Gaming",
+      "definition": "A broad category encompassing memecoins centered on fictional creatures, video game franchises, digital gaming subcultures, and play-to-earn mechanics.",
+      "members": [
+        "c32",
+        "c123",
+        "c41"
+      ],
+      "examples": [
+        "Pokémon trading card games",
+        "Grand Theft Auto franchise",
+        "Gaming and Play-to-Earn"
+      ],
+      "merged_from": [
+        "Fictional Creatures and Gaming",
+        "Gaming and Play-to-Earn"
+      ],
+      "topics": [
+        43,
+        247,
+        360,
+        361
+      ],
+      "docs": 16809,
+      "share": 0.011324392751418496
+    },
+    {
+      "name": "Time-Based Internet Memes and Pranks",
+      "definition": "A broad category encompassing memecoins centered on temporal concepts, seasonal events, pranks, and narratives regarding token age or urgency.",
+      "members": [
+        "c13"
+      ],
+      "examples": [
+        "Time-based internet memes and pranks"
+      ],
+      "topics": [
+        267,
+        268,
+        288,
+        289,
+        290
+      ],
+      "docs": 16287,
+      "share": 0.010972716089139928
+    },
+    {
+      "name": "Holidays and Seasonal Events",
+      "definition": "A broad category encompassing memecoins centered on seasonal celebrations, holidays, and recurring annual events beyond the standard time-based pranks.",
+      "members": [
+        "c16"
+      ],
+      "examples": [
+        "Christmas and holiday memes"
+      ],
+      "topics": [
+        24
+      ],
+      "docs": 14429,
+      "share": 0.009720962758654143
+    },
+    {
+      "name": "Religion and Spiritual Figures",
+      "definition": "A broad category encompassing memecoins centered on religious deities, prayers, spiritual concepts, and figures from various faiths.",
+      "members": [
+        "c19"
+      ],
+      "examples": [
+        "Religion and spiritual figures"
+      ],
+      "topics": [
+        172,
+        173
+      ],
+      "docs": 11835,
+      "share": 0.007973358808557197
+    },
+    {
+      "name": "Token Mechanics and Liquidity",
+      "definition": "A broad category encompassing memecoins that explicitly focus on technical mechanics such as bonding curves, liquidity pools, fee distribution, and smart contract dynamics.",
+      "members": [
+        "c66",
+        "c109",
+        "c120",
+        "c184",
+        "c187"
+      ],
+      "examples": [
+        "Automated fee distribution mechanisms",
+        "bonding curve mechanics",
+        "Free entry and bonding mechanics",
+        "Fee redirection mechanisms",
+        "Liquidity and liquid pools"
+      ],
+      "merged_from": [
+        "Token Mechanics and Liquidity",
+        "Bonding Curve and Liquidity Mechanics",
+        "Free Entry and Bonding Mechanics",
+        "Fee Redistribution Mechanics",
+        "Liquidity and Liquid Pools"
+      ],
+      "topics": [
+        50,
+        187,
+        298,
+        352,
+        365
+      ],
+      "docs": 11659,
+      "share": 0.007854785834302352
+    },
+    {
+      "name": "Nature and Environment",
+      "definition": "A broad category encompassing memecoins centered on natural elements, including flora, agriculture, and environmental sustainability.",
+      "members": [
+        "c27",
+        "c141"
+      ],
+      "examples": [
+        "Nature and Environment",
+        "Mushroom and Bonsai"
+      ],
+      "topics": [
+        7,
+        99,
+        100,
+        101
+      ],
+      "docs": 11372,
+      "share": 0.00766143104105724
+    },
+    {
+      "name": "Fictional and Real Female Characters",
+      "definition": "A broad category encompassing memecoins centered on female identities, ranging from specific aesthetic subcultures to fictional characters from media and literature.",
+      "members": [
+        "c23"
+      ],
+      "examples": [
+        "Fictional and real female characters"
+      ],
+      "topics": [
+        326,
+        350
+      ],
+      "docs": 10896,
+      "share": 0.007340745042504369
+    },
+    {
+      "name": "Celebrity and Public Figures",
+      "definition": "A broad category encompassing memecoins centered on specific real-world celebrities, athletes, tech executives, and public figures, including their nicknames and impersonations.",
+      "members": [
+        "c101",
+        "c158",
+        "c159",
+        "c164",
+        "c168",
+        "c179"
+      ],
+      "examples": [
+        "Male identity and characters",
+        "Justin Bieber and Bibi references",
+        "Sydney Sweeney and Bondi Beach",
+        "Football player verification tokens",
+        "Sam Altman impersonations",
+        "Musk-related puns and names"
+      ],
+      "merged_from": [
+        "Celebrity and Public Figures",
+        "Celebrity Identities and Pop Culture",
+        "Celebrities and Australian Culture",
+        "Sports Athlete Verification Tokens",
+        "AI Industry Leaders and Executives",
+        "Elon Musk and Tech Figures"
+      ],
+      "topics": [
+        18,
+        21,
+        122,
+        132,
+        283,
+        336,
+        337
+      ],
+      "docs": 10177,
+      "share": 0.006856347494270096
+    },
+    {
+      "name": "Disease and Viral Trends",
+      "definition": "A broad category encompassing memecoins centered on specific diseases, health crises, and their intersection with viral social media phenomena.",
+      "members": [
+        "c28"
+      ],
+      "examples": [
+        "Viral trends and hantavirus references"
+      ],
+      "topics": [
+        384
+      ],
+      "docs": 9213,
+      "share": 0.006206890976192433
+    },
+    {
+      "name": "Platform and Brand Tokens",
+      "definition": "A broad category encompassing memecoins explicitly named after, launched via, or referencing specific platforms, social media networks, and major consumer technology brands.",
+      "members": [
+        "c73",
+        "c90",
+        "c140"
+      ],
+      "examples": [
+        "LaunchBlitz.ai platform tokens",
+        "Twitter-related token launches",
+        "Apple and iPhone related"
+      ],
+      "merged_from": [
+        "Platform and Brand Tokens",
+        "Social Media Platform Tokens",
+        "Technology Brands and Consumer Electronics"
+      ],
+      "topics": [
+        17,
+        75,
+        178
+      ],
+      "docs": 8904,
+      "share": 0.005998714561165464
+    },
+    {
+      "name": "Digital Art and Visual Aesthetics",
+      "definition": "A broad category encompassing memecoins centered on visual creativity, including digital art styles, photography concepts, and retro gaming aesthetics.",
+      "members": [
+        "c63",
+        "c84"
+      ],
+      "examples": [
+        "Digital art and visual aesthetics",
+        "Digital art and creative expression"
+      ],
+      "topics": [
+        181,
+        182,
+        211
+      ],
+      "docs": 7575,
+      "share": 0.005103353863525202
+    },
+    {
+      "name": "Substance Use and Drug Culture",
+      "definition": "A broad category encompassing memecoins centered on the consumption, paraphernalia, and cultural references of tobacco, cannabis, and other illegal drugs.",
+      "members": [
+        "c39"
+      ],
+      "examples": [
+        "Substance use and drug culture"
+      ],
+      "topics": [
+        76,
+        107
+      ],
+      "docs": 6503,
+      "share": 0.004381136656700249
+    },
+    {
+      "name": "Somali Identity and Internet Memes",
+      "definition": "A broad category encompassing memecoins rooted in Somali cultural identity alongside those derived from viral internet memes and archetypes.",
+      "members": [
+        "c40"
+      ],
+      "examples": [
+        "Somali identity and internet memes"
+      ],
+      "topics": [
+        41,
+        52,
+        198
+      ],
+      "docs": 6299,
+      "share": 0.00424369980017759
+    },
+    {
+      "name": "Romance and Seasonal Events",
+      "definition": "A broad category encompassing memecoins centered on romantic themes, affection, interpersonal relationships, and recurring seasonal celebrations like Easter.",
+      "members": [
+        "c70",
+        "c126"
+      ],
+      "examples": [
+        "Romance and love",
+        "Easter and egg-themed tokens"
+      ],
+      "merged_from": [
+        "Romance and Seasonal Events",
+        "Easter and Egg-Themed Tokens"
+      ],
+      "topics": [
+        77,
+        238,
+        239
+      ],
+      "docs": 6228,
+      "share": 0.0041958663844270565
+    },
+    {
+      "name": "Jewish Identity and Culture",
+      "definition": "A broad category encompassing memecoins centered on Jewish people, cultural traditions, religious concepts, and specific terminology.",
+      "members": [
+        "c46"
+      ],
+      "examples": [
+        "Jewish identity and culture"
+      ],
+      "topics": [
+        207
+      ],
+      "docs": 6023,
+      "share": 0.004057755817823404
+    },
+    {
+      "name": "Human Emotions and Psychological States",
+      "definition": "A broad category encompassing memecoins centered on human emotional experiences, specifically focusing on negative psychological states such as fear, sadness, anxiety, and crying.",
+      "members": [
+        "c49"
+      ],
+      "examples": [
+        "human emotions and psychological states"
+      ],
+      "topics": [
+        169,
+        244,
+        257
+      ],
+      "docs": 5643,
+      "share": 0.0038017459870459025
+    },
+    {
+      "name": "Workplace and Employment Culture",
+      "definition": "A broad category encompassing memecoins centered on professional life, corporate hierarchies, unemployment, job loss, and employment dynamics.",
+      "members": [
+        "c50"
+      ],
+      "examples": [
+        "Workplace and employment culture"
+      ],
+      "topics": [
+        190,
+        191
+      ],
+      "docs": 5605,
+      "share": 0.0037761450039681525
+    },
+    {
+      "name": "Conspiracy and Fraud",
+      "definition": "A broad category encompassing memecoins centered on allegations of stolen concepts, identity theft, corruption, fraud accusations, and anti-establishment narratives.",
+      "members": [
+        "c77",
+        "c145"
+      ],
+      "examples": [
+        "Claims of theft and impersonation",
+        "Conspiracy theories and fraud accusations"
+      ],
+      "merged_from": [
+        "Conspiracy and Fraud",
+        "Conspiracy Theories and Fraud"
+      ],
+      "topics": [
+        150,
+        335
+      ],
+      "docs": 5291,
+      "share": 0.0035646000385362166
+    },
+    {
+      "name": "Hostility and Body Shaming",
+      "definition": "A broad category encompassing memecoins utilizing hate speech, racial slurs, aggressive hostility, and derogatory themes regarding obesity and body shaming.",
+      "members": [
+        "c103",
+        "c125"
+      ],
+      "examples": [
+        "Diddy and dox-related puns",
+        "Obesity and body shaming"
+      ],
+      "merged_from": [
+        "Hostility and Body Shaming",
+        "Obesity and Body Shaming"
+      ],
+      "topics": [
+        114,
+        309
+      ],
+      "docs": 5203,
+      "share": 0.0035053135514087953
+    },
+    {
+      "name": "Healthcare and Wellness",
+      "definition": "A broad category encompassing memecoins centered on medical conditions, fitness activities, health fundraising, and general wellness culture.",
+      "members": [
+        "c54"
+      ],
+      "examples": [
+        "Healthcare and wellness"
+      ],
+      "topics": [
+        47,
+        163
+      ],
+      "docs": 4985,
+      "share": 0.003358444753752228
+    },
+    {
+      "name": "Sleep, Rest, and Nighttime Themes",
+      "definition": "A broad category encompassing memecoins centered on themes of sleeping, napping, waking up, and nighttime activities.",
+      "members": [
+        "c55"
+      ],
+      "examples": [
+        "Sleep and rest related tokens"
+      ],
+      "topics": [
+        276
+      ],
+      "docs": 4939,
+      "share": 0.0033274540900265306
+    },
+    {
+      "name": "Vision and Visual Perception",
+      "definition": "A broad category encompassing memecoins centered on themes of sight, observation, surveillance, and visual perception.",
+      "members": [
+        "c57"
+      ],
+      "examples": [
+        "Vision and visual perception"
+      ],
+      "topics": [
+        183,
+        262
+      ],
+      "docs": 4842,
+      "share": 0.003262104212170168
+    },
+    {
+      "name": "Z-Themed Names and Puns",
+      "definition": "A broad category encompassing memecoins utilizing the letter 'Z' in their names, often as puns on existing words, brands, or figures.",
+      "members": [
+        "c58"
+      ],
+      "examples": [
+        "Z-themed names and puns"
+      ],
+      "topics": [
+        225
+      ],
+      "docs": 4731,
+      "share": 0.003187322393179898
+    },
+    {
+      "name": "Winter and Seasonal Weather",
+      "definition": "A broad category encompassing memecoins centered on winter elements, snow, cold weather phenomena, and related seasonal imagery.",
+      "members": [
+        "c59"
+      ],
+      "examples": [
+        "Winter and snow themes"
+      ],
+      "topics": [
+        67
+      ],
+      "docs": 4708,
+      "share": 0.0031718270613170494
+    },
+    {
+      "name": "X-Themed Tokens and Christmas",
+      "definition": "A broad category encompassing memecoins featuring the letter 'X', references to the X social platform, XRP, AI, and Christmas or holiday themes.",
+      "members": [
+        "c60"
+      ],
+      "examples": [
+        "X-themed tokens and Christmas"
+      ],
+      "topics": [
+        188
+      ],
+      "docs": 4518,
+      "share": 0.0030438221459282984
+    },
+    {
+      "name": "Winning and Losing Themes",
+      "definition": "A broad category encompassing memecoins centered on concepts of victory, defeat, competition outcomes, and the dichotomy of winning versus losing.",
+      "members": [
+        "c62"
+      ],
+      "examples": [
+        "winning and losing"
+      ],
+      "topics": [
+        208
+      ],
+      "docs": 4372,
+      "share": 0.0029454604741032584
+    },
+    {
+      "name": "Upward Movement and Growth",
+      "definition": "A broad category encompassing memecoins exclusively focused on themes of rising, ascending, or going up.",
+      "members": [
+        "c71"
+      ],
+      "examples": [
+        "Upward movement and growth"
+      ],
+      "topics": [
+        287
+      ],
+      "docs": 3855,
+      "share": 0.002597152362229657
+    },
+    {
+      "name": "Flatulence and Bodily Humor",
+      "definition": "A broad category encompassing memecoins centered exclusively on flatulence, bodily functions, and related scatological jokes.",
+      "members": [
+        "c74"
+      ],
+      "examples": [
+        "Fart-themed humor"
+      ],
+      "topics": [
+        10
+      ],
+      "docs": 3623,
+      "share": 0.002440851623439182
+    },
+    {
+      "name": "Gambling and Casino Themes",
+      "definition": "A broad category encompassing memecoins centered on gambling activities, casino imagery, poker, betting platforms, and related chance-based entertainment.",
+      "members": [
+        "c75"
+      ],
+      "examples": [
+        "Gambling and casino-themed tokens"
+      ],
+      "topics": [
+        294
+      ],
+      "docs": 3575,
+      "share": 0.002408513539551498
+    },
+    {
+      "name": "Optimism and Positive Outcomes",
+      "definition": "A broad category encompassing memecoins centered on positive emotional states, luck, fortune, hope, and wishes.",
+      "members": [
+        "c79"
+      ],
+      "examples": [
+        "Optimism and Positive Outcomes"
+      ],
+      "topics": [
+        260,
+        263
+      ],
+      "docs": 3444,
+      "share": 0.002320257518941359
+    },
+    {
+      "name": "Music Genres and Audio Culture",
+      "definition": "A broad category encompassing memecoins centered on specific music genres, artists, instruments, and audio subcultures.",
+      "members": [
+        "c80"
+      ],
+      "examples": [
+        "Chill house music culture"
+      ],
+      "topics": [
+        160
+      ],
+      "docs": 3440,
+      "share": 0.0023175626786173854
+    },
+    {
+      "name": "Developer Community Engagement",
+      "definition": "A broad category encompassing memecoins centered on the developer's active community management, live updates, and social media interactions.",
+      "members": [
+        "c83"
+      ],
+      "examples": [
+        "Developer community engagement"
+      ],
+      "topics": [
+        266
+      ],
+      "docs": 3287,
+      "share": 0.002214485036225391
+    },
+    {
+      "name": "Reading and Narrative Lore",
+      "definition": "A broad category encompassing memecoins where the primary appeal is the act of reading their unique lore, stories, or descriptive narratives.",
+      "members": [
+        "c88"
+      ],
+      "examples": [
+        "Reading and Lore"
+      ],
+      "topics": [
+        310
+      ],
+      "docs": 3168,
+      "share": 0.0021343135365871732
+    },
+    {
+      "name": "Dreams and Aspirations",
+      "definition": "A broad category encompassing memecoins centered on aspirations, hopes, and the pursuit of future goals, often featuring monetary values or motivational phrases.",
+      "members": [
+        "c89"
+      ],
+      "examples": [
+        "Dreams and aspirations"
+      ],
+      "topics": [
+        129
+      ],
+      "docs": 3162,
+      "share": 0.0021302712761012126
+    },
+    {
+      "name": "Token Contract Verification",
+      "definition": "A broad category encompassing memecoins where the primary focus is on verifying the token's contract address through social media and official channels.",
+      "members": [
+        "c91"
+      ],
+      "examples": [
+        "Token Contract Address Verification"
+      ],
+      "topics": [
+        284
+      ],
+      "docs": 3122,
+      "share": 0.0021033228728614757
+    },
+    {
+      "name": "Speedrunning and Rapid Movement",
+      "definition": "A broad category encompassing memecoins centered on the concepts of speedrunning, rapid acceleration, and fast-moving actions or creatures.",
+      "members": [
+        "c93"
+      ],
+      "examples": [
+        "Speedrunning and rapid movement"
+      ],
+      "topics": [
+        177
+      ],
+      "docs": 3058,
+      "share": 0.0020602054276778964
+    },
+    {
+      "name": "Version Numbers and Pairs",
+      "definition": "A broad category encompassing memecoins explicitly referencing version iterations, numerical sequences, or paired relationships.",
+      "members": [
+        "c94"
+      ],
+      "examples": [
+        "Version numbers and pairs"
+      ],
+      "topics": [
+        357
+      ],
+      "docs": 3056,
+      "share": 0.0020588580075159096
+    },
+    {
+      "name": "DEX Payment and Fatigue",
+      "definition": "A broad category encompassing memecoins expressing frustration, skepticism, or fatigue regarding payments to decentralized exchanges and related analytics services.",
+      "members": [
+        "c96"
+      ],
+      "examples": [
+        "DEX payment and fatigue"
+      ],
+      "topics": [
+        195
+      ],
+      "docs": 2963,
+      "share": 0.001996202969983521
+    },
+    {
+      "name": "Bonk and Aura Dog Variations",
+      "definition": "A broad category encompassing memecoins featuring the Bonk dog character, Aura concepts, and related farming or animal mechanics.",
+      "members": [
+        "c104"
+      ],
+      "examples": [
+        "Bonk and Aura variations"
+      ],
+      "topics": [
+        32
+      ],
+      "docs": 2855,
+      "share": 0.001923442281236231
+    },
+    {
+      "name": "Life Transformation Promises",
+      "definition": "A broad category encompassing memecoins that promise drastic life changes or ruin through simple user actions like clicking or holding.",
+      "members": [
+        "c107"
+      ],
+      "examples": [
+        "Life transformation promises"
+      ],
+      "topics": [
+        11
+      ],
+      "docs": 2731,
+      "share": 0.0018399022311930463
+    },
+    {
+      "name": "Mewing and Cat Memes",
+      "definition": "A broad category encompassing memecoins centered on the 'mewing' facial aesthetic trend, often combined with cat imagery and references to Pokémon's Mewtwo.",
+      "members": [
+        "c108"
+      ],
+      "examples": [
+        "Mewing and cat memes"
+      ],
+      "topics": [
+        395
+      ],
+      "docs": 2724,
+      "share": 0.0018351862606260923
+    },
+    {
+      "name": "Return and Rebirth Themes",
+      "definition": "A broad category encompassing memecoins centered on concepts of returning, coming back, resurrection, and cyclical renewal.",
+      "members": [
+        "c113"
+      ],
+      "examples": [
+        "Return and comeback"
+      ],
+      "topics": [
+        241
+      ],
+      "docs": 2617,
+      "share": 0.0017630992819597957
+    },
+    {
+      "name": "UNC Acronym and Prefix Tokens",
+      "definition": "A broad category encompassing memecoins that explicitly incorporate the letters 'UNC' or the prefix 'Un' into their names and branding, often leveraging the acronym's cultural significance or phonetic properties.",
+      "members": [
+        "c114"
+      ],
+      "examples": [
+        "Unc-themed tokens"
+      ],
+      "topics": [
+        274
+      ],
+      "docs": 2599,
+      "share": 0.001750972500501914
+    },
+    {
+      "name": "Brand Names and Pop Culture Icons",
+      "definition": "A broad category encompassing memecoins centered on specific commercial brands, technology products, and iconic cultural figures from music and fashion.",
+      "members": [
+        "c119"
+      ],
+      "examples": [
+        "Amazon Alexa and Marley references"
+      ],
+      "topics": [
+        40
+      ],
+      "docs": 2442,
+      "share": 0.0016452000177859462
+    },
+    {
+      "name": "Blob-Themed Tokens and Variations",
+      "definition": "A broad category encompassing memecoins featuring blob characters, amorphous shapes, and related phonetic variations.",
+      "members": [
+        "c124"
+      ],
+      "examples": [
+        "Blob-themed tokens"
+      ],
+      "topics": [
+        330
+      ],
+      "docs": 2388,
+      "share": 0.0016088196734123012
+    },
+    {
+      "name": "Philosophy and Animal Memes",
+      "definition": "A broad category encompassing memecoins that blend philosophical concepts, specifically those of Friedrich Nietzsche, with various animal characters and imagery.",
+      "members": [
+        "c128"
+      ],
+      "examples": [
+        "Nietzschean philosophy and animals"
+      ],
+      "topics": [
+        58
+      ],
+      "docs": 2293,
+      "share": 0.0015448172157179257
+    },
+    {
+      "name": "Holding and Staying Themes",
+      "definition": "A broad category encompassing memecoins centered on the act of holding tokens, maintaining positions, and encouraging holders to stay invested.",
+      "members": [
+        "c131"
+      ],
+      "examples": [
+        "holding tokens and staying"
+      ],
+      "topics": [
+        316
+      ],
+      "docs": 2201,
+      "share": 0.0014828358882665305
+    },
+    {
+      "name": "Nonsensical Gibberish Names",
+      "definition": "A broad category encompassing memecoins featuring random letter combinations, made-up words, or strings lacking coherent meaning.",
+      "members": [
+        "c133"
+      ],
+      "examples": [
+        "nonsensical gibberish names"
+      ],
+      "topics": [
+        329
+      ],
+      "docs": 2138,
+      "share": 0.0014403921531639446
+    },
+    {
+      "name": "Adult Subcultures and Slang",
+      "definition": "A broad category encompassing memecoins rooted in specific internet subcultures, such as the 'gooner' community, and their associated slang, behaviors, and identity markers.",
+      "members": [
+        "c135"
+      ],
+      "examples": [
+        "Gooner subculture and slang"
+      ],
+      "topics": [
+        246
+      ],
+      "docs": 2087,
+      "share": 0.00140603293903328
+    },
+    {
+      "name": "Croc, Cuck, and Crab Puns",
+      "definition": "A broad category encompassing memecoins featuring puns on the words 'croc', 'cuck', and 'crab', often combined with food items or absurd concepts.",
+      "members": [
+        "c137"
+      ],
+      "examples": [
+        "Croc and Cuck puns"
+      ],
+      "topics": [
+        224
+      ],
+      "docs": 2052,
+      "share": 0.00138245308619851
+    },
+    {
+      "name": "Psychological Operations and Propaganda",
+      "definition": "A broad category encompassing memecoins centered on themes of psychological warfare, propaganda, reality control, and information manipulation.",
+      "members": [
+        "c138"
+      ],
+      "examples": [
+        "Psychological operations and propaganda"
+      ],
+      "topics": [
+        45
+      ],
+      "docs": 2044,
+      "share": 0.0013770634055505625
+    },
+    {
+      "name": "Slop and Quarter Zip Memes",
+      "definition": "A broad category encompassing memecoins rooted in specific internet subcultures that utilize 'slop' and 'quarter zip' terminology to reference viral trends and community identity.",
+      "members": [
+        "c146"
+      ],
+      "examples": [
+        "Slop and Quarter Zip memes"
+      ],
+      "topics": [
+        36
+      ],
+      "docs": 1815,
+      "share": 0.001222783797003068
+    },
+    {
+      "name": "Generic Token Naming",
+      "definition": "A broad category encompassing memecoins with non-descriptive, repetitive names that lack specific thematic content or utility.",
+      "members": [
+        "c148"
+      ],
+      "examples": [
+        "generic token naming"
+      ],
+      "topics": [
+        353
+      ],
+      "docs": 1765,
+      "share": 0.0011890982929533968
+    },
+    {
+      "name": "Token Naming and Identity",
+      "definition": "A broad category encompassing memecoins explicitly focused on the concept of names, real identities, or correcting incorrect token names.",
+      "members": [
+        "c157"
+      ],
+      "examples": [
+        "Token naming and identity"
+      ],
+      "topics": [
+        292
+      ],
+      "docs": 1571,
+      "share": 0.0010583985372406722
+    },
+    {
+      "name": "Criminal Gang and Thug Culture",
+      "definition": "A broad category encompassing memecoins featuring criminal organizations, gangster lifestyles, and thug culture.",
+      "members": [
+        "c175"
+      ],
+      "examples": [
+        "Criminal gang and thug culture"
+      ],
+      "topics": [
+        164
+      ],
+      "docs": 1400,
+      "share": 0.0009431941133907963
+    },
+    {
+      "name": "Friendship and Companionship",
+      "definition": "A broad category encompassing memecoins centered on social bonds, friendship, companionship, and interpersonal connections.",
+      "members": [
+        "c188"
+      ],
+      "examples": [
+        "Friendship and companionship"
+      ],
+      "topics": [
+        230
+      ],
+      "docs": 1192,
+      "share": 0.0008030624165441637
+    }
+  ]
+}
