@@ -1,0 +1,2759 @@
+{
+  "run": "base",
+  "modality": "multimodal",
+  "candidates": 140,
+  "macros": 72,
+  "mixed_topics": 0,
+  "mixed_share": 0.0,
+  "llm_calls": 321,
+  "minutes": 15.591922012964885,
+  "candidate_nodes": {
+    "c0": {
+      "node": 563,
+      "theme": "Animal-themed memecoins",
+      "n_topics": 22
+    },
+    "c1": {
+      "node": 565,
+      "theme": "Animal-themed memecoins",
+      "n_topics": 14
+    },
+    "c2": {
+      "node": 527,
+      "theme": "Animals and Internet Memes",
+      "n_topics": 7
+    },
+    "c3": {
+      "node": 477,
+      "theme": "Internet memes and characters",
+      "n_topics": 4
+    },
+    "c4": {
+      "node": 545,
+      "theme": "Crypto-native culture and finance",
+      "n_topics": 11
+    },
+    "c5": {
+      "node": 551,
+      "theme": "US politics and political figures",
+      "n_topics": 7
+    },
+    "c6": {
+      "node": 529,
+      "theme": "Internet memes and characters",
+      "n_topics": 9
+    },
+    "c7": {
+      "node": 266,
+      "theme": "AI infrastructure and data protocols",
+      "n_topics": 1
+    },
+    "c8": {
+      "node": 518,
+      "theme": "Sports and Fitness Memes",
+      "n_topics": 5
+    },
+    "c9": {
+      "node": 553,
+      "theme": "Food and cryptocurrency culture",
+      "n_topics": 11
+    },
+    "c10": {
+      "node": 536,
+      "theme": "Internet memes and characters",
+      "n_topics": 11
+    },
+    "c11": {
+      "node": 448,
+      "theme": "Seasonal and Winter Themes",
+      "n_topics": 2
+    },
+    "c12": {
+      "node": 542,
+      "theme": "Politics, Religion, and National Identity",
+      "n_topics": 10
+    },
+    "c13": {
+      "node": 502,
+      "theme": "Internet memes and characters",
+      "n_topics": 6
+    },
+    "c14": {
+      "node": 89,
+      "theme": "Elon Musk Memes",
+      "n_topics": 1
+    },
+    "c15": {
+      "node": 479,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c16": {
+      "node": 401,
+      "theme": "Earth, space, and astronomy",
+      "n_topics": 2
+    },
+    "c17": {
+      "node": 311,
+      "theme": "Internet memes and characters",
+      "n_topics": 5
+    },
+    "c18": {
+      "node": 327,
+      "theme": "Internet memes and characters",
+      "n_topics": 4
+    },
+    "c19": {
+      "node": 528,
+      "theme": "Politics and Law Enforcement",
+      "n_topics": 5
+    },
+    "c20": {
+      "node": 543,
+      "theme": "International politics and leadership",
+      "n_topics": 4
+    },
+    "c21": {
+      "node": 439,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c22": {
+      "node": 513,
+      "theme": "Technology and Hardware",
+      "n_topics": 4
+    },
+    "c23": {
+      "node": 444,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c24": {
+      "node": 171,
+      "theme": "Cars and Automotive",
+      "n_topics": 1
+    },
+    "c25": {
+      "node": 460,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c26": {
+      "node": 237,
+      "theme": "Pepe the Frog",
+      "n_topics": 1
+    },
+    "c27": {
+      "node": 103,
+      "theme": "Aliens and UFOs",
+      "n_topics": 1
+    },
+    "c28": {
+      "node": 238,
+      "theme": "Sexual organs and anatomy",
+      "n_topics": 1
+    },
+    "c29": {
+      "node": 397,
+      "theme": "Crypto-native culture and internet memes",
+      "n_topics": 2
+    },
+    "c30": {
+      "node": 289,
+      "theme": "Doge-themed space exploration",
+      "n_topics": 1
+    },
+    "c31": {
+      "node": 371,
+      "theme": "Crypto-native culture",
+      "n_topics": 3
+    },
+    "c32": {
+      "node": 234,
+      "theme": "XRP and SpaceX",
+      "n_topics": 1
+    },
+    "c33": {
+      "node": 384,
+      "theme": "Video Games",
+      "n_topics": 2
+    },
+    "c34": {
+      "node": 177,
+      "theme": "beverages and drinks",
+      "n_topics": 1
+    },
+    "c35": {
+      "node": 299,
+      "theme": "sexual and political satire",
+      "n_topics": 2
+    },
+    "c36": {
+      "node": 469,
+      "theme": "Internet memes and characters",
+      "n_topics": 3
+    },
+    "c37": {
+      "node": 245,
+      "theme": "Nature and Landscape",
+      "n_topics": 1
+    },
+    "c38": {
+      "node": 122,
+      "theme": "Chinese culture and identity",
+      "n_topics": 1
+    },
+    "c39": {
+      "node": 116,
+      "theme": "Pump.fun ecosystem",
+      "n_topics": 1
+    },
+    "c40": {
+      "node": 283,
+      "theme": "Retardation and Mental Disability",
+      "n_topics": 1
+    },
+    "c41": {
+      "node": 450,
+      "theme": "Waste and Bathroom Memes",
+      "n_topics": 3
+    },
+    "c42": {
+      "node": 28,
+      "theme": "Hytale and Rover",
+      "n_topics": 1
+    },
+    "c43": {
+      "node": 303,
+      "theme": "Crypto-native culture and internet memes",
+      "n_topics": 2
+    },
+    "c44": {
+      "node": 193,
+      "theme": "Meta and Monero",
+      "n_topics": 1
+    },
+    "c45": {
+      "node": 78,
+      "theme": "Wojak memes",
+      "n_topics": 1
+    },
+    "c46": {
+      "node": 3,
+      "theme": "Global Order Reserve",
+      "n_topics": 1
+    },
+    "c47": {
+      "node": 357,
+      "theme": "Sexual content and adult paraphernalia",
+      "n_topics": 2
+    },
+    "c48": {
+      "node": 325,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c49": {
+      "node": 165,
+      "theme": "Rocks, minerals, and gems",
+      "n_topics": 1
+    },
+    "c50": {
+      "node": 264,
+      "theme": "Number 67",
+      "n_topics": 1
+    },
+    "c51": {
+      "node": 250,
+      "theme": "Pisscoin and Poocoin",
+      "n_topics": 1
+    },
+    "c52": {
+      "node": 79,
+      "theme": "Oil and Gas",
+      "n_topics": 1
+    },
+    "c53": {
+      "node": 248,
+      "theme": "Spiritual Ascension and Enlightenment",
+      "n_topics": 1
+    },
+    "c54": {
+      "node": 119,
+      "theme": "Valentine's Day and Charity",
+      "n_topics": 1
+    },
+    "c55": {
+      "node": 242,
+      "theme": "Solana ecosystem and derivatives",
+      "n_topics": 1
+    },
+    "c56": {
+      "node": 199,
+      "theme": "Airline and Aviation Memes",
+      "n_topics": 1
+    },
+    "c57": {
+      "node": 409,
+      "theme": "Financial markets and wealth accumulation",
+      "n_topics": 2
+    },
+    "c58": {
+      "node": 7,
+      "theme": "Muted gradients and high contrast",
+      "n_topics": 1
+    },
+    "c59": {
+      "node": 94,
+      "theme": "Zcash and privacy tokens",
+      "n_topics": 1
+    },
+    "c60": {
+      "node": 225,
+      "theme": "Cancer treatment fundraising",
+      "n_topics": 1
+    },
+    "c61": {
+      "node": 445,
+      "theme": "Halloween and spooky themes",
+      "n_topics": 2
+    },
+    "c62": {
+      "node": 353,
+      "theme": "celebrities and luxury brands",
+      "n_topics": 2
+    },
+    "c63": {
+      "node": 14,
+      "theme": "seahorse underpants rocket pocket",
+      "n_topics": 1
+    },
+    "c64": {
+      "node": 354,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c65": {
+      "node": 232,
+      "theme": "stop and quit",
+      "n_topics": 1
+    },
+    "c66": {
+      "node": 326,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c67": {
+      "node": 114,
+      "theme": "New Year and 2026",
+      "n_topics": 1
+    },
+    "c68": {
+      "node": 108,
+      "theme": "feet and footwear",
+      "n_topics": 1
+    },
+    "c69": {
+      "node": 253,
+      "theme": "interior design and renovation",
+      "n_topics": 1
+    },
+    "c70": {
+      "node": 104,
+      "theme": "Casino and gambling games",
+      "n_topics": 1
+    },
+    "c71": {
+      "node": 315,
+      "theme": "Internet memes and pop culture",
+      "n_topics": 2
+    },
+    "c72": {
+      "node": 11,
+      "theme": "BoJack Horseman",
+      "n_topics": 1
+    },
+    "c73": {
+      "node": 189,
+      "theme": "Sexual and offensive",
+      "n_topics": 1
+    },
+    "c74": {
+      "node": 25,
+      "theme": "Chinese internet memes",
+      "n_topics": 1
+    },
+    "c75": {
+      "node": 211,
+      "theme": "Jesus Christ and Christian Faith",
+      "n_topics": 1
+    },
+    "c76": {
+      "node": 32,
+      "theme": "Israeli political satire",
+      "n_topics": 1
+    },
+    "c77": {
+      "node": 61,
+      "theme": "Pop culture and memes",
+      "n_topics": 1
+    },
+    "c78": {
+      "node": 51,
+      "theme": "Moriarty and Groypette",
+      "n_topics": 1
+    },
+    "c79": {
+      "node": 347,
+      "theme": "Internet memes and characters",
+      "n_topics": 2
+    },
+    "c80": {
+      "node": 5,
+      "theme": "Science and Space Exploration",
+      "n_topics": 1
+    },
+    "c81": {
+      "node": 244,
+      "theme": "Tether (USDT) and related tokens",
+      "n_topics": 1
+    },
+    "c82": {
+      "node": 259,
+      "theme": "Nexus and Nova",
+      "n_topics": 1
+    },
+    "c83": {
+      "node": 23,
+      "theme": "Pop culture and memes",
+      "n_topics": 1
+    },
+    "c84": {
+      "node": 172,
+      "theme": "Universal Basic Income",
+      "n_topics": 1
+    },
+    "c85": {
+      "node": 113,
+      "theme": "LGBTQ+ Pride and Memes",
+      "n_topics": 1
+    },
+    "c86": {
+      "node": 256,
+      "theme": "financial returns and investment",
+      "n_topics": 1
+    },
+    "c87": {
+      "node": 0,
+      "theme": "Attention and Slop Detection",
+      "n_topics": 1
+    },
+    "c88": {
+      "node": 8,
+      "theme": "Alex Honnold climbing",
+      "n_topics": 1
+    },
+    "c89": {
+      "node": 252,
+      "theme": "terminal and poop humor",
+      "n_topics": 1
+    },
+    "c90": {
+      "node": 209,
+      "theme": "Medieval warriors and demons",
+      "n_topics": 1
+    },
+    "c91": {
+      "node": 227,
+      "theme": "Facebook and related tech",
+      "n_topics": 1
+    },
+    "c92": {
+      "node": 35,
+      "theme": "Cockroach Janta Party",
+      "n_topics": 1
+    },
+    "c93": {
+      "node": 274,
+      "theme": "Twitter-themed memecoins",
+      "n_topics": 1
+    },
+    "c94": {
+      "node": 45,
+      "theme": "Fear Of Missing Out",
+      "n_topics": 1
+    },
+    "c95": {
+      "node": 112,
+      "theme": "K-related names and brands",
+      "n_topics": 1
+    },
+    "c96": {
+      "node": 62,
+      "theme": "Star Wars and MrBeast",
+      "n_topics": 1
+    },
+    "c97": {
+      "node": 241,
+      "theme": "copyright and coinbase",
+      "n_topics": 1
+    },
+    "c98": {
+      "node": 190,
+      "theme": "B-themed tokens",
+      "n_topics": 1
+    },
+    "c99": {
+      "node": 54,
+      "theme": "Monster Energy references",
+      "n_topics": 1
+    },
+    "c100": {
+      "node": 127,
+      "theme": "Cannabis and Tobacco",
+      "n_topics": 1
+    },
+    "c101": {
+      "node": 263,
+      "theme": "test tokens",
+      "n_topics": 1
+    },
+    "c102": {
+      "node": 12,
+      "theme": "Oil and Energy",
+      "n_topics": 1
+    },
+    "c103": {
+      "node": 31,
+      "theme": "The Duve",
+      "n_topics": 1
+    },
+    "c104": {
+      "node": 50,
+      "theme": "Cortisol and Social Anxiety",
+      "n_topics": 1
+    },
+    "c105": {
+      "node": 13,
+      "theme": "Anti-woke and gatekeeping",
+      "n_topics": 1
+    },
+    "c106": {
+      "node": 226,
+      "theme": "CZ and Do Kwon",
+      "n_topics": 1
+    },
+    "c107": {
+      "node": 235,
+      "theme": "Astronomy and Space",
+      "n_topics": 1
+    },
+    "c108": {
+      "node": 191,
+      "theme": "AI and Technology",
+      "n_topics": 1
+    },
+    "c109": {
+      "node": 46,
+      "theme": "Stephen Hawking",
+      "n_topics": 1
+    },
+    "c110": {
+      "node": 161,
+      "theme": "burning tokens and fire imagery",
+      "n_topics": 1
+    },
+    "c111": {
+      "node": 1,
+      "theme": "Financial Markets and Trading",
+      "n_topics": 1
+    },
+    "c112": {
+      "node": 169,
+      "theme": "Hype and Hyper",
+      "n_topics": 1
+    },
+    "c113": {
+      "node": 204,
+      "theme": "SpaceX and Space Exploration",
+      "n_topics": 1
+    },
+    "c114": {
+      "node": 66,
+      "theme": "St. Patrick's Day",
+      "n_topics": 1
+    },
+    "c115": {
+      "node": 18,
+      "theme": "QR Codes and Scanning",
+      "n_topics": 1
+    },
+    "c116": {
+      "node": 210,
+      "theme": "Ancient Greek Philosophy",
+      "n_topics": 1
+    },
+    "c117": {
+      "node": 257,
+      "theme": "Fart-themed tokens",
+      "n_topics": 1
+    },
+    "c118": {
+      "node": 48,
+      "theme": "Liquidity and Exit",
+      "n_topics": 1
+    },
+    "c119": {
+      "node": 208,
+      "theme": "skeletons and skulls",
+      "n_topics": 1
+    },
+    "c120": {
+      "node": 187,
+      "theme": "Hope and perseverance",
+      "n_topics": 1
+    },
+    "c121": {
+      "node": 121,
+      "theme": "TikTok and related tokens",
+      "n_topics": 1
+    },
+    "c122": {
+      "node": 246,
+      "theme": "Precious Metals",
+      "n_topics": 1
+    },
+    "c123": {
+      "node": 55,
+      "theme": "Testing and Verification",
+      "n_topics": 1
+    },
+    "c124": {
+      "node": 15,
+      "theme": "Maxxing",
+      "n_topics": 1
+    },
+    "c125": {
+      "node": 265,
+      "theme": "simple coin",
+      "n_topics": 1
+    },
+    "c126": {
+      "node": 284,
+      "theme": "Uncle Boomer Memes",
+      "n_topics": 1
+    },
+    "c127": {
+      "node": 60,
+      "theme": "Onboarding and AI",
+      "n_topics": 1
+    },
+    "c128": {
+      "node": 26,
+      "theme": "Internet Culture and Meme References",
+      "n_topics": 1
+    },
+    "c129": {
+      "node": 29,
+      "theme": "Thermal imagery and heat maps",
+      "n_topics": 1
+    },
+    "c130": {
+      "node": 288,
+      "theme": "Shiba Inu cryptocurrency",
+      "n_topics": 1
+    },
+    "c131": {
+      "node": 22,
+      "theme": "Startup and Business",
+      "n_topics": 1
+    },
+    "c132": {
+      "node": 124,
+      "theme": "Farming and Agriculture",
+      "n_topics": 1
+    },
+    "c133": {
+      "node": 80,
+      "theme": "Kim Jong Un",
+      "n_topics": 1
+    },
+    "c134": {
+      "node": 9,
+      "theme": "April Fools Prank Memes",
+      "n_topics": 1
+    },
+    "c135": {
+      "node": 59,
+      "theme": "Survival and Crisis",
+      "n_topics": 1
+    },
+    "c136": {
+      "node": 231,
+      "theme": "Nothing coin",
+      "n_topics": 1
+    },
+    "c137": {
+      "node": 4,
+      "theme": "Random names and gibberish",
+      "n_topics": 1
+    },
+    "c138": {
+      "node": 6,
+      "theme": "Nihilism and Anti-Semetic Conspiracy",
+      "n_topics": 1
+    },
+    "c139": {
+      "node": 49,
+      "theme": "Rickroll and Baldi",
+      "n_topics": 1
+    }
+  },
+  "assign_raw": [
+    {
+      "candidate": "c0",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Animal-themed memecoins\",\n  \"definition\": \"Tokens centered on various animal species, ranging from real animals to mythical creatures and viral characters.\"\n}\n"
+    },
+    {
+      "candidate": "c1",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c2",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c3",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Internet memes and characters\",\n  \"definition\": \"Tokens centered on popular internet memes, cultural stereotypes, and specific viral characters including anime, AI agents, and public figures.\"\n}\n"
+    },
+    {
+      "candidate": "c4",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Crypto-native culture and finance\",\n  \"definition\": \"Tokens centered on cryptocurrency terminology, financial markets, stock references, and wealth-related themes within the crypto ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c5",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"US Politics and Political Figures\",\n  \"definition\": \"Tokens centered on American political entities, symbols, and specific political figures including presidents, candidates, and controversial individuals.\"\n}\n"
+    },
+    {
+      "candidate": "c6",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c7",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"AI Infrastructure and Data Protocols\",\n  \"definition\": \"Tokens centered on artificial intelligence agents, data infrastructure, and Solana-based protocol layers.\"\n}\n"
+    },
+    {
+      "candidate": "c8",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sports and Fitness Memes\",\n  \"definition\": \"Tokens centered on professional sports, athletes, fitness culture, and related internet personalities.\"\n}\n"
+    },
+    {
+      "candidate": "c9",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Food and Culinary Memes\",\n  \"definition\": \"Tokens centered on edible items, food industry themes, and culinary cultural references.\"\n}\n"
+    },
+    {
+      "candidate": "c10",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c11",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Seasonal and Winter Themes\",\n  \"definition\": \"Tokens centered on seasonal winter imagery, holidays, cold-weather motifs, and specific winter-related cultural events.\"\n}\n"
+    },
+    {
+      "candidate": "c12",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Politics, Religion, and National Identity\",\n  \"definition\": \"Tokens centered on political ideologies, religious traditions, national identities, and related geopolitical conflicts or figures.\"\n}\n"
+    },
+    {
+      "candidate": "c13",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c14",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c15",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c16",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Space, Earth, and Astronomy\",\n  \"definition\": \"Tokens centered on celestial bodies, cosmic exploration, planetary themes, and astronomical phenomena.\"\n}\n"
+    },
+    {
+      "candidate": "c17",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c18",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c19",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c20",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c21",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c22",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Technology and Hardware\",\n  \"definition\": \"Tokens centered on computer hardware, robotics, automation, and general technology infrastructure outside of AI protocols.\"\n}\n"
+    },
+    {
+      "candidate": "c23",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c24",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Cars and Automotive\",\n  \"definition\": \"Tokens centered on vehicles, automotive brands, racing culture, and transportation themes.\"\n}\n"
+    },
+    {
+      "candidate": "c25",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c26",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c27",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Aliens, UFOs, and Extraterrestrials\",\n  \"definition\": \"Tokens centered on extraterrestrial life, unidentified flying objects, government conspiracy theories regarding space agencies, and related pop culture phenomena.\"\n}\n"
+    },
+    {
+      "candidate": "c28",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Organs and Anatomy\",\n  \"definition\": \"Tokens centered on explicit human sexual organs, genitalia, and related anatomical body parts.\"\n}\n"
+    },
+    {
+      "candidate": "c29",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c30",
+      "raw": "{\n  \"macro\": \"m9\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c31",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c32",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Cryptocurrencies and Aerospace Companies\",\n  \"definition\": \"Tokens centered on specific non-meme cryptocurrencies like XRP and aerospace corporations like SpaceX, distinct from general crypto-native culture or space themes.\"\n}\n"
+    },
+    {
+      "candidate": "c33",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Video Games and Gaming Culture\",\n  \"definition\": \"Tokens centered on popular video games, gaming franchises, virtual worlds, and related internet personalities within the gaming industry.\"\n}\n"
+    },
+    {
+      "candidate": "c34",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Beverages and Drinks\",\n  \"definition\": \"Tokens centered on alcoholic and non-alcoholic beverages, culinary drinks, and liquid consumption culture.\"\n}\n"
+    },
+    {
+      "candidate": "c35",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual and Political Satire\",\n  \"definition\": \"Tokens utilizing sexual innuendo and provocative imagery to satirize political figures, ideologies, and themes.\"\n}\n"
+    },
+    {
+      "candidate": "c36",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c37",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nature and Landscape\",\n  \"definition\": \"Tokens centered on natural scenery, including mountains, islands, sunsets, and houses set in nature.\"\n}\n"
+    },
+    {
+      "candidate": "c38",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Chinese Culture and Identity\",\n  \"definition\": \"Tokens centered on Chinese language, cultural traditions, national identity, and related Asian themes.\"\n}\n"
+    },
+    {
+      "candidate": "c39",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Pump.fun Platform and Ecosystem\",\n  \"definition\": \"Tokens centered on the Pump.fun launchpad platform itself, including its official branding, mascot, and tokens representing the ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c40",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Mental Disability and Insults\",\n  \"definition\": \"Tokens centered on mocking mental disabilities, intelligence, or utilizing derogatory terms related to cognitive impairment.\"\n}\n"
+    },
+    {
+      "candidate": "c41",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Waste and Bathroom Memes\",\n  \"definition\": \"Tokens centered on waste, feces, trash, and bathroom-related themes within internet meme culture.\"\n}\n"
+    },
+    {
+      "candidate": "c42",
+      "raw": "{\n  \"macro\": \"m15\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c43",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c44",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Cryptocurrency Projects and Brands\",\n  \"definition\": \"Tokens centered on specific cryptocurrency projects, blockchain networks, and major tech brands distinct from general crypto-native culture or specific meme themes.\"\n}\n"
+    },
+    {
+      "candidate": "c45",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c46",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Economic Reserve Memes\",\n  \"definition\": \"Tokens centered on fictional or satirical economic concepts involving global reserves of commodities like oil and gold.\"\n}\n"
+    },
+    {
+      "candidate": "c47",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Sexual Content and Adult Paraphernalia\",\n  \"definition\": \"Tokens centered on explicit sexual themes, adult toys, and related paraphernalia often used as euphemisms.\"\n}\n"
+    },
+    {
+      "candidate": "c48",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c49",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Geology, Minerals, and Gems\",\n  \"definition\": \"Tokens centered on geological materials, including rocks, minerals, coal, and gemstones.\"\n}\n"
+    },
+    {
+      "candidate": "c50",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Numerical and Abstract Concepts\",\n  \"definition\": \"Tokens centered on specific numbers, mathematical concepts, or abstract symbols that do not fit into existing thematic categories like animals, politics, or culture.\"\n}\n"
+    },
+    {
+      "candidate": "c51",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Waste and Bathroom Memes\",\n  \"definition\": \"Tokens centered on waste, feces, trash, and bathroom-related themes within internet meme culture.\"\n}\n"
+    },
+    {
+      "candidate": "c52",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Oil and Gas Industry\",\n  \"definition\": \"Tokens centered on the oil and gas industry, featuring themes of barrels, reserves, fuel, and energy commodities.\"\n}\n"
+    },
+    {
+      "candidate": "c53",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Spiritual and Metaphysical Themes\",\n  \"definition\": \"Tokens centered on spiritual awakening, ascension, higher consciousness, and metaphysical concepts of the soul.\"\n}\n"
+    },
+    {
+      "candidate": "c54",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Holidays, Love, and Charity\",\n  \"definition\": \"Tokens centered on specific holidays like Valentine's Day, themes of love and romance, and charitable causes or philanthropy.\"\n}\n"
+    },
+    {
+      "candidate": "c55",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c56",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Airline and Aviation Memes\",\n  \"definition\": \"Tokens centered on commercial airlines, aircraft, drones, and specific aviation carriers.\"\n}\n"
+    },
+    {
+      "candidate": "c57",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c58",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Visual Aesthetic and Design Styles\",\n  \"definition\": \"Tokens characterized by specific visual design patterns such as muted gradients, high contrast, and distinct artistic styles rather than thematic content.\"\n}\n"
+    },
+    {
+      "candidate": "c59",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Privacy and Cryptocurrency\",\n  \"definition\": \"Tokens centered on privacy-focused cryptocurrencies, zero-knowledge proofs, and specific privacy protocols like Zcash.\"\n}\n"
+    },
+    {
+      "candidate": "c60",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Charity and Medical Fundraising\",\n  \"definition\": \"Tokens created to raise funds for medical treatments, specifically focusing on cancer and brain injury cases.\"\n}\n"
+    },
+    {
+      "candidate": "c61",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Halloween and Spooky Themes\",\n  \"definition\": \"Tokens centered on Halloween imagery, seasonal puns, ghosts, and other spooky or supernatural concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c62",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Celebrities and Luxury Brands\",\n  \"definition\": \"Tokens centered on famous individuals, public figures, and high-end consumer goods such as luxury watches and fashion brands.\"\n}\n"
+    },
+    {
+      "candidate": "c63",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Abstract Object Combinations\",\n  \"definition\": \"Tokens centered on arbitrary combinations of unrelated inanimate objects, animals, or body parts that lack a coherent thematic narrative beyond their visual juxtaposition.\"\n}\n"
+    },
+    {
+      "candidate": "c64",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c65",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Stopping and Quitting Themes\",\n  \"definition\": \"Tokens centered on themes of cessation, quitting, stopping, or giving up, often presented with a humorous or cautionary tone.\"\n}\n"
+    },
+    {
+      "candidate": "c66",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c67",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"New Year and Holiday Celebrations\",\n  \"definition\": \"Tokens centered on specific calendar holidays, seasonal celebrations, and annual events like New Year's resolutions and fireworks.\"\n}\n"
+    },
+    {
+      "candidate": "c68",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Feet and Footwear\",\n  \"definition\": \"Tokens centered on human feet, shoes, socks, and related footwear imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c69",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Interior Design and Home Improvement\",\n  \"definition\": \"Tokens centered on interior design, home renovation, and house improvement projects.\"\n}\n"
+    },
+    {
+      "candidate": "c70",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Casino and Gambling Games\",\n  \"definition\": \"Tokens centered on casino games, gambling activities, lotteries, and related betting culture.\"\n}\n"
+    },
+    {
+      "candidate": "c71",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c72",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c73",
+      "raw": "{\n  \"macro\": \"m25\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c74",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Chinese Internet Memes and Culture\",\n  \"definition\": \"Tokens centered on popular Chinese internet memes, viral characters, and specific cultural references from the Chinese digital landscape.\"\n}\n"
+    },
+    {
+      "candidate": "c75",
+      "raw": "{\n  \"macro\": \"m8\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c76",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c77",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c78",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Crypto Ideology and Satire\",\n  \"definition\": \"Tokens centered on specific internet subcultures, ideological movements, and satirical figures that do not fit into broader categories like politics, religion, or general memes.\"\n}\n"
+    },
+    {
+      "candidate": "c79",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c80",
+      "raw": "{\n  \"macro\": \"m9\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c81",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c82",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nexus and Nova Named Tokens\",\n  \"definition\": \"Tokens specifically named after or derived from the words Nexus, Nova, Nexora, or NameCoin.\"\n}\n"
+    },
+    {
+      "candidate": "c83",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c84",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Economic Policy and Welfare\",\n  \"definition\": \"Tokens centered on economic policy concepts, social welfare programs, and government-funded financial systems like Universal Basic Income.\"\n}\n"
+    },
+    {
+      "candidate": "c85",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"LGBTQ+ Pride and Memes\",\n  \"definition\": \"Tokens centered on LGBTQ+ pride, featuring rainbow imagery, pride flags, and puns on the word 'gay'.\"\n}\n"
+    },
+    {
+      "candidate": "c86",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c87",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"AI Attention and Slop Economy\",\n  \"definition\": \"Tokens centered on the attention economy, AI-generated content quality, and the concept of 'slop' within the digital ecosystem.\"\n}\n"
+    },
+    {
+      "candidate": "c88",
+      "raw": "{\n  \"macro\": \"m5\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c89",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Terminal Aesthetics and Poop Humor\",\n  \"definition\": \"Tokens centered on retro terminal aesthetics and feces-related humor, including references to command-line interfaces and waste-themed memes.\"\n}\n"
+    },
+    {
+      "candidate": "c90",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Medieval and Fantasy Combat\",\n  \"definition\": \"Tokens centered on historical warriors, knights, gladiators, demons, and fantasy combat themes.\"\n}\n"
+    },
+    {
+      "candidate": "c91",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Social Media Platforms and Tech\",\n  \"definition\": \"Tokens centered on major social media platforms, their specific features, and related technological concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c92",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Political Satire and Social Commentary\",\n  \"definition\": \"Tokens centered on political satire, social commentary, and specific political movements or parties that do not fit into broader US politics or international politics categories.\"\n}\n"
+    },
+    {
+      "candidate": "c93",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c94",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"FOMO and Market Sentiment\",\n  \"definition\": \"Tokens centered on the fear of missing out, market hype cycles, and the psychological pressure to participate in trending financial events.\"\n}\n"
+    },
+    {
+      "candidate": "c95",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"K-Related Names and Brands\",\n  \"definition\": \"Tokens centered on entities, brands, or concepts specifically named after or starting with the letter K.\"\n}\n"
+    },
+    {
+      "candidate": "c96",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Pop Culture Franchises and Influencers\",\n  \"definition\": \"Tokens centered on specific popular media franchises, entertainment brands, and individual internet celebrities or influencers.\"\n}\n"
+    },
+    {
+      "candidate": "c97",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Copyright, Coinbase, and Canton\",\n  \"definition\": \"Tokens centered on intellectual property rights, the cryptocurrency exchange Coinbase, and the Canton blockchain conference.\"\n}\n"
+    },
+    {
+      "candidate": "c98",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Alphabetical and Brand Initials\",\n  \"definition\": \"Tokens centered on specific letters of the alphabet, brand initials, or naming conventions derived from single characters like Base and Byte.\"\n}\n"
+    },
+    {
+      "candidate": "c99",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Beverage and Energy Drink Brands\",\n  \"definition\": \"Tokens centered on specific non-alcoholic beverage brands, energy drinks, and their associated mascots or product lines.\"\n}\n"
+    },
+    {
+      "candidate": "c100",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Cannabis and Tobacco\",\n  \"definition\": \"Tokens centered on cannabis, marijuana, cigarettes, and related smoking or vaping culture.\"\n}\n"
+    },
+    {
+      "candidate": "c101",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Test Tokens and Placeholders\",\n  \"definition\": \"Tokens created as experimental placeholders or test launches rather than serious memecoins, often featuring generic names like 'test' or 'test1'.\"\n}\n"
+    },
+    {
+      "candidate": "c102",
+      "raw": "{\n  \"macro\": \"m29\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c103",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Internet Streamers and Influencers\",\n  \"definition\": \"Tokens centered on specific internet personalities, streamers, and content creators who have gained significant popularity on digital platforms.\"\n}\n"
+    },
+    {
+      "candidate": "c104",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Mental Health and Social Anxiety\",\n  \"definition\": \"Tokens centered on psychological states, specifically focusing on cortisol levels, social anxiety, and related mental health themes.\"\n}\n"
+    },
+    {
+      "candidate": "c105",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Anti-Woke and Gatekeeping\",\n  \"definition\": \"Tokens centered on satirizing or protesting against woke culture, social gatekeeping, and political correctness.\"\n}\n"
+    },
+    {
+      "candidate": "c106",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c107",
+      "raw": "{\n  \"macro\": \"m9\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c108",
+      "raw": "{\n  \"macro\": \"m4\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c109",
+      "raw": "{\n  \"macro\": \"m9\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c110",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Fire and Token Burning\",\n  \"definition\": \"Tokens centered on burning supply mechanisms, buybacks, and fire-themed branding or imagery.\"\n}\n"
+    },
+    {
+      "candidate": "c111",
+      "raw": "{\n  \"macro\": \"m2\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c112",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Hype and Hyper Themes\",\n  \"definition\": \"Tokens centered on themes of excitement, speculation, and intensity derived from the words 'hype' and 'hyper'.\"\n}\n"
+    },
+    {
+      "candidate": "c113",
+      "raw": "{\n  \"macro\": \"m9\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c114",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Holidays and Seasonal Celebrations\",\n  \"definition\": \"Tokens centered on specific calendar holidays, seasonal celebrations, and annual events including St. Patrick's Day, Halloween, and New Year's.\"\n}\n"
+    },
+    {
+      "candidate": "c115",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"QR Codes and Scanning\",\n  \"definition\": \"Tokens centered on QR codes, scanning technology, and the concept of unlocking potential through digital access.\"\n}\n"
+    },
+    {
+      "candidate": "c116",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Ancient Greek Philosophy\",\n  \"definition\": \"Tokens centered on ancient Greek philosophers, Stoicism, and classical philosophical concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c117",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Flatulence and Fart Memes\",\n  \"definition\": \"Tokens centered on flatulence, fart sounds, and related bodily humor themes.\"\n}\n"
+    },
+    {
+      "candidate": "c118",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Liquidity and Exit Mechanics\",\n  \"definition\": \"Tokens centered on the mechanics of liquidity provision, exit strategies, and the act of selling or withdrawing funds from a position.\"\n}\n"
+    },
+    {
+      "candidate": "c119",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Death and Skeleton Themes\",\n  \"definition\": \"Tokens centered on imagery of skeletons, skulls, the Grim Reaper, and themes related to death and mortality.\"\n}\n"
+    },
+    {
+      "candidate": "c120",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Hope and Perseverance\",\n  \"definition\": \"Tokens centered on themes of hope, belief, resilience, and the will to survive or win against overwhelming odds.\"\n}\n"
+    },
+    {
+      "candidate": "c121",
+      "raw": "{\n  \"macro\": \"m52\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c122",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Precious Metals and Minerals\",\n  \"definition\": \"Tokens centered on valuable metals like gold, silver, copper, and platinum, distinct from general geology or gemstones.\"\n}\n"
+    },
+    {
+      "candidate": "c123",
+      "raw": "{\n  \"macro\": \"m61\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c124",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Self-Optimization and Maxxing\",\n  \"definition\": \"Tokens centered on the concept of maximizing one's social status, sexual appeal, or personal potential through self-improvement and optimization culture.\"\n}\n"
+    },
+    {
+      "candidate": "c125",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Abstract Geometric Shapes\",\n  \"definition\": \"Tokens characterized by simple geometric forms, dots, or abstract shapes that lack specific thematic narratives or cultural references.\"\n}\n"
+    },
+    {
+      "candidate": "c126",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Generational Internet Memes\",\n  \"definition\": \"Tokens centered on specific viral internet meme characters and figures that have become cultural touchstones, such as the Uncle Boomer character.\"\n}\n"
+    },
+    {
+      "candidate": "c127",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Onboarding and AI\",\n  \"definition\": \"Tokens centered on the concept of onboarding, featuring imagery of Jeff Bezos, Domo, and artificial intelligence.\"\n}\n"
+    },
+    {
+      "candidate": "c128",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c129",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Thermal Imagery and Heat Maps\",\n  \"definition\": \"Tokens centered on thermal imaging, heat maps, infrared visuals, and temperature-related aesthetic concepts.\"\n}\n"
+    },
+    {
+      "candidate": "c130",
+      "raw": "{\n  \"macro\": \"m0\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c131",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Startup and Business Culture\",\n  \"definition\": \"Tokens centered on entrepreneurship, startup ecosystems, business concepts, and corporate culture themes.\"\n}\n"
+    },
+    {
+      "candidate": "c132",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Farming and Agriculture\",\n  \"definition\": \"Tokens centered on agricultural activities, farming imagery, harvest themes, and related rural cultural references.\"\n}\n"
+    },
+    {
+      "candidate": "c133",
+      "raw": "{\n  \"macro\": \"m3\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    },
+    {
+      "candidate": "c134",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"April Fools Prank Memes\",\n  \"definition\": \"Tokens created as seasonal pranks on April Fools' Day featuring absurd, fictional, or satirical concepts intended to deceive or entertain.\"\n}\n"
+    },
+    {
+      "candidate": "c135",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Survival and Crisis\",\n  \"definition\": \"Tokens centered around themes of survival, system failure, and crisis preparedness.\"\n}\n"
+    },
+    {
+      "candidate": "c136",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nothingness and Existential Themes\",\n  \"definition\": \"Tokens centered on the philosophical concept of nothingness, void, or the absence of existence, often playing on the duality of 'nothing' and 'something'.\"\n}\n"
+    },
+    {
+      "candidate": "c137",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Random Names and Gibberish\",\n  \"definition\": \"Tokens featuring nonsensical names, gibberish text, and unrelated imagery that lack a coherent thematic narrative or cultural reference.\"\n}\n"
+    },
+    {
+      "candidate": "c138",
+      "raw": "{\n  \"macro\": \"new\",\n  \"name\": \"Nihilism and Conspiracy\",\n  \"definition\": \"Tokens centered on nihilistic philosophies, existential voids, and specific conspiracy theories including antisemitic tropes and 9/11 narratives.\"\n}\n"
+    },
+    {
+      "candidate": "c139",
+      "raw": "{\n  \"macro\": \"m1\",\n  \"name\": \"\",\n  \"definition\": \"\"\n}\n"
+    }
+  ],
+  "dedup_raw": "{\n  \"merge\": [\n    {\n      \"ids\": [\"m22\", \"m28\"],\n      \"name\": \"Waste and Bathroom Memes\",\n      \"definition\": \"Tokens centered on waste, feces, trash, and bathroom-related themes within internet meme culture.\"\n    },\n    {\n      \"ids\": [\"m67\", \"m40\", \"m31\"],\n      \"name\": \"Holidays and Seasonal Celebrations\",\n      \"definition\": \"Tokens centered on specific calendar holidays, seasonal celebrations, and annual events including New Year, Valentine's Day, and Halloween.\"\n    },\n    {\n      \"ids\": [\"m12\", \"m9\"],\n      \"name\": \"Space, Earth, and Extraterrestrials\",\n      \"definition\": \"Tokens centered on celestial bodies, cosmic exploration, planetary themes, astronomical phenomena, aliens, UFOs, and government conspiracy theories regarding space agencies.\"\n    },\n    {\n      \"ids\": [\"m26\", \"m74\"],\n      \"name\": \"Geology, Minerals, and Precious Metals\",\n      \"definition\": \"Tokens centered on geological materials, including rocks, minerals, coal, gemstones, and valuable metals like gold, silver, and platinum.\"\n    },\n    {\n      \"ids\": [\"m29\", \"m24\"],\n      \"name\": \"Oil, Gas, and Economic Reserves\",\n      \"definition\": \"Tokens centered on the oil and gas industry, energy commodities, barrels, reserves, and satirical concepts involving global reserves of commodities like oil and gold.\"\n    },\n    {\n      \"ids\": [\"m32\", \"m11\"],\n      \"name\": \"Aviation, Automotive, and Transportation\",\n      \"definition\": \"Tokens centered on vehicles, automotive brands, racing culture, commercial airlines, aircraft, drones, and specific transportation themes.\"\n    },\n    {\n      \"ids\": [\"m45\", \"m53\"],\n      \"name\": \"Political Satire and Social Commentary\",\n      \"definition\": \"Tokens centered on political satire, social commentary, specific political movements, and ideological subcultures that do not fit into broader US politics or international politics categories.\"\n    },\n    {\n      \"ids\": [\"m49\", \"m1\"],\n      \"name\": \"Internet Memes, Characters, and AI Culture\",\n      \"definition\": \"Tokens centered on popular internet memes, cultural stereotypes, specific viral characters, AI agents, and the attention economy or 'slop' within the digital ecosystem.\"\n    },\n    {\n      \"ids\": [\"m60\", \"m16\"],\n      \"name\": \"Beverages, Cannabis, and Tobacco\",\n      \"definition\": \"Tokens centered on alcoholic and non-alcoholic beverages, cannabis, marijuana, cigarettes, vaping culture, and liquid consumption culture.\"\n    },\n    {\n      \"ids\": [\"m50\", \"m22\"],\n      \"name\": \"Terminal Aesthetics and Feces Humor\",\n      \"definition\": \"Tokens centered on retro terminal aesthetics, command-line interfaces, and feces-related humor or waste-themed memes.\"\n    },\n    {\n      \"ids\": [\"m64\", \"m17\"],\n      \"name\": \"Satire, Gatekeeping, and Provocative Content\",\n      \"definition\": \"Tokens utilizing sexual innuendo, provocative imagery, or satire to mock mental disabilities, intelligence, political correctness, or specific ideologies.\"\n    },\n    {\n      \"ids\": [\"m37\", \"m62\"],\n      \"name\": \"Celebrities, Influencers, and Luxury Brands\",\n      \"definition\": \"Tokens centered on famous individuals, public figures, internet streamers, content creators, and high-end consumer goods such as luxury watches and fashion brands.\"\n    },\n    {\n      \"ids\": [\"m46\", \"m58\"],\n      \"name\": \"Naming Conventions and Brand Initials\",\n      \"definition\": \"Tokens specifically named after or derived from words like Nexus, Nova, or single letters/brand initials like Base and Byte.\"\n    },\n    {\n      \"ids\": [\"m70\", \"m22\"],\n      \"name\": \"Flatulence and Waste Memes\",\n      \"definition\": \"Tokens centered on flatulence, fart sounds, feces, trash, and bathroom-related bodily humor themes.\"\n    },\n    {\n      \"ids\": [\"m36\", \"m40\", \"m67\"],\n      \"name\": \"Seasonal and Holiday Themes\",\n      \"definition\": \"Tokens centered on specific calendar holidays, seasonal celebrations, and annual events including Halloween, New Year, and St. Patrick's Day.\"\n    }\n  ]\n}\n",
+  "macro_topics": [
+    {
+      "name": "Internet Memes, Characters, and AI Culture",
+      "definition": "Tokens centered on popular internet memes, cultural stereotypes, specific viral characters, AI agents, and the attention economy or 'slop' within the digital ecosystem.",
+      "members": [
+        "c87",
+        "c3",
+        "c6",
+        "c10",
+        "c13",
+        "c15",
+        "c17",
+        "c18",
+        "c21",
+        "c23",
+        "c25",
+        "c26",
+        "c36",
+        "c45",
+        "c48",
+        "c64",
+        "c66",
+        "c71",
+        "c72",
+        "c77",
+        "c79",
+        "c83",
+        "c93",
+        "c128",
+        "c139"
+      ],
+      "examples": [
+        "Attention and Slop Detection",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Pepe the Frog",
+        "Internet memes and characters",
+        "Wojak memes",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and characters",
+        "Internet memes and pop culture",
+        "BoJack Horseman",
+        "Pop culture and memes",
+        "Internet memes and characters",
+        "Pop culture and memes",
+        "Twitter-themed memecoins",
+        "Internet Culture and Meme References",
+        "Rickroll and Baldi"
+      ],
+      "merged_from": [
+        "Internet Memes, Characters, and AI Culture",
+        "Internet memes and characters"
+      ],
+      "topics": [
+        0,
+        2,
+        10,
+        11,
+        16,
+        17,
+        19,
+        20,
+        23,
+        24,
+        26,
+        27,
+        30,
+        33,
+        36,
+        39,
+        41,
+        44,
+        47,
+        49,
+        52,
+        53,
+        57,
+        58,
+        61,
+        73,
+        75,
+        78,
+        82,
+        87,
+        90,
+        91,
+        98,
+        115,
+        120,
+        125,
+        144,
+        157,
+        158,
+        162,
+        168,
+        173,
+        178,
+        186,
+        188,
+        194,
+        202,
+        206,
+        212,
+        216,
+        221,
+        222,
+        229,
+        230,
+        233,
+        236,
+        237,
+        239,
+        240,
+        243,
+        254,
+        262,
+        267,
+        268,
+        270,
+        271,
+        274,
+        277,
+        278,
+        279,
+        281,
+        282
+      ],
+      "docs": 435319,
+      "share": 0.23948772878387026
+    },
+    {
+      "name": "Animal-themed memecoins",
+      "definition": "Tokens centered on various animal species, ranging from real animals to mythical creatures and viral characters.",
+      "members": [
+        "c0",
+        "c1",
+        "c2",
+        "c130"
+      ],
+      "examples": [
+        "Animal-themed memecoins",
+        "Animal-themed memecoins",
+        "Animals and Internet Memes",
+        "Shiba Inu cryptocurrency"
+      ],
+      "topics": [
+        42,
+        43,
+        67,
+        72,
+        76,
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        96,
+        97,
+        99,
+        100,
+        101,
+        102,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        159,
+        160,
+        163,
+        170,
+        176,
+        223,
+        224,
+        249,
+        272,
+        276,
+        280,
+        285,
+        286,
+        287,
+        288
+      ],
+      "docs": 429742,
+      "share": 0.23641958091201618
+    },
+    {
+      "name": "US Politics and Political Figures",
+      "definition": "Tokens centered on American political entities, symbols, and specific political figures including presidents, candidates, and controversial individuals.",
+      "members": [
+        "c5",
+        "c14",
+        "c19",
+        "c20",
+        "c76",
+        "c106",
+        "c133"
+      ],
+      "examples": [
+        "US politics and political figures",
+        "Elon Musk Memes",
+        "Politics and Law Enforcement",
+        "International politics and leadership",
+        "Israeli political satire",
+        "CZ and Do Kwon",
+        "Kim Jong Un"
+      ],
+      "topics": [
+        32,
+        80,
+        89,
+        131,
+        132,
+        136,
+        137,
+        138,
+        140,
+        141,
+        142,
+        143,
+        185,
+        195,
+        197,
+        198,
+        200,
+        219,
+        226,
+        228
+      ],
+      "docs": 156511,
+      "share": 0.08610344119988403
+    },
+    {
+      "name": "Crypto-native culture and finance",
+      "definition": "Tokens centered on cryptocurrency terminology, financial markets, stock references, and wealth-related themes within the crypto ecosystem.",
+      "members": [
+        "c4",
+        "c29",
+        "c31",
+        "c43",
+        "c55",
+        "c57",
+        "c81",
+        "c86",
+        "c111"
+      ],
+      "examples": [
+        "Crypto-native culture and finance",
+        "Crypto-native culture and internet memes",
+        "Crypto-native culture",
+        "Crypto-native culture and internet memes",
+        "Solana ecosystem and derivatives",
+        "Financial markets and wealth accumulation",
+        "Tether (USDT) and related tokens",
+        "financial returns and investment",
+        "Financial Markets and Trading"
+      ],
+      "topics": [
+        1,
+        21,
+        37,
+        107,
+        117,
+        128,
+        201,
+        207,
+        213,
+        214,
+        215,
+        217,
+        218,
+        220,
+        242,
+        244,
+        247,
+        256,
+        258,
+        260,
+        261,
+        269,
+        273,
+        275
+      ],
+      "docs": 128120,
+      "share": 0.07048432944987344
+    },
+    {
+      "name": "Space, Earth, and Extraterrestrials",
+      "definition": "Tokens centered on celestial bodies, cosmic exploration, planetary themes, astronomical phenomena, aliens, UFOs, and government conspiracy theories regarding space agencies.",
+      "members": [
+        "c27",
+        "c16",
+        "c30",
+        "c80",
+        "c107",
+        "c109",
+        "c113"
+      ],
+      "examples": [
+        "Aliens and UFOs",
+        "Earth, space, and astronomy",
+        "Doge-themed space exploration",
+        "Science and Space Exploration",
+        "Astronomy and Space",
+        "Stephen Hawking",
+        "SpaceX and Space Exploration"
+      ],
+      "merged_from": [
+        "Space, Earth, and Extraterrestrials",
+        "Space, Earth, and Astronomy"
+      ],
+      "topics": [
+        5,
+        46,
+        103,
+        196,
+        204,
+        205,
+        235,
+        289
+      ],
+      "docs": 59219,
+      "share": 0.032578922148704774
+    },
+    {
+      "name": "Sports and Fitness Memes",
+      "definition": "Tokens centered on professional sports, athletes, fitness culture, and related internet personalities.",
+      "members": [
+        "c8",
+        "c88"
+      ],
+      "examples": [
+        "Sports and Fitness Memes",
+        "Alex Honnold climbing"
+      ],
+      "topics": [
+        8,
+        68,
+        92,
+        93,
+        164,
+        203
+      ],
+      "docs": 52562,
+      "share": 0.0289166197669704
+    },
+    {
+      "name": "AI Infrastructure and Data Protocols",
+      "definition": "Tokens centered on artificial intelligence agents, data infrastructure, and Solana-based protocol layers.",
+      "members": [
+        "c7",
+        "c108"
+      ],
+      "examples": [
+        "AI infrastructure and data protocols",
+        "AI and Technology"
+      ],
+      "topics": [
+        191,
+        266
+      ],
+      "docs": 52047,
+      "share": 0.028633296088647852
+    },
+    {
+      "name": "Food and Culinary Memes",
+      "definition": "Tokens centered on edible items, food industry themes, and culinary cultural references.",
+      "members": [
+        "c9"
+      ],
+      "examples": [
+        "Food and cryptocurrency culture"
+      ],
+      "topics": [
+        63,
+        65,
+        77,
+        109,
+        123,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184
+      ],
+      "docs": 42568,
+      "share": 0.02341848997831886
+    },
+    {
+      "name": "Politics, Religion, and National Identity",
+      "definition": "Tokens centered on political ideologies, religious traditions, national identities, and related geopolitical conflicts or figures.",
+      "members": [
+        "c12",
+        "c75"
+      ],
+      "examples": [
+        "Politics, Religion, and National Identity",
+        "Jesus Christ and Christian Faith"
+      ],
+      "topics": [
+        70,
+        110,
+        111,
+        118,
+        130,
+        134,
+        135,
+        139,
+        166,
+        167,
+        211
+      ],
+      "docs": 37967,
+      "share": 0.02088728173761587
+    },
+    {
+      "name": "Seasonal and Winter Themes",
+      "definition": "Tokens centered on seasonal winter imagery, holidays, cold-weather motifs, and specific winter-related cultural events.",
+      "members": [
+        "c11"
+      ],
+      "examples": [
+        "Seasonal and Winter Themes"
+      ],
+      "topics": [
+        71,
+        95
+      ],
+      "docs": 33587,
+      "share": 0.01847765511421245
+    },
+    {
+      "name": "Aviation, Automotive, and Transportation",
+      "definition": "Tokens centered on vehicles, automotive brands, racing culture, commercial airlines, aircraft, drones, and specific transportation themes.",
+      "members": [
+        "c56",
+        "c24"
+      ],
+      "examples": [
+        "Airline and Aviation Memes",
+        "Cars and Automotive"
+      ],
+      "merged_from": [
+        "Aviation, Automotive, and Transportation",
+        "Cars and Automotive"
+      ],
+      "topics": [
+        171,
+        199
+      ],
+      "docs": 21003,
+      "share": 0.011554654787977613
+    },
+    {
+      "name": "Seasonal and Holiday Themes",
+      "definition": "Tokens centered on specific calendar holidays, seasonal celebrations, and annual events including Halloween, New Year, and St. Patrick's Day.",
+      "members": [
+        "c61",
+        "c114",
+        "c67",
+        "c54"
+      ],
+      "examples": [
+        "Halloween and spooky themes",
+        "St. Patrick's Day",
+        "New Year and 2026",
+        "Valentine's Day and Charity"
+      ],
+      "merged_from": [
+        "Seasonal and Holiday Themes",
+        "Holidays and Seasonal Celebrations"
+      ],
+      "topics": [
+        66,
+        105,
+        106,
+        114,
+        119
+      ],
+      "docs": 20095,
+      "share": 0.011055124885226404
+    },
+    {
+      "name": "Terminal Aesthetics and Feces Humor",
+      "definition": "Tokens centered on retro terminal aesthetics, command-line interfaces, and feces-related humor or waste-themed memes.",
+      "members": [
+        "c89",
+        "c41",
+        "c51"
+      ],
+      "examples": [
+        "terminal and poop humor",
+        "Waste and Bathroom Memes",
+        "Pisscoin and Poocoin"
+      ],
+      "merged_from": [
+        "Terminal Aesthetics and Feces Humor",
+        "Waste and Bathroom Memes"
+      ],
+      "topics": [
+        133,
+        175,
+        192,
+        250,
+        252
+      ],
+      "docs": 17980,
+      "share": 0.009891572303377493
+    },
+    {
+      "name": "Technology and Hardware",
+      "definition": "Tokens centered on computer hardware, robotics, automation, and general technology infrastructure outside of AI protocols.",
+      "members": [
+        "c22"
+      ],
+      "examples": [
+        "Technology and Hardware"
+      ],
+      "topics": [
+        74,
+        126,
+        251,
+        255
+      ],
+      "docs": 16977,
+      "share": 0.009339778809479405
+    },
+    {
+      "name": "Video Games and Gaming Culture",
+      "definition": "Tokens centered on popular video games, gaming franchises, virtual worlds, and related internet personalities within the gaming industry.",
+      "members": [
+        "c33",
+        "c42"
+      ],
+      "examples": [
+        "Video Games",
+        "Hytale and Rover"
+      ],
+      "topics": [
+        28,
+        56,
+        129
+      ],
+      "docs": 16935,
+      "share": 0.009316672800761839
+    },
+    {
+      "name": "Oil, Gas, and Economic Reserves",
+      "definition": "Tokens centered on the oil and gas industry, energy commodities, barrels, reserves, and satirical concepts involving global reserves of commodities like oil and gold.",
+      "members": [
+        "c52",
+        "c102",
+        "c46"
+      ],
+      "examples": [
+        "Oil and Gas",
+        "Oil and Energy",
+        "Global Order Reserve"
+      ],
+      "merged_from": [
+        "Oil, Gas, and Economic Reserves",
+        "Economic Reserve Memes"
+      ],
+      "topics": [
+        3,
+        12,
+        79
+      ],
+      "docs": 16695,
+      "share": 0.009184638465232884
+    },
+    {
+      "name": "Beverages, Cannabis, and Tobacco",
+      "definition": "Tokens centered on alcoholic and non-alcoholic beverages, cannabis, marijuana, cigarettes, vaping culture, and liquid consumption culture.",
+      "members": [
+        "c100",
+        "c34"
+      ],
+      "examples": [
+        "Cannabis and Tobacco",
+        "beverages and drinks"
+      ],
+      "merged_from": [
+        "Beverages, Cannabis, and Tobacco",
+        "Beverages and Drinks"
+      ],
+      "topics": [
+        127,
+        177
+      ],
+      "docs": 12578,
+      "share": 0.0069196994678466135
+    },
+    {
+      "name": "Satire, Gatekeeping, and Provocative Content",
+      "definition": "Tokens utilizing sexual innuendo, provocative imagery, or satire to mock mental disabilities, intelligence, political correctness, or specific ideologies.",
+      "members": [
+        "c105",
+        "c35"
+      ],
+      "examples": [
+        "Anti-woke and gatekeeping",
+        "sexual and political satire"
+      ],
+      "merged_from": [
+        "Satire, Gatekeeping, and Provocative Content",
+        "Sexual and Political Satire"
+      ],
+      "topics": [
+        13,
+        34,
+        38
+      ],
+      "docs": 12415,
+      "share": 0.006830026148299866
+    },
+    {
+      "name": "Sexual Content and Adult Paraphernalia",
+      "definition": "Tokens centered on explicit sexual themes, adult toys, and related paraphernalia often used as euphemisms.",
+      "members": [
+        "c47",
+        "c73"
+      ],
+      "examples": [
+        "Sexual content and adult paraphernalia",
+        "Sexual and offensive"
+      ],
+      "topics": [
+        69,
+        174,
+        189
+      ],
+      "docs": 11872,
+      "share": 0.006531298464165607
+    },
+    {
+      "name": "Sexual Organs and Anatomy",
+      "definition": "Tokens centered on explicit human sexual organs, genitalia, and related anatomical body parts.",
+      "members": [
+        "c28"
+      ],
+      "examples": [
+        "Sexual organs and anatomy"
+      ],
+      "topics": [
+        238
+      ],
+      "docs": 10940,
+      "share": 0.0060185651278615
+    },
+    {
+      "name": "Cryptocurrencies and Aerospace Companies",
+      "definition": "Tokens centered on specific non-meme cryptocurrencies like XRP and aerospace corporations like SpaceX, distinct from general crypto-native culture or space themes.",
+      "members": [
+        "c32"
+      ],
+      "examples": [
+        "XRP and SpaceX"
+      ],
+      "topics": [
+        234
+      ],
+      "docs": 9455,
+      "share": 0.005201602676776096
+    },
+    {
+      "name": "Nature and Landscape",
+      "definition": "Tokens centered on natural scenery, including mountains, islands, sunsets, and houses set in nature.",
+      "members": [
+        "c37"
+      ],
+      "examples": [
+        "Nature and Landscape"
+      ],
+      "topics": [
+        245
+      ],
+      "docs": 9276,
+      "share": 0.005103127068194084
+    },
+    {
+      "name": "Geology, Minerals, and Precious Metals",
+      "definition": "Tokens centered on geological materials, including rocks, minerals, coal, gemstones, and valuable metals like gold, silver, and platinum.",
+      "members": [
+        "c49",
+        "c122"
+      ],
+      "examples": [
+        "Rocks, minerals, and gems",
+        "Precious Metals"
+      ],
+      "merged_from": [
+        "Geology, Minerals, and Precious Metals",
+        "Precious Metals and Minerals"
+      ],
+      "topics": [
+        165,
+        246
+      ],
+      "docs": 9136,
+      "share": 0.005026107039135527
+    },
+    {
+      "name": "Chinese Culture and Identity",
+      "definition": "Tokens centered on Chinese language, cultural traditions, national identity, and related Asian themes.",
+      "members": [
+        "c38"
+      ],
+      "examples": [
+        "Chinese culture and identity"
+      ],
+      "topics": [
+        122
+      ],
+      "docs": 8841,
+      "share": 0.004863814835047854
+    },
+    {
+      "name": "Celebrities, Influencers, and Luxury Brands",
+      "definition": "Tokens centered on famous individuals, public figures, internet streamers, content creators, and high-end consumer goods such as luxury watches and fashion brands.",
+      "members": [
+        "c62",
+        "c103"
+      ],
+      "examples": [
+        "celebrities and luxury brands",
+        "The Duve"
+      ],
+      "merged_from": [
+        "Celebrities, Influencers, and Luxury Brands",
+        "Internet Streamers and Influencers"
+      ],
+      "topics": [
+        31,
+        40,
+        64
+      ],
+      "docs": 8819,
+      "share": 0.004851711687624367
+    },
+    {
+      "name": "Political Satire and Social Commentary",
+      "definition": "Tokens centered on political satire, social commentary, specific political movements, and ideological subcultures that do not fit into broader US politics or international politics categories.",
+      "members": [
+        "c78",
+        "c92"
+      ],
+      "examples": [
+        "Moriarty and Groypette",
+        "Cockroach Janta Party"
+      ],
+      "merged_from": [
+        "Political Satire and Social Commentary",
+        "Political Satire and Social Commentary"
+      ],
+      "topics": [
+        35,
+        51
+      ],
+      "docs": 8108,
+      "share": 0.00446055996861984
+    },
+    {
+      "name": "Pump.fun Platform and Ecosystem",
+      "definition": "Tokens centered on the Pump.fun launchpad platform itself, including its official branding, mascot, and tokens representing the ecosystem.",
+      "members": [
+        "c39"
+      ],
+      "examples": [
+        "Pump.fun ecosystem"
+      ],
+      "topics": [
+        116
+      ],
+      "docs": 8018,
+      "share": 0.004411047092796482
+    },
+    {
+      "name": "Mental Disability and Insults",
+      "definition": "Tokens centered on mocking mental disabilities, intelligence, or utilizing derogatory terms related to cognitive impairment.",
+      "members": [
+        "c40"
+      ],
+      "examples": [
+        "Retardation and Mental Disability"
+      ],
+      "topics": [
+        283
+      ],
+      "docs": 7915,
+      "share": 0.004354382357131972
+    },
+    {
+      "name": "Cryptocurrency Projects and Brands",
+      "definition": "Tokens centered on specific cryptocurrency projects, blockchain networks, and major tech brands distinct from general crypto-native culture or specific meme themes.",
+      "members": [
+        "c44"
+      ],
+      "examples": [
+        "Meta and Monero"
+      ],
+      "topics": [
+        193
+      ],
+      "docs": 7377,
+      "share": 0.004058405388321233
+    },
+    {
+      "name": "Naming Conventions and Brand Initials",
+      "definition": "Tokens specifically named after or derived from words like Nexus, Nova, or single letters/brand initials like Base and Byte.",
+      "members": [
+        "c82",
+        "c98"
+      ],
+      "examples": [
+        "Nexus and Nova",
+        "B-themed tokens"
+      ],
+      "merged_from": [
+        "Naming Conventions and Brand Initials",
+        "Alphabetical and Brand Initials"
+      ],
+      "topics": [
+        190,
+        259
+      ],
+      "docs": 7242,
+      "share": 0.003984136074586196
+    },
+    {
+      "name": "Numerical and Abstract Concepts",
+      "definition": "Tokens centered on specific numbers, mathematical concepts, or abstract symbols that do not fit into existing thematic categories like animals, politics, or culture.",
+      "members": [
+        "c50"
+      ],
+      "examples": [
+        "Number 67"
+      ],
+      "topics": [
+        264
+      ],
+      "docs": 6706,
+      "share": 0.0036892593919048648
+    },
+    {
+      "name": "Spiritual and Metaphysical Themes",
+      "definition": "Tokens centered on spiritual awakening, ascension, higher consciousness, and metaphysical concepts of the soul.",
+      "members": [
+        "c53"
+      ],
+      "examples": [
+        "Spiritual Ascension and Enlightenment"
+      ],
+      "topics": [
+        248
+      ],
+      "docs": 6517,
+      "share": 0.0035852823526758134
+    },
+    {
+      "name": "Visual Aesthetic and Design Styles",
+      "definition": "Tokens characterized by specific visual design patterns such as muted gradients, high contrast, and distinct artistic styles rather than thematic content.",
+      "members": [
+        "c58"
+      ],
+      "examples": [
+        "Muted gradients and high contrast"
+      ],
+      "topics": [
+        7
+      ],
+      "docs": 5943,
+      "share": 0.003269500233535731
+    },
+    {
+      "name": "Privacy and Cryptocurrency",
+      "definition": "Tokens centered on privacy-focused cryptocurrencies, zero-knowledge proofs, and specific privacy protocols like Zcash.",
+      "members": [
+        "c59"
+      ],
+      "examples": [
+        "Zcash and privacy tokens"
+      ],
+      "topics": [
+        94
+      ],
+      "docs": 5927,
+      "share": 0.0032606979445004673
+    },
+    {
+      "name": "Social Media Platforms and Tech",
+      "definition": "Tokens centered on major social media platforms, their specific features, and related technological concepts.",
+      "members": [
+        "c91",
+        "c121"
+      ],
+      "examples": [
+        "Facebook and related tech",
+        "TikTok and related tokens"
+      ],
+      "topics": [
+        121,
+        227
+      ],
+      "docs": 5818,
+      "share": 0.0032007323504477337
+    },
+    {
+      "name": "Charity and Medical Fundraising",
+      "definition": "Tokens created to raise funds for medical treatments, specifically focusing on cancer and brain injury cases.",
+      "members": [
+        "c60"
+      ],
+      "examples": [
+        "Cancer treatment fundraising"
+      ],
+      "topics": [
+        225
+      ],
+      "docs": 5738,
+      "share": 0.003156720905271416
+    },
+    {
+      "name": "Abstract Object Combinations",
+      "definition": "Tokens centered on arbitrary combinations of unrelated inanimate objects, animals, or body parts that lack a coherent thematic narrative beyond their visual juxtaposition.",
+      "members": [
+        "c63"
+      ],
+      "examples": [
+        "seahorse underpants rocket pocket"
+      ],
+      "topics": [
+        14
+      ],
+      "docs": 5641,
+      "share": 0.0031033570279951302
+    },
+    {
+      "name": "Stopping and Quitting Themes",
+      "definition": "Tokens centered on themes of cessation, quitting, stopping, or giving up, often presented with a humorous or cautionary tone.",
+      "members": [
+        "c65"
+      ],
+      "examples": [
+        "stop and quit"
+      ],
+      "topics": [
+        232
+      ],
+      "docs": 5582,
+      "share": 0.0030708985871775955
+    },
+    {
+      "name": "Test Tokens and Placeholders",
+      "definition": "Tokens created as experimental placeholders or test launches rather than serious memecoins, often featuring generic names like 'test' or 'test1'.",
+      "members": [
+        "c101",
+        "c123"
+      ],
+      "examples": [
+        "test tokens",
+        "Testing and Verification"
+      ],
+      "topics": [
+        55,
+        263
+      ],
+      "docs": 5479,
+      "share": 0.003014233851513086
+    },
+    {
+      "name": "Feet and Footwear",
+      "definition": "Tokens centered on human feet, shoes, socks, and related footwear imagery.",
+      "members": [
+        "c68"
+      ],
+      "examples": [
+        "feet and footwear"
+      ],
+      "topics": [
+        108
+      ],
+      "docs": 5237,
+      "share": 0.0028810992298547236
+    },
+    {
+      "name": "Interior Design and Home Improvement",
+      "definition": "Tokens centered on interior design, home renovation, and house improvement projects.",
+      "members": [
+        "c69"
+      ],
+      "examples": [
+        "interior design and renovation"
+      ],
+      "topics": [
+        253
+      ],
+      "docs": 5162,
+      "share": 0.0028398385000019256
+    },
+    {
+      "name": "Casino and Gambling Games",
+      "definition": "Tokens centered on casino games, gambling activities, lotteries, and related betting culture.",
+      "members": [
+        "c70"
+      ],
+      "examples": [
+        "Casino and gambling games"
+      ],
+      "topics": [
+        104
+      ],
+      "docs": 5160,
+      "share": 0.0028387382138725177
+    },
+    {
+      "name": "Chinese Internet Memes and Culture",
+      "definition": "Tokens centered on popular Chinese internet memes, viral characters, and specific cultural references from the Chinese digital landscape.",
+      "members": [
+        "c74"
+      ],
+      "examples": [
+        "Chinese internet memes"
+      ],
+      "topics": [
+        25
+      ],
+      "docs": 4885,
+      "share": 0.002687448871078924
+    },
+    {
+      "name": "Economic Policy and Welfare",
+      "definition": "Tokens centered on economic policy concepts, social welfare programs, and government-funded financial systems like Universal Basic Income.",
+      "members": [
+        "c84"
+      ],
+      "examples": [
+        "Universal Basic Income"
+      ],
+      "topics": [
+        172
+      ],
+      "docs": 3897,
+      "share": 0.0021439075231513955
+    },
+    {
+      "name": "LGBTQ+ Pride and Memes",
+      "definition": "Tokens centered on LGBTQ+ pride, featuring rainbow imagery, pride flags, and puns on the word 'gay'.",
+      "members": [
+        "c85"
+      ],
+      "examples": [
+        "LGBTQ+ Pride and Memes"
+      ],
+      "topics": [
+        113
+      ],
+      "docs": 3885,
+      "share": 0.0021373058063749477
+    },
+    {
+      "name": "Medieval and Fantasy Combat",
+      "definition": "Tokens centered on historical warriors, knights, gladiators, demons, and fantasy combat themes.",
+      "members": [
+        "c90"
+      ],
+      "examples": [
+        "Medieval warriors and demons"
+      ],
+      "topics": [
+        209
+      ],
+      "docs": 3528,
+      "share": 0.0019409047322756282
+    },
+    {
+      "name": "FOMO and Market Sentiment",
+      "definition": "Tokens centered on the fear of missing out, market hype cycles, and the psychological pressure to participate in trending financial events.",
+      "members": [
+        "c94"
+      ],
+      "examples": [
+        "Fear Of Missing Out"
+      ],
+      "topics": [
+        45
+      ],
+      "docs": 3422,
+      "share": 0.0018825895674170069
+    },
+    {
+      "name": "K-Related Names and Brands",
+      "definition": "Tokens centered on entities, brands, or concepts specifically named after or starting with the letter K.",
+      "members": [
+        "c95"
+      ],
+      "examples": [
+        "K-related names and brands"
+      ],
+      "topics": [
+        112
+      ],
+      "docs": 3356,
+      "share": 0.0018462801251465444
+    },
+    {
+      "name": "Pop Culture Franchises and Influencers",
+      "definition": "Tokens centered on specific popular media franchises, entertainment brands, and individual internet celebrities or influencers.",
+      "members": [
+        "c96"
+      ],
+      "examples": [
+        "Star Wars and MrBeast"
+      ],
+      "topics": [
+        62
+      ],
+      "docs": 3326,
+      "share": 0.001829775833205425
+    },
+    {
+      "name": "Copyright, Coinbase, and Canton",
+      "definition": "Tokens centered on intellectual property rights, the cryptocurrency exchange Coinbase, and the Canton blockchain conference.",
+      "members": [
+        "c97"
+      ],
+      "examples": [
+        "copyright and coinbase"
+      ],
+      "topics": [
+        241
+      ],
+      "docs": 3301,
+      "share": 0.0018160222565878257
+    },
+    {
+      "name": "Beverage and Energy Drink Brands",
+      "definition": "Tokens centered on specific non-alcoholic beverage brands, energy drinks, and their associated mascots or product lines.",
+      "members": [
+        "c99"
+      ],
+      "examples": [
+        "Monster Energy references"
+      ],
+      "topics": [
+        54
+      ],
+      "docs": 3180,
+      "share": 0.0017494549457586445
+    },
+    {
+      "name": "Mental Health and Social Anxiety",
+      "definition": "Tokens centered on psychological states, specifically focusing on cortisol levels, social anxiety, and related mental health themes.",
+      "members": [
+        "c104"
+      ],
+      "examples": [
+        "Cortisol and Social Anxiety"
+      ],
+      "topics": [
+        50
+      ],
+      "docs": 3109,
+      "share": 0.0017103947881646623
+    },
+    {
+      "name": "Fire and Token Burning",
+      "definition": "Tokens centered on burning supply mechanisms, buybacks, and fire-themed branding or imagery.",
+      "members": [
+        "c110"
+      ],
+      "examples": [
+        "burning tokens and fire imagery"
+      ],
+      "topics": [
+        161
+      ],
+      "docs": 2874,
+      "share": 0.0015811111679592278
+    },
+    {
+      "name": "Hype and Hyper Themes",
+      "definition": "Tokens centered on themes of excitement, speculation, and intensity derived from the words 'hype' and 'hyper'.",
+      "members": [
+        "c112"
+      ],
+      "examples": [
+        "Hype and Hyper"
+      ],
+      "topics": [
+        169
+      ],
+      "docs": 2744,
+      "share": 0.0015095925695477108
+    },
+    {
+      "name": "QR Codes and Scanning",
+      "definition": "Tokens centered on QR codes, scanning technology, and the concept of unlocking potential through digital access.",
+      "members": [
+        "c115"
+      ],
+      "examples": [
+        "QR Codes and Scanning"
+      ],
+      "topics": [
+        18
+      ],
+      "docs": 2634,
+      "share": 0.0014490768324302735
+    },
+    {
+      "name": "Ancient Greek Philosophy",
+      "definition": "Tokens centered on ancient Greek philosophers, Stoicism, and classical philosophical concepts.",
+      "members": [
+        "c116"
+      ],
+      "examples": [
+        "Ancient Greek Philosophy"
+      ],
+      "topics": [
+        210
+      ],
+      "docs": 2573,
+      "share": 0.001415518105483331
+    },
+    {
+      "name": "Flatulence and Fart Memes",
+      "definition": "Tokens centered on flatulence, fart sounds, and related bodily humor themes.",
+      "members": [
+        "c117"
+      ],
+      "examples": [
+        "Fart-themed tokens"
+      ],
+      "topics": [
+        257
+      ],
+      "docs": 2562,
+      "share": 0.0014094665317715871
+    },
+    {
+      "name": "Liquidity and Exit Mechanics",
+      "definition": "Tokens centered on the mechanics of liquidity provision, exit strategies, and the act of selling or withdrawing funds from a position.",
+      "members": [
+        "c118"
+      ],
+      "examples": [
+        "Liquidity and Exit"
+      ],
+      "topics": [
+        48
+      ],
+      "docs": 2549,
+      "share": 0.0014023146719304355
+    },
+    {
+      "name": "Death and Skeleton Themes",
+      "definition": "Tokens centered on imagery of skeletons, skulls, the Grim Reaper, and themes related to death and mortality.",
+      "members": [
+        "c119"
+      ],
+      "examples": [
+        "skeletons and skulls"
+      ],
+      "topics": [
+        208
+      ],
+      "docs": 2435,
+      "share": 0.0013395983625541822
+    },
+    {
+      "name": "Hope and Perseverance",
+      "definition": "Tokens centered on themes of hope, belief, resilience, and the will to survive or win against overwhelming odds.",
+      "members": [
+        "c120"
+      ],
+      "examples": [
+        "Hope and perseverance"
+      ],
+      "topics": [
+        187
+      ],
+      "docs": 2359,
+      "share": 0.00129778748963668
+    },
+    {
+      "name": "Self-Optimization and Maxxing",
+      "definition": "Tokens centered on the concept of maximizing one's social status, sexual appeal, or personal potential through self-improvement and optimization culture.",
+      "members": [
+        "c124"
+      ],
+      "examples": [
+        "Maxxing"
+      ],
+      "topics": [
+        15
+      ],
+      "docs": 2172,
+      "share": 0.0011949107365370364
+    },
+    {
+      "name": "Abstract Geometric Shapes",
+      "definition": "Tokens characterized by simple geometric forms, dots, or abstract shapes that lack specific thematic narratives or cultural references.",
+      "members": [
+        "c125"
+      ],
+      "examples": [
+        "simple coin"
+      ],
+      "topics": [
+        265
+      ],
+      "docs": 2140,
+      "share": 0.0011773061584665092
+    },
+    {
+      "name": "Generational Internet Memes",
+      "definition": "Tokens centered on specific viral internet meme characters and figures that have become cultural touchstones, such as the Uncle Boomer character.",
+      "members": [
+        "c126"
+      ],
+      "examples": [
+        "Uncle Boomer Memes"
+      ],
+      "topics": [
+        284
+      ],
+      "docs": 2079,
+      "share": 0.0011437474315195667
+    },
+    {
+      "name": "Onboarding and AI",
+      "definition": "Tokens centered on the concept of onboarding, featuring imagery of Jeff Bezos, Domo, and artificial intelligence.",
+      "members": [
+        "c127"
+      ],
+      "examples": [
+        "Onboarding and AI"
+      ],
+      "topics": [
+        60
+      ],
+      "docs": 2049,
+      "share": 0.0011272431395784473
+    },
+    {
+      "name": "Thermal Imagery and Heat Maps",
+      "definition": "Tokens centered on thermal imaging, heat maps, infrared visuals, and temperature-related aesthetic concepts.",
+      "members": [
+        "c129"
+      ],
+      "examples": [
+        "Thermal imagery and heat maps"
+      ],
+      "topics": [
+        29
+      ],
+      "docs": 1896,
+      "share": 0.001043071250678739
+    },
+    {
+      "name": "Startup and Business Culture",
+      "definition": "Tokens centered on entrepreneurship, startup ecosystems, business concepts, and corporate culture themes.",
+      "members": [
+        "c131"
+      ],
+      "examples": [
+        "Startup and Business"
+      ],
+      "topics": [
+        22
+      ],
+      "docs": 1851,
+      "share": 0.00101831481276706
+    },
+    {
+      "name": "Farming and Agriculture",
+      "definition": "Tokens centered on agricultural activities, farming imagery, harvest themes, and related rural cultural references.",
+      "members": [
+        "c132"
+      ],
+      "examples": [
+        "Farming and Agriculture"
+      ],
+      "topics": [
+        124
+      ],
+      "docs": 1836,
+      "share": 0.0010100626667965003
+    },
+    {
+      "name": "April Fools Prank Memes",
+      "definition": "Tokens created as seasonal pranks on April Fools' Day featuring absurd, fictional, or satirical concepts intended to deceive or entertain.",
+      "members": [
+        "c134"
+      ],
+      "examples": [
+        "April Fools Prank Memes"
+      ],
+      "topics": [
+        9
+      ],
+      "docs": 1808,
+      "share": 0.000994658660984789
+    },
+    {
+      "name": "Survival and Crisis",
+      "definition": "Tokens centered around themes of survival, system failure, and crisis preparedness.",
+      "members": [
+        "c135"
+      ],
+      "examples": [
+        "Survival and Crisis"
+      ],
+      "topics": [
+        59
+      ],
+      "docs": 1765,
+      "share": 0.0009710025092025181
+    },
+    {
+      "name": "Nothingness and Existential Themes",
+      "definition": "Tokens centered on the philosophical concept of nothingness, void, or the absence of existence, often playing on the duality of 'nothing' and 'something'.",
+      "members": [
+        "c136"
+      ],
+      "examples": [
+        "Nothing coin"
+      ],
+      "topics": [
+        231
+      ],
+      "docs": 1763,
+      "share": 0.0009699022230731101
+    },
+    {
+      "name": "Random Names and Gibberish",
+      "definition": "Tokens featuring nonsensical names, gibberish text, and unrelated imagery that lack a coherent thematic narrative or cultural reference.",
+      "members": [
+        "c137"
+      ],
+      "examples": [
+        "Random names and gibberish"
+      ],
+      "topics": [
+        4
+      ],
+      "docs": 1754,
+      "share": 0.0009649509354907744
+    },
+    {
+      "name": "Nihilism and Conspiracy",
+      "definition": "Tokens centered on nihilistic philosophies, existential voids, and specific conspiracy theories including antisemitic tropes and 9/11 narratives.",
+      "members": [
+        "c138"
+      ],
+      "examples": [
+        "Nihilism and Anti-Semetic Conspiracy"
+      ],
+      "topics": [
+        6
+      ],
+      "docs": 1748,
+      "share": 0.0009616500771025506
+    }
+  ]
+}

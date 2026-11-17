@@ -18,3 +18,10 @@ ruff>=0.1.0
 duckdb>=1.0.0
 matplotlib>=3.8.0
 pillow>=10.0.0
+scipy>=1.11.0
+networkx>=3.4
+squarify>=0.4
+opencv-python-headless>=4.10  # face detection to blur figures
+
+# Statistics
+statsmodels>=0.14  # logistic regression with cluster-robust errors (graduation_models)

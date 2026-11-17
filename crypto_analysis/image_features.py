@@ -70,7 +70,7 @@ def shard_features(path):
     for sha, raw in zip(table["sha256"].to_pylist(), table["bytes"].to_pylist()):
         try:
             rows.append({"sha256": sha, **image_features(raw)})
-        except Exception as e:  # corrupt blob: keep going, but record it
+        except (OSError, ValueError) as e:  # corrupt blob (Pillow): keep going, but record it
             errors.append({"sha256": sha, "error": repr(e)})
     df = pd.DataFrame(rows)
     df["phash"] = np.array(df["phash"].tolist(), dtype=np.uint64)
@@ -101,6 +101,53 @@ def hamming_neighbors(hashes, max_dist, block=256):
         pd_.append(d[a[keep] - start, b[keep]])
     pairs = pd.DataFrame({"i": np.concatenate(pi), "j": np.concatenate(pj), "d": np.concatenate(pd_)})
     return nn_dist, pairs
+
+
+def _pairs_within(idx, h, max_dist, block):
+    """Pairs (a, b, d), a < b in the original numbering, among the hashes ``h[idx]``."""
+    sub = h[idx]
+    out = []
+    for start in range(0, len(idx), block):
+        d = np.bitwise_count(sub[start:start + block, None] ^ sub[None, :])
+        a, b = np.nonzero(d <= max_dist)
+        a += start
+        keep = b > a
+        a, b = a[keep], b[keep]
+        out.append((idx[a], idx[b], d[a - start, b].astype(np.uint8)))
+    return out
+
+
+def multi_index_pairs(hashes, max_dist=4, block=2048):
+    """All pairs of 64-bit hashes within Hamming distance ``max_dist``, exactly, at scale.
+
+    Multi-index hashing: split the 64 bits into ``max_dist + 1`` chunks. Two hashes within
+    ``max_dist`` bits must agree on at least one whole chunk (pigeonhole), so only hashes sharing a
+    chunk value are compared. Pass *distinct* hash values (``np.unique``) so identical images do not
+    inflate the buckets. Returns a DataFrame ``(i, j, d)`` with ``i < j``, deduplicated.
+    """
+    h = np.asarray(hashes, dtype=np.uint64)
+    n = len(h)
+    n_chunks = max_dist + 1
+    widths = [64 // n_chunks + (k < 64 % n_chunks) for k in range(n_chunks)]
+    parts, shift = [], 64
+    for w in widths:
+        shift -= w
+        key = (h >> np.uint64(shift)) & np.uint64((1 << w) - 1)
+        order = np.argsort(key, kind="stable")
+        sorted_key = key[order]
+        cuts = np.flatnonzero(np.diff(sorted_key)) + 1
+        starts, ends = np.r_[0, cuts], np.r_[cuts, n]
+        for s, e in zip(starts, ends):
+            if e - s > 1:
+                parts += _pairs_within(order[s:e], h, max_dist, block)
+    if not parts:
+        return pd.DataFrame({"i": [], "j": [], "d": []})
+    i = np.concatenate([p[0] for p in parts]).astype(np.int64)
+    j = np.concatenate([p[1] for p in parts]).astype(np.int64)
+    d = np.concatenate([p[2] for p in parts])
+    lo, hi = np.minimum(i, j), np.maximum(i, j)
+    _, first = np.unique(lo * n + hi, return_index=True)  # the same pair can match on several chunks
+    return pd.DataFrame({"i": lo[first], "j": hi[first], "d": d[first]})
 
 
 def star_clusters(n, i, j):
