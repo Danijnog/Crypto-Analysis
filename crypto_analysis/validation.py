@@ -740,10 +740,98 @@ def test_agreement(out_dir, variants=("guided_few_k18", "guided_k18")):
     return table
 
 
+def pair_scores(reference, rater):
+    """Kappa, accuracy, precision, recall, F1 of SAME and macro F1 (mean of the F1 of SAME and of DIFFERENT) of
+    ``rater`` against ``reference``, each with a 95% bootstrap interval over the pairs. F1 and macro F1 are
+    symmetric in the two raters."""
+    from sklearn.metrics import cohen_kappa_score, f1_score
+
+    ref, pred = np.asarray(reference, dtype=bool), np.asarray(rater, dtype=bool)
+    measures = {
+        "kappa": lambda r, p: cohen_kappa_score(r, p) if len(set(r)) > 1 or len(set(p)) > 1 else np.nan,
+        "f1_same": lambda r, p: f1_score(r, p, zero_division=np.nan),
+        "macro_f1": lambda r, p: f1_score(r, p, average="macro", zero_division=np.nan),
+    }
+    row = {"n": len(ref), "reference_same": int(ref.sum()), "rater_same": int(pred.sum()),
+           "accuracy": float((ref == pred).mean()),
+           "precision": float((ref & pred).sum() / pred.sum()) if pred.sum() else np.nan,
+           "recall": float((ref & pred).sum() / ref.sum()) if ref.sum() else np.nan}
+    for name, f in measures.items():
+        row[name] = f(ref, pred)
+        row[f"{name}_low"], row[f"{name}_high"] = bootstrap_ci(lambda i, f=f: f(ref[i], pred[i]), len(ref))
+    return row
+
+
+def pair_ground_truth(out_dir):
+    """The LLM judge against the human ground truth of the macro-topic pairs, and the annotators against each
+    other (``agreement_pairs_all.parquet``). The LLM is the production run (``narrative_overlap.JUDGMENTS``: SAME
+    when both orders say yes).
+
+    Ground truth: the 150 development pairs (``pairs_gold``: agreed, plus the joint decision where the annotators
+    split) and the 50 held-out pairs where both annotators agree (the split ones were not adjudicated). The 150
+    shaped the guideline, the prompt and its few-shot examples, so scores on them are optimistic; the five
+    few-shot pairs are also shown left out. Annotator against annotator: on the 150 their labels predate the
+    guideline (it came out of adjudicating them); on the 50 both followed it."""
+    from crypto_analysis.narrative_overlap import FEW_SHOT, judged_pairs
+
+    out = validation_dir(out_dir)
+    llm = judged_pairs(out_dir).set_index(["a", "b"]).same
+    few_shot = {e[0] for e in FEW_SHOT}
+
+    def judge(frame):
+        return np.array([bool(llm.get((min(a, b), max(a, b)), False)) for a, b in zip(frame.a, frame.b)])
+
+    def annotators(deck):
+        frames = {}
+        for f in sorted(out.glob(f"{deck}_*.csv")):
+            labels = pd.read_csv(f)
+            frames[str(labels.annotator.iloc[0]).split()[0].capitalize()] = labels.set_index("pair_id").same.eq("yes")
+        return frames
+
+    dev = pd.read_parquet(out / "pairs_gold.parquet")
+    for name, labels in annotators("macro_pairs").items():
+        dev[name] = dev.pair_id.map(labels)
+    test = pd.read_parquet(out / "macro_test_sample.parquet")[["pair_id", "a", "b"]]
+    test_names = list(annotators("macro_test"))
+    for name, labels in annotators("macro_test").items():
+        test[name] = test.pair_id.map(labels)
+    test["agreed"] = test[test_names].nunique(axis=1) == 1
+    test["same"] = test[test_names[0]]
+    dev["llm"], test["llm"] = judge(dev), judge(test)
+    every = pd.concat([dev[["pair_id", "same", "llm"]], test[test.agreed][["pair_id", "same", "llm"]]])
+
+    rows = []
+
+    def add(ground_truth, rater, frame, reference="same", column="llm"):
+        rows.append({"ground_truth": ground_truth, "rater": rater, **pair_scores(frame[reference], frame[column])})
+
+    add("development (150)", "LLM", dev)
+    add("development without few-shot (145)", "LLM", dev[~dev.pair_id.isin(few_shot)])
+    add("held-out, agreed (44 of 50)", "LLM", test[test.agreed])
+    add("all (150 + agreed held-out)", "LLM", every)
+    add("all without few-shot", "LLM", every[~every.pair_id.isin(few_shot)])
+    dev_names = [c for c in dev.columns if c not in ("pair_id", "a", "b", "stratum", "inclusion", "source", "same",
+                                                     "subject", "llm")]
+    for frame, names, label in ((dev, dev_names, "development (150), labels before the guideline"),
+                                (test, test_names, "held-out (50)")):
+        for name in names:
+            add(f"{label}: {name} as reference", "LLM", frame, name)
+        for i, a in enumerate(names):
+            for b in names[i + 1:]:
+                add(label, f"{a} x {b}", frame, a, b)
+    table = pd.DataFrame(rows)
+    table.to_parquet(out / "agreement_pairs_all.parquet", index=False)
+    cols = ["ground_truth", "rater", "n", "reference_same", "rater_same", "kappa", "kappa_low", "kappa_high",
+            "f1_same", "f1_same_low", "f1_same_high", "macro_f1", "macro_f1_low", "macro_f1_high", "precision",
+            "recall"]
+    print(table[cols].round(3).to_string(index=False), flush=True)
+    return table
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("step", choices=["sample", "names-sample", "gold", "test-sample", "screen", "pages", "agreement",
-                                         "test-agreement"])
+                                         "test-agreement", "pair-ground-truth"])
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--quantized", action="store_true", help="screen: load the LLM in 4-bit")
     parser.add_argument("--deck", choices=DECKS + ["all"], default="all", help="pages: which deck to build")
@@ -754,7 +842,8 @@ def main():
         build_pages(args.out_dir, DECKS if args.deck == "all" else [args.deck])
     else:
         {"sample": build_samples, "names-sample": sample_names, "gold": gold_pairs, "test-sample": sample_test_pairs,
-         "agreement": agreement, "test-agreement": test_agreement}[args.step](args.out_dir)
+         "agreement": agreement, "test-agreement": test_agreement,
+         "pair-ground-truth": pair_ground_truth}[args.step](args.out_dir)
 
 
 if __name__ == "__main__":
