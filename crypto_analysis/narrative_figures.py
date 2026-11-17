@@ -47,7 +47,7 @@ STOP = {"coin", "coins", "token", "tokens", "sol", "solana", "pump", "fun", "pum
         "community", "ca", "https", "http", "www", "com", "the", "of", "and", "to", "is", "in", "on", "for", "it",
         "this", "that", "with", "you", "we", "are", "be", "will", "my", "your", "our", "an", "at", "by", "as",
         "from", "all", "just", "so", "not", "no", "me", "us", "its", "it's", "i'm", "first", "new", "official"}
-SLURS = re.compile(r"\b(nigg\w*|fag\w*|retard\w*|kike\w*|chink\w*|spic|spics|tranny\w*)\b", re.IGNORECASE)
+SLURS = re.compile(r"\b(n[i1!]+gg\w*|nigg\w*|ne+gr\w*|fag\w*|retard\w*|kike\w*|chink\w*|spic|spics|tranny\w*)\b", re.IGNORECASE)
 
 # CLIP zero-shot screen: an image whose probability mass falls on the first group is left out of the grids
 SCREEN_OUT = ["a photo of a naked person", "pornography", "explicit sexual content", "a nude cartoon",
@@ -57,7 +57,10 @@ SCREEN_OUT = ["a photo of a naked person", "pornography", "explicit sexual conte
 # ``--blur-faces`` grids, and a photo where no face is found is blurred whole
 FACE_NARRATIVES = {7, 11, 43}
 # images the screen misses (text slurs drawn in the image), left out of the grids by hand
-EXCLUDED_IMAGES = {"93c3f7378046cd507a1c9755c7da169875abf2e70b8c5b10b7da59b0bf9c0bde"}
+EXCLUDED_IMAGES = {"93c3f7378046cd507a1c9755c7da169875abf2e70b8c5b10b7da59b0bf9c0bde",
+                   # racist meme (dehumanising caption), in the copycat validation pairs
+                   "e56a710067db1674d3899df89b23fbbde7e69a83b284e352161c5b4fa33036d9",
+                   "70a1b9fdbb3c40c0a82c59c33861994191cb97a0023a7adfc0515a2d39ba595e"}
 SCREEN_IN = ["a cartoon character", "a photo of an animal", "a meme", "a logo", "a photo of a person",
              "text on a plain background", "a drawing", "a photo of food", "a crypto coin icon"]
 
@@ -202,8 +205,6 @@ def representative_images(out_dir, clip_dir, ranked, top, k=IMAGES, seed=SEED):
     narratives (weighted by coins), largest region first, with the share of the narrative's coins in each
     region, skipping images the screen leaves out. Each image stands for one region of the narrative
     (coverage), not for its centre."""
-    from sklearn.cluster import KMeans
-
     from crypto_analysis.clip_embeddings import load_embeddings
 
     rng = np.random.default_rng(seed)
@@ -215,25 +216,37 @@ def representative_images(out_dir, clip_dir, ranked, top, k=IMAGES, seed=SEED):
     coins["rank"] = coins.multimodal_topic_reduced.astype(int).map(narrative)
     picked = {}
     for rank in range(1, top + 1):
-        sha = coins.sha256[coins["rank"] == rank].to_numpy()
-        sha = sha[rng.choice(len(sha), min(len(sha), IMAGE_SAMPLE), replace=False)]
-        counts = pd.Series(sha).value_counts()
-        rows = index.get_indexer(counts.index)
-        counts, rows = counts[rows >= 0], rows[rows >= 0]
-        X = emb[rows].astype(np.float32)
-        X /= np.linalg.norm(X, axis=1, keepdims=True)
-        keep = ~_screen(X) & ~counts.index.isin(EXCLUDED_IMAGES)
-        counts, X = counts[keep], X[keep]
-        km = KMeans(n_clusters=k, n_init=4, random_state=seed).fit(X, sample_weight=counts.to_numpy())
-        weight = np.bincount(km.labels_, weights=counts.to_numpy(), minlength=k)
-        medoids = []
-        for c in np.argsort(-weight):
-            members = np.flatnonzero(km.labels_ == c)
-            centre = km.cluster_centers_[c] / np.linalg.norm(km.cluster_centers_[c])
-            medoids.append((counts.index[members[np.argmax(X[members] @ centre)]], weight[c] / weight.sum()))
-        picked[rank] = medoids
-        print(f"  narrative {rank}: {len(counts):,} distinct images, {int((~keep).sum())} screened out", flush=True)
+        picked[rank] = region_medoids(coins.sha256[coins["rank"] == rank].to_numpy(), emb, index, k, rng, seed,
+                                      f"narrative {rank}")
     return picked
+
+
+def region_medoids(sha, emb, index, k=IMAGES, rng=None, seed=SEED, label=""):
+    """[(sha256, share), ...]: ``k`` k-means medoids of the images of a group's coins (``sha``, one per coin;
+    at most ``IMAGE_SAMPLE`` drawn), weighted by coins, largest region first, with the share of the group's coins
+    in each region; images the CLIP screen reads as nudity, gore or hate symbols are left out. ``emb`` and
+    ``index`` are the CLIP image embeddings and their sha256 index."""
+    from sklearn.cluster import KMeans
+
+    rng = rng or np.random.default_rng(seed)
+    sha = sha[rng.choice(len(sha), min(len(sha), IMAGE_SAMPLE), replace=False)]
+    counts = pd.Series(sha).value_counts()
+    rows = index.get_indexer(counts.index)
+    counts, rows = counts[rows >= 0], rows[rows >= 0]
+    X = emb[rows].astype(np.float32)
+    X /= np.linalg.norm(X, axis=1, keepdims=True)
+    keep = ~_screen(X) & ~counts.index.isin(EXCLUDED_IMAGES)
+    counts, X = counts[keep], X[keep]
+    k = min(k, len(counts))
+    km = KMeans(n_clusters=k, n_init=4, random_state=seed).fit(X, sample_weight=counts.to_numpy())
+    weight = np.bincount(km.labels_, weights=counts.to_numpy(), minlength=k)
+    medoids = []
+    for c in np.argsort(-weight):
+        members = np.flatnonzero(km.labels_ == c)
+        centre = km.cluster_centers_[c] / np.linalg.norm(km.cluster_centers_[c])
+        medoids.append((counts.index[members[np.argmax(X[members] @ centre)]], weight[c] / weight.sum()))
+    print(f"  {label}: {len(counts):,} distinct images, {int((~keep).sum())} screened out", flush=True)
+    return medoids
 
 
 def image_names(shas):
@@ -273,52 +286,61 @@ def blur_faces(img):
     return out
 
 
-def image_grid(picked, names, ranked, first, last, path, tile=150, cols=4, blur=()):
-    """One panel per narrative (title + 3 x 2 images), ``cols`` panels per row; under each image the
-    most frequent name of its coins. Faces are blurred (``blur_faces``) in the narratives whose rank is in
-    ``blur``."""
+def panel_grid(panels, path, tile=150, cols=4):
+    """Image panels, ``cols`` per row: each panel is a dict with ``title``, ``subtitle`` and ``images``, a list of
+    up to six (sha256, caption, blur) shown 3 x 2 with the caption under each image; an image with ``blur`` true
+    has its faces blurred (``blur_faces``)."""
     from PIL import Image, ImageDraw, ImageFont
 
     from crypto_analysis.datalake import DATA_DIR, connect
     from crypto_analysis.gallery import load_images
     from crypto_analysis.topic_annotation import _rgb
 
-    shas = [s for r in range(first, last + 1) for s, _ in picked[r]]
+    shas = [s for p in panels for s, _, _ in p["images"]]
     images = load_images(connect(DATA_DIR, threads=8), shas, DATA_DIR / "images")
     pad, head, gap, caption = 14, 46, 6, 22
     cell_h = tile + caption
     panel_w, panel_h = 3 * tile + 2 * gap, head + 2 * cell_h + gap
-    n = last - first + 1
-    rows = -(-n // cols)
+    rows = -(-len(panels) // cols)
     canvas = Image.new("RGB", (cols * panel_w + (cols + 1) * pad, rows * panel_h + (rows + 1) * pad), "white")
     draw = ImageDraw.Draw(canvas)
     bold, small = ImageFont.load_default(size=15), ImageFont.load_default(size=13)
     label = ImageFont.load_default(size=12)
-    table = ranked.set_index("rank")
 
     def fit(text, font, width):
         while text and draw.textlength(text, font=font) > width:
             text = text[:-2] + "…"
         return text
 
-    for i, rank in enumerate(range(first, last + 1)):
+    for i, panel in enumerate(panels):
         x0, y0 = pad + (i % cols) * (panel_w + pad), pad + (i // cols) * (panel_h + pad)
-        draw.text((x0, y0), fit(f"{rank}. {table.name[rank]}", bold, panel_w), fill="#1d1d1b", font=bold)
-        draw.text((x0, y0 + 20), f"{table.share_pct[rank]:.1f}% of coins · {table.topics[rank]} topic(s)",
-                  fill="#6b6b66", font=small)
-        for j, (sha, _) in enumerate(picked[rank]):
+        draw.text((x0, y0), fit(panel["title"], bold, panel_w), fill="#1d1d1b", font=bold)
+        draw.text((x0, y0 + 20), fit(panel["subtitle"], small, panel_w), fill="#6b6b66", font=small)
+        for j, (sha, text, blur) in enumerate(panel["images"]):
             tx, ty = x0 + (j % 3) * (tile + gap), y0 + head + (j // 3) * (cell_h + gap)
             img = images.get(sha)
             if img is None:
                 draw.rectangle([tx, ty, tx + tile, ty + tile], outline="#dcdcd6")
             else:
                 img = _rgb(img)
-                img = blur_faces(img) if rank in blur else img
+                img = blur_faces(img) if blur else img
                 img.thumbnail((tile, tile))
                 canvas.paste(img, (tx + (tile - img.width) // 2, ty + (tile - img.height) // 2))
-            draw.text((tx, ty + tile + 4), fit(names.get(sha, "(no name)"), label, tile), fill="#1d1d1b", font=label)
+            draw.text((tx, ty + tile + 4), fit(text, label, tile), fill="#1d1d1b", font=label)
     canvas.save(path, optimize=True)
     print(f"{path} ({canvas.width}x{canvas.height})")
+
+
+def image_grid(picked, names, ranked, first, last, path, tile=150, cols=4, blur=()):
+    """One panel per narrative (title + 3 x 2 images), ``cols`` panels per row; under each image the
+    most frequent name of its coins. Faces are blurred (``blur_faces``) in the narratives whose rank is in
+    ``blur``."""
+    table = ranked.set_index("rank")
+    panels = [{"title": f"{rank}. {table.name[rank]}",
+               "subtitle": f"{table.share_pct[rank]:.1f}% of coins · {table.topics[rank]} topic(s)",
+               "images": [(sha, names.get(sha, "(no name)"), rank in blur) for sha, _ in picked[rank]]}
+              for rank in range(first, last + 1)]
+    panel_grid(panels, path, tile=tile, cols=cols)
 
 
 def pilot_table(out_dir):
